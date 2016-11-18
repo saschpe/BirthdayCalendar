@@ -1,4 +1,6 @@
 # Birthday Calendar
+[![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+
 Get a birthday calendar for all your social networks right inside Google
 Calendar. Supports *Facebook*, *LinkedIn*, *Xing*, *Skype*, *DavDroid* and all
 other apps which sync contacts with your Android device. Enable reminder
