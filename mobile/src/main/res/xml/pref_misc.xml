@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <CheckBoxPreference
+        android:key="@string/pref_hide_app_icon_key"
+        android:title="@string/hide_app_icon"
+        android:summary="@string/hide_app_icon_from_launcher"
+        android:defaultValue="@bool/pref_hide_app_icon_default" />
+
+</PreferenceScreen>

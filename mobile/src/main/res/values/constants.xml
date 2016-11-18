@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Using Constant.ACCOUNT_TYPE everywhere would be much faster, but we need
+        this value in xml/sync_adapter.xml and account_authenticator.xml -->
+    <string name="calendar_name" translatable="false">birthdays</string>
+    <string name="account_type" translatable="false">saschpe.birthdays</string>
+    <string name="content_authority" translatable="false">com.android.calendar</string>
+</resources>

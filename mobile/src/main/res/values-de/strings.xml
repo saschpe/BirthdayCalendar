@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="event_anniversary_description_plural_template">%1$s feiert %2$s Jahre</string>
+    <string name="event_anniversary_title_template">%1$s\'s Jahrestag</string>
+    <string name="event_birthday_title_template">%1$s\'s Geburtstag</string>
+    <string name="action">Aktionen</string>
+    <string name="launch_app">Starte App</string>
+    <string name="pref_anniversaries_sync_description">Zeige Jahrestageserinnerungen</string>
+    <string name="anniversaries">Jahrestage</string>
+    <string name="birthdays">Geburtstage</string>
+    <string name="pref_calendar_color_title">Kalenderfarbe</string>
+    <string name="calendar">Kalender</string>
+    <string name="pref_header_data_sync">Daten &amp; Synchronisation</string>
+    <string name="miscellaneous">Verschiedenes</string>
+    <string name="notifications">Erinnerungen</string>
+    <string name="hide_app_icon_from_launcher">Verstecke App-Icon im Launcher</string>
+    <string name="hide_app_icon">Verstecke App-Icon</string>
+    <string name="pref_other_events_sync_description">Zeige andere Ereignisserinnerungen</string>
+    <string name="pref_other_events_sync_title">Andere Ereignisse</string>
+    <string name="pref_reminder_time_2_title">Erinnere mich ebenfalls</string>
+    <string name="about">Über</string>
+    <string name="help">Hilfe</string>
+    <string name="settings">Einstellungen</string>
+    <string name="pref_periodic_sync_frequency_title">Synchronisierungshäufigkeit</string>
+    <string name="terms_of_service">Nutzungsbedingungen</string>
+    <string name="feedback">Feedback</string>
+    <string name="event_other_title_template">%1$s\'s anderes Ereignis</string>
+    <string name="event_custom_title_template">%2$s von %1$s</string>
+    <string name="pref_birthdays_sync_description">Zeige Geburtstagserinnerungen</string>
+    <string name="account_list_description">Erinnere mich an Geburtstage, Jahrestage und andere Ereignisse meiner Kontakte aus diesen Konten:</string>
+    <string name="hide_app_icon_enable">Du kannst das App-Icon über "Konten" in den Systemeinstellungen wieder sichtbar machen.</string>
+    <string name="event_anniversary_description_singular_template">%1$s feiert %2$s Jahr</string>
+    <string name="event_birthday_description_plural_template">%1$s wurde am %2$s geboren und ist nun %3$s Jahre alt</string>
+    <string name="event_birthday_description_singular_template">%1$s wurde am %2$s geboren und ist nun %3$s Jahr alt</string>
+    <string-array name="pref_reminder_time_titles">
+        <item>nicht weiter</item>
+        <item>am selben Tag</item>
+        <item>einen Tag vorher</item>
+        <item>zwei Tage vorher</item>
+        <item>eine Woche vorher</item>
+    </string-array>
+    <string-array name="pref_periodic_sync_frequency_titles">
+        <item>3 Stunden</item>
+        <item>6 Stunden</item>
+        <item>1 Tag</item>
+    </string-array>
+    <string name="please_wait">Bitte warten…</string>
+    <string name="loading">Laden</string>
+    <string name="birthdays_and_anniversaries">Geburts- und Jahrestage</string>
+    <string name="pref_reminder_time_1_title">Erinnere mich</string>
+    <string name="account_icon_description">Kontobild</string>
+    <string name="app_name">Geburtstagskalender</string>
+    <string name="birthday_calendar_ready">Dein Geburtstagskalender ist fertig!</string>
+    <string name="info">Info</string>
+    <string name="open">Öffnen</string>
+    <string name="dismiss">Alles klar</string>
+    <string name="birthday_calendar_create">Aktualisiere deinen Geburtstagskalender...</string>
+</resources>

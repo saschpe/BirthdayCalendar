@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/action" />
+
+    <PreferenceScreen
+        android:title="@string/launch_app">
+
+        <intent android:action="saschpe.birthdays.action.MAIN" />
+
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:title="@string/settings">
+
+        <intent android:action="saschpe.birthdays.action.SETTINGS" />
+
+    </PreferenceScreen>
+
+</PreferenceScreen>

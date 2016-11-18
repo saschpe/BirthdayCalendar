@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="saschpe.birthdays">
+
+    <application>
+
+        <provider
+            android:name=".provider.AccountProvider"
+            android:authorities="saschpe.birthdays.open.debug"
+            android:exported="false"
+            tools:replace="android:authorities" />
+
+    </application>
+
+</manifest>

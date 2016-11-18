@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Birthday Calendar</string>
+
+    <string name="about">About</string>
+    <string name="action">Actions</string>
+    <string name="account_icon_description">Account icon</string>
+    <string name="account_list_description">Remind me about my contacts birthdays, anniversaries and other events from these accounts:</string>
+    <string name="anniversaries">Anniversaries</string>
+    <string name="birthdays">Birthdays</string>
+    <string name="birthdays_and_anniversaries">Birthdays and anniversaries</string>
+    <string name="birthday_calendar_create">Updating your birthday calendar…</string>
+    <string name="birthday_calendar_ready">Your birthday calendar is ready!</string>
+    <string name="calendar">Calendar</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="event_birthday_title_template">%1$s\'s birthday</string>
+    <string name="event_birthday_description_singular_template">%1$s was born %2$s and is now %3$s year old</string>
+    <string name="event_birthday_description_plural_template">%1$s was born %2$s and is now %3$s years old</string>
+    <string name="event_anniversary_title_template">%1$s\'s anniversary</string>
+    <string name="event_anniversary_description_singular_template">%1$s celebrates %2$s year</string>
+    <string name="event_anniversary_description_plural_template">%1$s celebrates %2$s years</string>
+    <string name="event_other_title_template">%1$s\'s other event</string>
+    <string name="event_custom_title_template">%2$s of %1$s</string>
+    <string name="feedback">Feedback</string>
+    <string name="help">Help</string>
+    <string name="hide_app_icon">Hide app icon</string>
+    <string name="hide_app_icon_from_launcher">Hide app icon from launcher</string>
+    <string name="hide_app_icon_enable">You can always re-enable the app icon via the "Accounts" system settings.</string>
+    <string name="info">Info</string>
+    <string name="launch_app">Launch app</string>
+    <string name="loading">Loading</string>
+    <string name="miscellaneous">Miscellaneous</string>
+    <string name="notifications">Notifications</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="settings">Settings</string>
+    <string name="open">Open</string>
+    <string name="terms_of_service">Terms of service</string>
+
+    <string name="pref_first_run_key" translatable="false">first_run</string>
+    <bool name="pref_first_run_default">true</bool>
+
+    <string name="pref_birthdays_sync_key" translatable="false">sync_birthdays</string>
+    <string name="pref_birthdays_sync_description">Display birthday reminder events</string>
+    <bool name="pref_birthdays_sync_default">true</bool>
+
+    <string name="pref_anniversaries_sync_key" translatable="false">sync_anniversaries</string>
+    <string name="pref_anniversaries_sync_description">Display anniversary reminder events</string>
+    <bool name="pref_anniversaries_sync_default">true</bool>
+
+    <string name="pref_other_events_sync_key" translatable="false">sync_other_events</string>
+    <string name="pref_other_events_sync_title">Other events</string>
+    <string name="pref_other_events_sync_description">Display other reminder events</string>
+    <bool name="pref_other_events_sync_default">false</bool>
+
+    <string name="pref_calendar_color_key" translatable="false">calendar_color</string>
+    <string name="pref_calendar_color_title">Calendar color</string>
+    <color name="pref_calendar_color_default">@color/primary</color>
+
+    <!-- Settings for Notifications -->
+    <string name="pref_reminder_time_1_key" translatable="false">reminder_key_1</string>
+    <string name="pref_reminder_time_1_title">Remind me</string>
+    <string name="pref_reminder_time_2_key" translatable="false">reminder_key_2</string>
+    <string name="pref_reminder_time_2_title">Remind me also</string>
+    <string-array name="pref_reminder_time_titles">
+        <item>not at all</item>
+        <item>on the same day</item>
+        <item>one day in advance</item>
+        <item>two days in advance</item>
+        <item>one week in advance</item>
+    </string-array>
+    <string-array name="pref_reminder_time_values" translatable="false">
+        <item>-2</item>
+        <item>0</item>
+        <item>1440</item> <!-- 1 * 24 * 60 -->
+        <item>2880</item> <!-- 2 * 24 * 60 -->
+        <item>10080</item> <!-- 7 * 24 * 60 -->
+    </string-array>
+    <string name="pref_reminder_time_1_default" translatable="false">0</string>
+    <string name="pref_reminder_time_2_default" translatable="false">-2</string>
+    <!-- See http://developer.android.com/reference/android/provider/CalendarContract.RemindersColumns.html#MINUTES -->
+
+    <!-- Settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+    <string name="pref_periodic_sync_frequency_key" translatable="false">sync_frequency</string>
+    <string name="pref_periodic_sync_frequency_title">Periodic sync frequency</string>
+    <string-array name="pref_periodic_sync_frequency_titles">
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>1 Day</item>
+    </string-array>
+    <string-array name="pref_periodic_sync_frequency_values" translatable="false">
+        <item>10800000</item> <!-- 3 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_HOUR * 3, Sigh... -->
+        <item>21600000</item> <!-- 6 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_HOUR * 6, Sigh... -->
+        <item>86400000</item> <!-- 24 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_DAY, Sigh... -->
+    </string-array>
+    <integer name="pref_periodic_sync_frequency_default">86400000</integer>
+
+    <!-- Miscellaneous settings -->
+    <string name="pref_hide_app_icon_key" translatable="false">hide_app_icon</string>
+    <bool name="pref_hide_app_icon_default">false</bool>
+</resources>

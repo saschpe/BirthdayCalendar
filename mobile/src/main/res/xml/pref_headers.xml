@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- These settings headers are only used on tablets. -->
+
+    <header
+        android:fragment="saschpe.birthdays.activity.SettingsActivity$CalendarPreferenceFragment"
+        android:title="@string/calendar" />
+
+    <header
+        android:fragment="saschpe.birthdays.activity.SettingsActivity$NotificationPreferenceFragment"
+        android:title="@string/notifications" />
+
+    <header
+        android:fragment="saschpe.birthdays.activity.SettingsActivity$DataSyncPreferenceFragment"
+        android:title="@string/pref_header_data_sync" />
+
+    <header
+        android:fragment="saschpe.birthdays.activity.SettingsActivity$MiscPreferenceFragment"
+        android:title="@string/miscellaneous" />
+
+</preference-headers>

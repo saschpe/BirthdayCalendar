@@ -1,0 +1,50 @@
+# Java
+*.class
+
+# Android
+*.apk
+*.dex
+
+# Netbeans
+nbproject
+
+# Gradle
+.gradle/
+dist/
+build/
+local.properties
+
+# IntelliJ / Android Studio
+*.iml
+.idea/.name
+# User-specific stuff:
+.idea/dictionaries
+.idea/find.xml
+.idea/misc.xml
+.idea/workspace.xml
+.idea/tasks.xml
+# Sensitive or high-churn files:
+## .idea/dataSources.ids
+## .idea/dataSources.xml
+## .idea/sqlDataSources.xml
+## .idea/dynamic.xml
+## .idea/uiDesigner.xml
+# Gradle:
+.idea/gradle.xml
+.idea/libraries
+.idea/modules.xml
+# Mongo Explorer plugin:
+.idea/mongoSettings.xml
+# JIRA plugin
+atlassian-ide-plugin.xml
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+# Eclipse
+.classpath
+.project
+
+# Mac OS X
+.DS_Store
