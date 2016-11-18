@@ -43,16 +43,6 @@ android {
         }
     }
 
-    productFlavors {
-        free {
-            // Ad-supported flavor for Play Store and Amazon Store
-        }
-        open {
-            // Ad-free flavor for F-Droid store
-            applicationIdSuffix ".open"
-        }
-    }
-
     lintOptions {
         abortOnError false
     }
@@ -65,10 +55,9 @@ dependencies {
     compile 'com.android.support:design:25.0.1'
     compile 'com.android.support:recyclerview-v7:25.0.1'
     compile 'com.android.support:support-vector-drawable:25.0.1'
+    compile 'com.google.firebase:firebase-ads:9.8.0'
     compile 'com.github.yukuku:ambilwarna:2.0.1'
     compile 'saschpe:versioninfo:1.2.3'
-    // Product flavor 'free' specific
-    freeCompile 'com.google.firebase:firebase-ads:9.8.0'
 
     // Test dependencies
     testCompile 'junit:junit:4.12'
