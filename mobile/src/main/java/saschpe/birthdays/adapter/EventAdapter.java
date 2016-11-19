@@ -17,12 +17,10 @@
 package saschpe.birthdays.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +32,6 @@ import java.util.Calendar;
 import java.util.Date;
 
 import saschpe.birthdays.R;
-import saschpe.birthdays.activity.MainActivity;
 import saschpe.birthdays.adapter.base.CursorRecyclerAdapter;
 import saschpe.birthdays.service.CalendarSyncService;
 
@@ -100,6 +97,7 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Event
         holder.name.setText(cursor.getString(PROJECTION_TITLE_INDEX));
         holder.date.setText(df.format(new Date(cursor.getInt(PROJECTION_DT_START_INDEX))));
         holder.description.setText(cursor.getString(PROJECTION_DESCRIPTION_INDEX));
+        /*TODO: Fix eventId issue first:
         holder.container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +107,7 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Event
                 LocalBroadcastManager.getInstance(v.getContext())
                         .sendBroadcast(intent);
             }
-        });
+        });*/
     }
 
     static class EventViewHolder extends RecyclerView.ViewHolder {

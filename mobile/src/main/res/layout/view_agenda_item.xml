@@ -26,9 +26,11 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content">
+        <!-- TODO: Fix eventId issue first:
         android:background="?android:selectableItemBackground"
-        android:clickable="false"> <!-- TODO: Fix eventId issue first -->
+        android:clickable="true"
+        -->
 
         <TextView
             android:id="@+id/date"
