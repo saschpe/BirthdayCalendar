@@ -16,7 +16,7 @@
   -->
 
 <resources>
-    <string name="event_anniversary_description_plural_template">%1$s feiert %2$s Jahre</string>
+    <string name="event_anniversary_description_plural_template">%1$s feiert %2$d Jahre</string>
     <string name="event_anniversary_title_template">%1$s\'s Jahrestag</string>
     <string name="event_birthday_title_template">%1$s\'s Geburtstag</string>
     <string name="action">Aktionen</string>
@@ -45,9 +45,9 @@
     <string name="pref_birthdays_sync_description">Zeige Geburtstagserinnerungen</string>
     <string name="account_list_description">Erinnere mich an Geburtstage, Jahrestage und andere Ereignisse meiner Kontakte aus diesen Konten:</string>
     <string name="hide_app_icon_enable">Du kannst das App-Icon über "Konten" in den Systemeinstellungen wieder sichtbar machen.</string>
-    <string name="event_anniversary_description_singular_template">%1$s feiert %2$s Jahr</string>
-    <string name="event_birthday_description_plural_template">%1$s wurde am %2$s geboren und ist nun %3$s Jahre alt</string>
-    <string name="event_birthday_description_singular_template">%1$s wurde am %2$s geboren und ist nun %3$s Jahr alt</string>
+    <string name="event_anniversary_description_singular_template">%1$s feiert %2$d Jahr</string>
+    <string name="event_birthday_description_plural_template">%1$s wurde %2$d geboren und ist nun %3$d Jahre alt</string>
+    <string name="event_birthday_description_singular_template">%1$s wurde %2$d geboren und ist nun %3$d Jahr alt</string>
     <string-array name="pref_reminder_time_titles">
         <item>nicht weiter</item>
         <item>am selben Tag</item>

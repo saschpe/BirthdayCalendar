@@ -30,11 +30,11 @@
     <string name="calendar">Calendar</string>
     <string name="dismiss">Dismiss</string>
     <string name="event_birthday_title_template">%1$s\'s birthday</string>
-    <string name="event_birthday_description_singular_template">%1$s was born %2$s and is now %3$s year old</string>
-    <string name="event_birthday_description_plural_template">%1$s was born %2$s and is now %3$s years old</string>
+    <string name="event_birthday_description_singular_template">%1$s was born %2$d and is now %3$d year old</string>
+    <string name="event_birthday_description_plural_template">%1$s was born %2$d and is now %3$d years old</string>
     <string name="event_anniversary_title_template">%1$s\'s anniversary</string>
-    <string name="event_anniversary_description_singular_template">%1$s celebrates %2$s year</string>
-    <string name="event_anniversary_description_plural_template">%1$s celebrates %2$s years</string>
+    <string name="event_anniversary_description_singular_template">%1$s celebrates %2$d year</string>
+    <string name="event_anniversary_description_plural_template">%1$s celebrates %2$d years</string>
     <string name="event_other_title_template">%1$s\'s other event</string>
     <string name="event_custom_title_template">%2$s of %1$s</string>
     <string name="feedback">Feedback</string>
