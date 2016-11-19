@@ -305,10 +305,8 @@ public class CalendarSyncService extends Service {
 
         List<String> addedEventsIdentifiers = new ArrayList<>();
 
-        /**
-         * 1. Get all raw contacts with their corresponding Account name and type (only raw
-         *    contacts get Account affiliation)
-         */
+        /* 1. Get all raw contacts with their corresponding Account name and type (only raw
+         *    contacts get Account affiliation) */
         Uri rawContactsUri = ContactsContract.RawContacts.CONTENT_URI;
         String[] rawContactsProjection = new String[] {
                 ContactsContract.RawContacts._ID,
@@ -319,18 +317,16 @@ public class CalendarSyncService extends Service {
         };
         Cursor rawContacts = contentResolver.query(rawContactsUri, rawContactsProjection, null, null, null);
 
-        /**
-         * 2. Go over all raw contacts and check if the Account is allowed. If account is allowed,
+        /* 2. Go over all raw contacts and check if the Account is allowed. If account is allowed,
          *    get display name and lookup key and all events for this contact. Build a new
-         *    MatrixCursor out of this data that can be used.
-         */
+         *    MatrixCursor out of this data that can be used. */
         String[] columns = new String[] {
                 BaseColumns._ID,
                 ContactsContract.Data.DISPLAY_NAME,
                 ContactsContract.Data.LOOKUP_KEY,
                 ContactsContract.CommonDataKinds.Event.START_DATE,
                 ContactsContract.CommonDataKinds.Event.TYPE,
-                ContactsContract.CommonDataKinds.Event.LABEL
+                ContactsContract.CommonDataKinds.Event.LABEL,
         };
         MatrixCursor mc = new MatrixCursor(columns);
         int mcIndex = 0;
@@ -340,9 +336,7 @@ public class CalendarSyncService extends Service {
                 String accountType = rawContacts.getString(rawContacts.getColumnIndex(ContactsContract.RawContacts.ACCOUNT_TYPE));
                 String accountName = rawContacts.getString(rawContacts.getColumnIndex(ContactsContract.RawContacts.ACCOUNT_NAME));
 
-                /**
-                 * 2a. Check if Account is allowed (not in blacklist)
-                 */
+                // 2a. Check if Account is allowed (not in blacklist)
                 boolean addEvent;
                 if (TextUtils.isEmpty(accountType) || TextUtils.isEmpty(accountName)) {
                     // Workaround: Simply add events without proper Account
@@ -356,9 +350,7 @@ public class CalendarSyncService extends Service {
                     String displayName = null;
                     String lookupKey = null;
 
-                    /**
-                     * 2b. Get display name and lookup key from normal contact table
-                     */
+                    // 2b. Get display name and lookup key from normal contact table
                     String[] displayProjection = new String[] {
                             ContactsContract.Data.RAW_CONTACT_ID,
                             ContactsContract.Data.DISPLAY_NAME,
@@ -380,12 +372,10 @@ public class CalendarSyncService extends Service {
                         }
                     }
 
-                    /**
-                     * 2c. Get all events for this raw contact. We don't get this information for
+                    /* 2c. Get all events for this raw contact. We don't get this information for
                      *     the (merged) contact table, but from the raw contact. If we would query
                      *     this information from the contact table, we would also get events that
-                     *     should have been filtered.
-                     */
+                     *     should have been filtered. */
                     Uri thisRawContactUri = ContentUris.withAppendedId(ContactsContract.RawContacts.CONTENT_URI, rawId);
                     Uri entityUri = Uri.withAppendedPath(thisRawContactUri, ContactsContract.RawContacts.Entity.CONTENT_DIRECTORY);
                     String[] eventsProjection = new String[] {
@@ -406,15 +396,13 @@ public class CalendarSyncService extends Service {
                             int type = eventsCursor.getInt(eventsCursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.TYPE));
                             String label = eventsCursor.getString(eventsCursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.LABEL));
 
-                            /**
-                             * 2d. Add this information to our MatrixCursor if not already added
+                            /* 2d. Add this information to our MatrixCursor if not already added
                              *     previously. If two Event Reminder accounts have the same contact
                              *     with duplicated events, the event will already be in the HashSet
                              *     addedEventsIdentifiers.
                              *
                              *     eventIdentifier does not include startDate, because the
-                             *     String formats of startDate differ between accounts.
-                             */
+                             *     String formats of startDate differ between accounts. */
                             //String eventIdentifier = lookupKey + type + label;
                             String eventIdentifier = lookupKey + type;
                             if (addedEventsIdentifiers.contains(eventIdentifier)) {
@@ -514,7 +502,7 @@ public class CalendarSyncService extends Service {
      *
      * @return calendar id
      */
-    private static long getCalendar(Context context) {
+    public static long getCalendar(Context context) {
         final Uri calenderUri = getCalendarUri(context, CalendarContract.Calendars.CONTENT_URI);
 
         final String selection = CalendarContract.Calendars.ACCOUNT_NAME + " = ? AND " +

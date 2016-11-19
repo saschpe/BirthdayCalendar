@@ -49,7 +49,7 @@ public final class BirthdaysAccountAuthenticator extends AbstractAccountAuthenti
      *                    is set in the bundle then this response field is to be used for sending future
      *                    results if and when the Intent is started.
      * @param accountType the AccountType whose properties are to be edited.
-     * @return a Bundle containing the result or the Intent to start to continue the request.
+     * @return a Bundle containing the result or the Intent to date to continue the request.
      * If this is null then the request is considered to still be active and the result should
      * sent later using response.
      */

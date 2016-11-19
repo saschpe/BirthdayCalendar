@@ -24,8 +24,8 @@
     <string name="pref_anniversaries_sync_description">Zeige Jahrestageserinnerungen</string>
     <string name="anniversaries">Jahrestage</string>
     <string name="birthdays">Geburtstage</string>
-    <string name="pref_calendar_color_title">Kalenderfarbe</string>
     <string name="calendar">Kalender</string>
+    <string name="pref_calendar_color_title">Kalenderfarbe</string>
     <string name="pref_header_data_sync">Daten &amp; Synchronisation</string>
     <string name="miscellaneous">Verschiedenes</string>
     <string name="notifications">Erinnerungen</string>
@@ -71,4 +71,5 @@
     <string name="open">Öffnen</string>
     <string name="dismiss">Alles klar</string>
     <string name="birthday_calendar_create">Aktualisiere deinen Geburtstagskalender...</string>
+    <string name="sources">Quellen</string>
 </resources>

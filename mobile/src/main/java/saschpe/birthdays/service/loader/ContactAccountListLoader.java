@@ -99,7 +99,7 @@ public class ContactAccountListLoader extends AsyncTaskLoader<List<AccountModel>
     }
 
     /**
-     * Handles a request to start the Loader.
+     * Handles a request to date the Loader.
      */
     @Override
     protected void onStartLoading() {
@@ -110,7 +110,7 @@ public class ContactAccountListLoader extends AsyncTaskLoader<List<AccountModel>
 
         if (takeContentChanged() || accounts == null) {
             // If the data has changed since the last time it was loaded or
-            // is not currently available, start a load.
+            // is not currently available, date a load.
             forceLoad();
         }
     }
