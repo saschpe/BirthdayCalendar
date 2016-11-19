@@ -22,7 +22,9 @@ components. It also showcases the usage of the contacts and calendar providers.
 ## Screenshots
 <img alt="Screenshot 1" src="assets/device-art/device-phone-portrait-1.png" width="256" />
 <img alt="Screenshot 2" src="assets/device-art/device-phone-portrait-2.png" width="256" />
-<img alt="Screenshot 3" src="assets/device-art/device-phone-landscape-1.png" width="512" />
+<img alt="Screenshot 3" src="assets/device-art/device-phone-portrait-3.png" width="256" />
+<img alt="Screenshot 4" src="assets/device-art/device-phone-landscape-1.png" width="384" />
+<img alt="Screenshot 5" src="assets/device-art/device-phone-landscape-2.png" width="384" />
 
 ## Download
 <a href='https://play.google.com/store/apps/details?id=saschpe.contactevents&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="80"/></a>
