@@ -16,128 +16,115 @@
 
 package saschpe.birthdays.activity;
 
-import android.Manifest;
-import android.accounts.Account;
+import android.content.BroadcastReceiver;
+import android.content.ContentUris;
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.CalendarContract;
-import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.Loader;
+import android.support.design.widget.TabLayout;
+import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ProgressBar;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
 
 import saschpe.birthdays.BuildConfig;
 import saschpe.birthdays.R;
-import saschpe.birthdays.adapter.AccountArrayAdapter;
-import saschpe.birthdays.helper.DisplayHelper;
+import saschpe.birthdays.adapter.ViewPagerAdapter;
+import saschpe.birthdays.fragment.BirthdaysFragment;
+import saschpe.birthdays.fragment.SourcesFragment;
 import saschpe.birthdays.helper.PreferencesHelper;
-import saschpe.birthdays.model.AccountModel;
-import saschpe.birthdays.provider.AccountProviderHelper;
 import saschpe.birthdays.service.BirthdaysIntentService;
-import saschpe.birthdays.service.loader.ContactAccountListLoader;
 import saschpe.versioninfo.widget.VersionInfoDialogFragment;
 
-import static saschpe.birthdays.service.BirthdaysIntentService.MESSAGE_WHAT_DONE;
 import static saschpe.birthdays.service.BirthdaysIntentService.MESSAGE_WHAT_STARTED;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
-    private static final String[] RUNTIME_PERMISSIONS = new String[] {
-            Manifest.permission.READ_CALENDAR,
-            Manifest.permission.WRITE_CALENDAR,
-            Manifest.permission.READ_CONTACTS,
-            Manifest.permission.GET_ACCOUNTS
-    };
-    private static final int PERMISSION_REQUEST_ALL = 1;
+    public static final String ACTION_OPEN_EVENT = "saschpe.birthdays.action.OPEN_EVENT";
+    public static final String ACTION_SYNC_REQUESTED = "saschpe.birthdays.action.SYNC_REQUESTED";
 
-    private AccountArrayAdapter adapter;
-    private AdView adView;
+    public static final String EXTRA_EVENT_ID = "saschpe.birthdays.extra.EVENT_ID";
+
     private CalendarSyncHandler calendarSyncHandler;
-    ProgressBar progressBar;
-    RecyclerView recyclerView;
+    private CoordinatorLayout coordinatorLayout;
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            switch (intent.getAction()) {
+                case ACTION_OPEN_EVENT:
+                    long eventId = intent.getLongExtra(EXTRA_EVENT_ID, -1);
+                    if (eventId >= 0) {
+                        openEvent(eventId);
+                    }
+                    break;
+                case ACTION_SYNC_REQUESTED:
+                    // Trigger Google Calendar Provider sync after account database update
+                    BirthdaysIntentService.startActionSync(MainActivity.this, calendarSyncHandler);
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Set up toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         calendarSyncHandler = new CalendarSyncHandler(this);
-        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
-        // Init recycler adapter
-        adapter = new AccountArrayAdapter(this, null);
-        adapter.setOnAccountSelectedListener(new AccountArrayAdapter.OnAccountSelectedListener() {
-            @Override
-            public void onAccountSelected(AccountModel accountModel) {
-                storeSelectedAccountsAndSync();
-            }
-        });
+        // Set up fragment pager adapter
+        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        pagerAdapter.addFragment(new BirthdaysFragment(), getString(R.string.birthdays));
+        pagerAdapter.addFragment(new SourcesFragment(), getString(R.string.sources));
 
-        // Init recycler view
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(DisplayHelper.getSuitableLayoutManager(this));
-        recyclerView.setAdapter(adapter);
-        recyclerView.setHasFixedSize(true);
+        // Set up nested scrollview
+        NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.nested_scroll);
+        scrollView.setFillViewport(true);
 
-        if (checkRuntimePermissions()) {
-            loadContactAccounts();
-        } else {
-            ActivityCompat.requestPermissions(this, RUNTIME_PERMISSIONS, PERMISSION_REQUEST_ALL);
+        // Set up view pager
+        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        viewPager.setAdapter(pagerAdapter);
+        if (PreferencesHelper.getFirstRun(this)) {
+            viewPager.setCurrentItem(1); // Only show setup on first run
         }
 
-        // Google Mobile Ads. Look up the AdView as a resource and load a request.
-        MobileAds.initialize(getApplicationContext(),
-                // Not a real secret. If you use that AdMob banner ID in your
-                // projects I will receive the money instead :-)
-                "ca-app-pub-9045162269320751~5472371821");
-
-        adView = (AdView) findViewById(R.id.ad_view);
-        adView.loadAd(new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                // Those numbers are hardly any secret. If you use them in your own
-                // projects I won't get annoying ads, so go ahead :-)
-                .addTestDevice("CB380BC5777E545490CF0D4A435348D7") // Sascha's OnePlus One
-                .addTestDevice("6017F914680B8E8A9B332558F8E53245") // Sascha's Galaxy S2
-                .addTestDevice("284D104E238AB19474B60214A41288B9") // Sascha's Pixel C
-                .build());
+        // Set up  tab layout
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setTabMode(TabLayout.MODE_FIXED);
+        tabLayout.setupWithViewPager(viewPager);
     }
 
     @Override
-    public void onResume() {
+    protected void onResume() {
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ACTION_SYNC_REQUESTED);
+        intentFilter.addAction(ACTION_OPEN_EVENT);
+
+        LocalBroadcastManager.getInstance(this)
+                .registerReceiver(broadcastReceiver, intentFilter);
         super.onResume();
-        adView.resume();
     }
 
     @Override
     protected void onPause() {
-        adView.pause();
+        LocalBroadcastManager.getInstance(this)
+                .unregisterReceiver(broadcastReceiver);
         super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        adView.destroy();
-        super.onDestroy();
     }
 
     @Override
@@ -168,79 +155,20 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_REQUEST_ALL:
-                if (checkRuntimePermissions()) {
-                    loadContactAccounts();
-                }
-                break;
-        }
-    }
-
-    private boolean checkRuntimePermissions() {
-        for (String permission : RUNTIME_PERMISSIONS) {
-            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
-                Log.e(TAG, "Missing runtime permission: " + permission);
-                return false;
-            }
-        }
-        return true;
-    }
-
-    private void loadContactAccounts() {
-        Log.d(TAG, "Restarting contact account list loader...");
-        getSupportLoaderManager().restartLoader(0, null, contactAccountLoaderCallbacks);
-    }
-
-    private LoaderManager.LoaderCallbacks<List<AccountModel>> contactAccountLoaderCallbacks = new LoaderManager.LoaderCallbacks<List<AccountModel>>() {
-        @Override
-        public Loader<List<AccountModel>> onCreateLoader(int i, Bundle bundle) {
-            return new ContactAccountListLoader(MainActivity.this);
-        }
-
-        @Override
-        public void onLoadFinished(Loader<List<AccountModel>> loader, List<AccountModel> objects) {
-            adapter.replaceAll(objects);
-            MainActivity.this.recyclerView.setVisibility(View.VISIBLE);
-            MainActivity.this.progressBar.setVisibility(View.GONE);
-
-            storeSelectedAccountsAndSync();
-        }
-
-        @Override
-        public void onLoaderReset(Loader<List<AccountModel>> loader) {
-            adapter.clear();
-            MainActivity.this.recyclerView.setVisibility(View.GONE);
-            MainActivity.this.progressBar.setVisibility(View.VISIBLE);
-        }
-    };
-
-    private void storeSelectedAccountsAndSync() {
-        Log.i(TAG, "Store selected accounts and sync...");
-        List<Account> contactAccountWhiteList = new ArrayList<>();
-        for (int i = 0; i < adapter.getItemCount(); i++) {
-            AccountModel item = adapter.getItem(i);
-            if (!item.isSelected()) {
-                contactAccountWhiteList.add(item.getAccount());
-            }
-        }
-
-        if (PreferencesHelper.getFirstRun(this) || !contactAccountWhiteList.equals(AccountProviderHelper.getAccountList(this))) {
-            PreferencesHelper.setFirstRun(this, false);
-            AccountProviderHelper.setAccountList(this, contactAccountWhiteList);
-            // Trigger Google Calendar Provider sync after account database update
-            BirthdaysIntentService.startActionSync(this, calendarSyncHandler);
-        }
-    }
-
     private void openCalendar() {
         Intent intent = new Intent(Intent.ACTION_VIEW)
                 .setData(CalendarContract.CONTENT_URI
                         .buildUpon()
                         .appendPath("time")
                         .build());
+        startActivity(intent);
+    }
+
+    private void openEvent(long eventId) {
+        Intent intent = new Intent(Intent.ACTION_VIEW)
+                .setData(ContentUris
+                        .withAppendedId(CalendarContract.Events.CONTENT_URI,
+                                eventId));
         startActivity(intent);
     }
 
@@ -253,28 +181,17 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void handleMessage(Message msg) {
-            MainActivity activity = ref.get();
-            if (activity == null || activity.isFinishing() /*|| activity.isDestroyed()*/) {
+            final MainActivity activity = ref.get();
+            if (activity == null) {
                 removeCallbacksAndMessages(null);
                 return;
             }
 
             switch (msg.what) {
                 case MESSAGE_WHAT_STARTED:
-                    Snackbar.make(activity.recyclerView, R.string.birthday_calendar_create, Snackbar.LENGTH_SHORT).show();
-                    break;
-                case MESSAGE_WHAT_DONE:
-                    Snackbar.make(activity.recyclerView, R.string.birthday_calendar_ready, Snackbar.LENGTH_LONG)
-                            .setAction(R.string.open, new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    MainActivity activity = ref.get();
-                                    if (activity == null || activity.isFinishing()) {
-                                        return;
-                                    }
-                                    activity.openCalendar();
-                                }
-                            }).show();
+                    Snackbar.make(activity.coordinatorLayout,
+                            R.string.birthday_calendar_create,
+                            Snackbar.LENGTH_SHORT).show();
                     break;
             }
         }
