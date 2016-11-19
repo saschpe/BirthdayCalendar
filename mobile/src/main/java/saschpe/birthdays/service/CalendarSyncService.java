@@ -538,6 +538,10 @@ public class CalendarSyncService extends Service {
             cursor.close();
             return calendarId;
         } else {
+            if (cursor != null) {
+                cursor.close();
+            }
+
             // So we've got to create a calendar first before we can return it's id.
             ContentProviderOperation.Builder builder = ContentProviderOperation.newInsert(calenderUri);
             builder.withValue(CalendarContract.Calendars.ACCOUNT_NAME, context.getString(R.string.app_name));
