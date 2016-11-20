@@ -35,6 +35,7 @@ import android.os.RemoteException;
 import android.provider.BaseColumns;
 import android.provider.CalendarContract;
 import android.provider.ContactsContract;
+import android.support.v4.content.LocalBroadcastManager;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.format.Time;
@@ -55,6 +56,8 @@ import saschpe.birthdays.helper.PreferencesHelper;
 import saschpe.birthdays.provider.AccountProviderHelper;
 
 public class CalendarSyncService extends Service {
+    public static final String ACTION_SYNC_DONE = "saschpe.birthdays.service.action.SYNC_DONE";
+
     private static final String TAG = CalendarSyncService.class.getSimpleName();
     private static final String[] DATE_FORMATS = {
             "yyyy-MM-dd",   // Most used
@@ -238,6 +241,9 @@ public class CalendarSyncService extends Service {
         if (operations.size() > 0) {
             applyBatchOperation(cr, operations);
         }
+
+        LocalBroadcastManager.getInstance(context)
+                .sendBroadcast(new Intent(ACTION_SYNC_DONE));
         Log.d(TAG, "Done performing sync...");
     }
 
@@ -429,7 +435,6 @@ public class CalendarSyncService extends Service {
                 rawContacts.close();
             }
         }
-
         /*if (BuildConfig.DEBUG) {
             DatabaseUtils.dumpCursor(mc);
         }*/

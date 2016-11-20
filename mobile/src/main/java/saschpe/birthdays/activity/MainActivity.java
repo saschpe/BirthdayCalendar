@@ -47,7 +47,6 @@ import saschpe.birthdays.helper.PreferencesHelper;
 import saschpe.birthdays.service.BirthdaysIntentService;
 import saschpe.versioninfo.widget.VersionInfoDialogFragment;
 
-import static saschpe.birthdays.service.BirthdaysIntentService.MESSAGE_WHAT_DONE;
 import static saschpe.birthdays.service.BirthdaysIntentService.MESSAGE_WHAT_STARTED;
 
 public class MainActivity extends AppCompatActivity {
@@ -193,15 +192,6 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.make(activity.coordinatorLayout,
                             R.string.birthday_calendar_create,
                             Snackbar.LENGTH_SHORT).show();
-                    break;
-                case MESSAGE_WHAT_DONE:
-                    BirthdaysFragment fragment = (BirthdaysFragment) activity
-                            .getSupportFragmentManager()
-                            // TODO: Find a better way!
-                            .getFragments().get(0);
-                    if (fragment != null) {
-                        fragment.reloadAdapter();
-                    }
                     break;
             }
         }

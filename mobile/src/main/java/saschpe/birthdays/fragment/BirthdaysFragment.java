@@ -17,6 +17,10 @@
 package saschpe.birthdays.fragment;
 
 import android.Manifest;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,6 +28,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -36,6 +41,7 @@ import android.widget.ProgressBar;
 import saschpe.birthdays.R;
 import saschpe.birthdays.adapter.EventAdapter;
 import saschpe.birthdays.helper.DisplayHelper;
+import saschpe.birthdays.service.CalendarSyncService;
 import saschpe.birthdays.widget.SpacesItemDecoration;
 
 public class BirthdaysFragment extends Fragment {
@@ -49,6 +55,19 @@ public class BirthdaysFragment extends Fragment {
     private ProgressBar progressBar;
     private RecyclerView recyclerView;
     private int spacePx;
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            switch (intent.getAction()) {
+                case CalendarSyncService.ACTION_SYNC_DONE:
+                    // TODO: This is rather bold. Ideally we would get notified about
+                    // individual items and notify() them individually
+                    // TODO: Needs restructuring of the cursor loader...
+                    refreshAdapter();
+                    break;
+            }
+        }
+    };
 
     /**
      * Called to do initial creation of a fragment.  This is called after
@@ -153,6 +172,21 @@ public class BirthdaysFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        LocalBroadcastManager.getInstance(getContext())
+                .registerReceiver(broadcastReceiver,
+                        new IntentFilter(CalendarSyncService.ACTION_SYNC_DONE));
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        LocalBroadcastManager.getInstance(getContext())
+                .unregisterReceiver(broadcastReceiver);
+        super.onPause();
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case PERMISSION_REQUEST_ALL:
@@ -171,14 +205,6 @@ public class BirthdaysFragment extends Fragment {
             }
         }
         return true;
-    }
-
-    public void reloadAdapter() {
-        // TODO: This is rather bold. Ideally we would get notified about
-        // individual items and notify() them individually
-        // TODO: Needs restructuring of the cursor loader...
-        adapter.notifyDataSetChanged(); // Trigger recycler reload
-        refreshAdapter();
     }
 
     private void refreshAdapter() {
