@@ -40,9 +40,9 @@ import android.widget.ProgressBar;
 
 import saschpe.birthdays.R;
 import saschpe.birthdays.adapter.EventAdapter;
-import saschpe.birthdays.helper.DisplayHelper;
 import saschpe.birthdays.service.CalendarSyncService;
-import saschpe.birthdays.widget.SpacesItemDecoration;
+import saschpe.utils.helper.DisplayHelper;
+import saschpe.utils.widget.SpacesItemDecoration;
 
 public class BirthdaysFragment extends Fragment {
     private static final String TAG = BirthdaysFragment.class.getSimpleName();

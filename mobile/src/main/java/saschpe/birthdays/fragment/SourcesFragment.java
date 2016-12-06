@@ -18,13 +18,11 @@ package saschpe.birthdays.fragment;
 
 import android.Manifest;
 import android.accounts.Account;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.ContextCompat;
@@ -46,11 +44,11 @@ import java.util.List;
 import saschpe.birthdays.R;
 import saschpe.birthdays.activity.MainActivity;
 import saschpe.birthdays.adapter.AccountArrayAdapter;
-import saschpe.birthdays.helper.DisplayHelper;
 import saschpe.birthdays.helper.PreferencesHelper;
 import saschpe.birthdays.model.AccountModel;
 import saschpe.birthdays.provider.AccountProviderHelper;
 import saschpe.birthdays.service.loader.ContactAccountListLoader;
+import saschpe.utils.helper.DisplayHelper;
 
 public class SourcesFragment extends Fragment implements
         LoaderManager.LoaderCallbacks<List<AccountModel>> {

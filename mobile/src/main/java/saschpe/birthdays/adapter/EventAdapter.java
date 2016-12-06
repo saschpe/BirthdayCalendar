@@ -32,8 +32,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import saschpe.birthdays.R;
-import saschpe.birthdays.adapter.base.CursorRecyclerAdapter;
 import saschpe.birthdays.service.CalendarSyncService;
+import saschpe.utils.adapter.base.CursorRecyclerAdapter;
 
 /**
  * Displays events from this app's calendar.
