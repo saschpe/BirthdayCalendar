@@ -58,7 +58,7 @@ dependencies {
     compile 'com.google.firebase:firebase-ads:9.8.0'
     compile 'com.github.yukuku:ambilwarna:2.0.1'
     compile 'saschpe:versioninfo:1.2.3'
-    compile 'saschpe:utils:1.0.1'
+    compile 'saschpe:utils:1.0.2'
 
     // Test dependencies
     testCompile 'junit:junit:4.12'

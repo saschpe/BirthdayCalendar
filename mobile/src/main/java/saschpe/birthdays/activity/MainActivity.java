@@ -38,14 +38,12 @@ import android.view.MenuItem;
 
 import java.lang.ref.WeakReference;
 
-import saschpe.birthdays.BuildConfig;
 import saschpe.birthdays.R;
 import saschpe.birthdays.adapter.ViewPagerAdapter;
 import saschpe.birthdays.fragment.BirthdaysFragment;
 import saschpe.birthdays.fragment.SourcesFragment;
 import saschpe.birthdays.helper.PreferencesHelper;
 import saschpe.birthdays.service.BirthdaysIntentService;
-import saschpe.versioninfo.widget.VersionInfoDialogFragment;
 
 import static saschpe.birthdays.service.BirthdaysIntentService.MESSAGE_WHAT_STARTED;
 
@@ -142,14 +140,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
-            case R.id.version_info:
-                VersionInfoDialogFragment
-                        .newInstance(
-                                getString(R.string.app_name),
-                                BuildConfig.VERSION_NAME,
-                                "Sascha Peilicke",
-                                R.mipmap.ic_launcher)
-                        .show(getFragmentManager(), "version_info");
+            case R.id.help_and_feedback:
+                startActivity(new Intent(this, HelpActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);
