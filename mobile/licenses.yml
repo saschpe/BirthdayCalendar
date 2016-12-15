@@ -1,0 +1,94 @@
+- artifact: com.android.support.constraint:constraint-layout-solver:+
+  name: constraint-layout-solver
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support.constraint:constraint-layout:+
+  name: constraint-layout
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:animated-vector-drawable:+
+  name: animated-vector-drawable
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:appcompat-v7:+
+  name: appcompat-v7
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:cardview-v7:+
+  name: cardview-v7
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:design:+
+  name: design
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:recyclerview-v7:+
+  name: recyclerview-v7
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:support-annotations:+
+  name: support-annotations
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:support-compat:+
+  name: support-compat
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:support-core-ui:+
+  name: support-core-ui
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:support-core-utils:+
+  name: support-core-utils
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:support-fragment:+
+  name: support-fragment
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:support-media-compat:+
+  name: support-media-compat
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:support-v4:+
+  name: support-v4
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:support-vector-drawable:+
+  name: support-vector-drawable
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: com.android.support:transition:+
+  name: transition
+  copyrightHolder: The Android Open Source Project
+  license: apache2
+- artifact: saschpe:utils:+
+  name: utils
+  copyrightHolder: Sascha Peilicke
+  license: The Apache Software License, Version 2.0
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+  url: https://github.com/saschpe/android-utils
+- artifact: saschpe:versioninfo:+
+  name: versioninfo
+  copyrightHolder: Sascha Peilicke
+  license: The Apache Software License, Version 2.0
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+  url: https://github.com/saschpe/android-versioninfo
+- artifact: com.github.yukuku:ambilwarna:+
+  name: AmbilWarna
+  copyrightHolder: yukuku
+  license: The Apache Software License, Version 2.0
+  licenseUrl: http://www.apache.org/licenses/LICENSE-2.0.txt
+  url: https://github.com/yukuku/ambilwarna
+- artifact: com.google.android.gms:+:+
+  name: Google Play Services
+  copyrightHolder: Google
+  license: commercial
+  url: https://www.google.com/intl/en/policies/terms/
+  skip: true
+- artifact: com.google.firebase:+:+
+  name: Firebase
+  copyrightHolder: Google
+  license: commercial
+  url: https://www.firebase.com/terms/terms-of-service.html
+  skip: true
