@@ -41,6 +41,7 @@
     <string name="feedback_mail_subject_template">Feedback for %s</string>
     <string name="follow">Follow</string>
     <string name="follow_on_twitter">Follow us on Twitter</string>
+    <string name="fork_on_github">Fork on Github</string>
     <string name="get_app_template">Get the %s Android app</string>
     <string name="help">Help</string>
     <string name="help_and_feedback">Help &amp; feedback</string>
@@ -53,6 +54,7 @@
     <string name="miscellaneous">Miscellaneous</string>
     <string name="notifications">Notifications</string>
     <string name="open">Open</string>
+    <string name="open_source">Open Source</string>
     <string name="open_source_licenses">Open Source Licenses</string>
     <string name="please_wait">Please wait…</string>
     <string name="provide_feedback">Provide feedback</string>

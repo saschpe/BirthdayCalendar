@@ -38,6 +38,7 @@ public class SocialFragment extends Fragment {
     private TextView followTwitter;
     private TextView rateOnPlayStore;
     private TextView recommendToFriend;
+    private TextView forkOnGithub;
     private String packageName;
 
     /**
@@ -89,6 +90,7 @@ public class SocialFragment extends Fragment {
         followTwitter = (TextView) view.findViewById(R.id.follow_twitter);
         rateOnPlayStore = (TextView) view.findViewById(R.id.rate_play_store);
         recommendToFriend = (TextView) view.findViewById(R.id.recommend_to_friend);
+        forkOnGithub = (TextView) view.findViewById(R.id.fork_on_github);
         return view;
     }
 
@@ -111,10 +113,10 @@ public class SocialFragment extends Fragment {
                 String subject = getString(R.string.feedback_mail_subject_template, getString(R.string.app_name));
 
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto", SUPPORT_EMAIL_ADDRESS[0], null));
-                emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-                emailIntent.putExtra(Intent.EXTRA_TEXT, "");
-                emailIntent.putExtra(Intent.EXTRA_EMAIL, SUPPORT_EMAIL_ADDRESS);
+                        "mailto", SUPPORT_EMAIL_ADDRESS[0], null))
+                        .putExtra(Intent.EXTRA_SUBJECT, subject)
+                        .putExtra(Intent.EXTRA_TEXT, "")
+                        .putExtra(Intent.EXTRA_EMAIL, SUPPORT_EMAIL_ADDRESS);
                 startActivity(Intent.createChooser(emailIntent, view.getContext().getString(R.string.send_email)));
             }
         });
@@ -141,7 +143,7 @@ public class SocialFragment extends Fragment {
                     flags |= Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET;
                 }
                 Intent goToMarket = new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("market://details?id=" + packageName))
+                        Uri.parse("market://details?id=" + packageName))
                         .addFlags(flags);
                 try {
                     startActivity(goToMarket);
@@ -154,13 +156,21 @@ public class SocialFragment extends Fragment {
         recommendToFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent sharingIntent = new Intent(Intent.ACTION_SEND)
-                        .setType("text/plain");
                 String subject = getString(R.string.get_app_template, getString(R.string.app_name));
                 String body = Uri.parse("http://play.google.com/store/apps/details?id=" + packageName).toString();
-                sharingIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-                sharingIntent.putExtra(Intent.EXTRA_TEXT, body);
+
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND)
+                        .setType("text/plain")
+                        .putExtra(Intent.EXTRA_SUBJECT, subject)
+                        .putExtra(Intent.EXTRA_TEXT, body);
                 startActivity(Intent.createChooser(sharingIntent, view.getContext().getString(R.string.share_via)));
+            }
+        });
+        forkOnGithub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW)
+                        .setData(Uri.parse("https://github.com/saschpe/BirthdayCalendar")));
             }
         });
     }
