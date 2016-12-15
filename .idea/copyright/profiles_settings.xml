@@ -1,7 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="Sascha Apache-2.0">
+  <settings default="">
     <module2copyright>
-      <element module="All" copyright="Sascha Apache-2.0" />
+      <element module="All" copyright="Sascha GPLv3" />
     </module2copyright>
   </settings>
 </component>
