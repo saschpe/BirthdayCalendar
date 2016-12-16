@@ -20,8 +20,6 @@ package saschpe.birthdays;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatDelegate;
 
-import com.google.android.gms.ads.MobileAds;
-
 public class Application extends android.app.Application {
     @Override
     public void onCreate() {
@@ -32,11 +30,5 @@ public class Application extends android.app.Application {
 
         // Support vector drawable support for pre-Lollipop devices
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-
-        // Google Mobile Ads. Look up the AdView as a resource and load a request.
-        MobileAds.initialize(this,
-                // Not a real secret. If you use that AdMob banner ID in your
-                // projects I will receive the money instead :-)
-                "ca-app-pub-9045162269320751~5472371821");
     }
 }

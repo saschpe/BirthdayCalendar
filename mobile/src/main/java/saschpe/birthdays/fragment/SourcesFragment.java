@@ -36,9 +36,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +60,6 @@ public class SourcesFragment extends Fragment implements
     private static final int PERMISSION_REQUEST_ALL = 1;
 
     private AccountArrayAdapter adapter;
-    private AdView adView;
     private ProgressBar progressBar;
     private RecyclerView recyclerView;
 
@@ -120,7 +116,6 @@ public class SourcesFragment extends Fragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sources, container, false);
-        adView = (AdView) rootView.findViewById(R.id.ad_view);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
         return rootView;
@@ -166,50 +161,7 @@ public class SourcesFragment extends Fragment implements
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(DisplayHelper.getSuitableLayoutManager(getActivity()));
 
-        // Init ad view
-        adView.loadAd(new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                // Those numbers are hardly any secret. If you use them in your own
-                // projects I won't get annoying ads, so go ahead :-)
-                .addTestDevice("CB380BC5777E545490CF0D4A435348D7") // Sascha's OnePlus One
-                .addTestDevice("6017F914680B8E8A9B332558F8E53245") // Sascha's Galaxy S2
-                .addTestDevice("284D104E238AB19474B60214A41288B9") // Sascha's Pixel C
-                .build());
-
         super.onViewCreated(view, savedInstanceState);
-    }
-
-    /**
-     * Called when the fragment is visible to the user and actively running.
-     * This is generally
-     * tied to {@link Activity#onResume() Activity.onResume} of the containing
-     * Activity's lifecycle.
-     */
-    @Override
-    public void onResume() {
-        super.onResume();
-        adView.resume();
-    }
-
-    /**
-     * Called when the Fragment is no longer resumed.  This is generally
-     * tied to {@link Activity#onPause() Activity.onPause} of the containing
-     * Activity's lifecycle.
-     */
-    @Override
-    public void onPause() {
-        adView.pause();
-        super.onPause();
-    }
-
-    /**
-     * Called when the fragment is no longer in use.  This is called
-     * after {@link #onStop()} and before {@link #onDetach()}.
-     */
-    @Override
-    public void onDestroy() {
-        adView.destroy();
-        super.onDestroy();
     }
 
     @Override
