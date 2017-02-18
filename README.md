@@ -1,5 +1,6 @@
 # Birthday Calendar
 [![License](https://img.shields.io/:license-gplv3-red.svg)](https://www.gnu.org/licenses/gpl.html)
+[![Build Status](https://travis-ci.org/saschpe/BirthdayCalendar.svg?branch=master)](https://travis-ci.org/saschpe/BirthdayCalendar)
 
 Get a birthday calendar for all your social networks right inside Google
 Calendar. Supports *Facebook*, *LinkedIn*, *Xing*, *Skype*, *DavDroid* and all
