@@ -17,6 +17,8 @@
 
 package saschpe.birthdays.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -90,6 +92,11 @@ public class HelpActivity extends AppCompatActivity {
                                 R.mipmap.ic_launcher)
                         .show(getFragmentManager(), "version_info");
                 return true;
+            case R.id.privacy_policy:
+                Intent intent = new Intent(Intent.ACTION_VIEW)
+                        .setData(Uri.parse("https://saschpe.github.io/BirthdayCalendar/docs/privacy-policy.html"));
+                startActivity(intent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

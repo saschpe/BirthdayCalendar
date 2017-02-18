@@ -63,6 +63,7 @@
     <string name="pref_other_events_sync_title">Andere Ereignisse</string>
     <string name="pref_periodic_sync_frequency_title">Synchronisierungshäufigkeit</string>
     <string name="pref_reminder_time_2_title">Erinnere mich ebenfalls</string>
+    <string name="privacy_policy">Datenschutz</string>
     <string name="provide_feedback">Feedback geben</string>
     <string name="rate_us_in_the_play_store">Bewerte uns im Play Store</string>
     <string name="recommend_to_a_friend">Empfiel die app einem Freund</string>
