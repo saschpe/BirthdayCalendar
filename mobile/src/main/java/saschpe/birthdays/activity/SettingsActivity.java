@@ -32,10 +32,10 @@ import android.view.MenuItem;
 
 import java.util.List;
 
+import saschpe.android.utils.activity.base.AppCompatPreferenceActivity;
+import saschpe.android.utils.helper.DisplayHelper;
 import saschpe.birthdays.R;
 import saschpe.birthdays.service.BirthdaysIntentService;
-import saschpe.utils.activity.base.AppCompatPreferenceActivity;
-import saschpe.utils.helper.DisplayHelper;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

@@ -39,6 +39,7 @@ import android.widget.ProgressBar;
 import java.util.ArrayList;
 import java.util.List;
 
+import saschpe.android.utils.helper.DisplayHelper;
 import saschpe.birthdays.R;
 import saschpe.birthdays.activity.MainActivity;
 import saschpe.birthdays.adapter.AccountArrayAdapter;
@@ -46,7 +47,6 @@ import saschpe.birthdays.helper.PreferencesHelper;
 import saschpe.birthdays.model.AccountModel;
 import saschpe.birthdays.provider.AccountProviderHelper;
 import saschpe.birthdays.service.loader.ContactAccountListLoader;
-import saschpe.utils.helper.DisplayHelper;
 
 public class SourcesFragment extends Fragment implements
         LoaderManager.LoaderCallbacks<List<AccountModel>> {

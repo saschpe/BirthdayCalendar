@@ -59,7 +59,7 @@ dependencies {
     compile 'com.android.support:support-vector-drawable:25.2.0'
     compile 'com.github.yukuku:ambilwarna:2.0.1'
     compile 'saschpe:versioninfo:1.2.3'
-    compile 'saschpe:utils:1.0.2'
+    compile 'saschpe.android:utils:1.0.6'
 
     // Test dependencies
     testCompile 'junit:junit:4.12'

@@ -30,9 +30,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import saschpe.android.utils.adapter.base.ArrayAdapter;
 import saschpe.birthdays.R;
 import saschpe.birthdays.model.AccountModel;
-import saschpe.utils.adapter.base.ArrayAdapter;
 
 public final class AccountArrayAdapter extends ArrayAdapter<AccountModel, AccountArrayAdapter.AccountViewHolder> {
     private final LayoutInflater inflater;
