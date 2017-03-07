@@ -31,11 +31,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import saschpe.android.utils.adapter.FragmentListPagerAdapter;
+import saschpe.android.versioninfo.widget.VersionInfoDialogFragment;
 import saschpe.birthdays.BuildConfig;
 import saschpe.birthdays.R;
 import saschpe.birthdays.fragment.OpenSourceLicensesFragment;
 import saschpe.birthdays.fragment.SocialFragment;
-import saschpe.versioninfo.widget.VersionInfoDialogFragment;
 
 public class HelpActivity extends AppCompatActivity {
     @Override
