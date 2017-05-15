@@ -20,7 +20,7 @@ apply plugin: 'com.cookpad.android.licensetools'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.2'
+    buildToolsVersion '25.0.3'
 
     defaultConfig {
         applicationId 'saschpe.contactevents'
@@ -52,13 +52,13 @@ android {
 
 dependencies {
     // Application dependencies
-    compile 'com.android.support:cardview-v7:25.2.0'
+    compile 'com.android.support:cardview-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
-    compile 'com.android.support:support-vector-drawable:25.2.0'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:support-vector-drawable:25.3.1'
     compile 'com.github.yukuku:ambilwarna:2.0.1'
-    compile 'saschpe.android:versioninfo:1.2.7'
+    compile 'saschpe.android:versioninfo:1.2.8'
     compile 'saschpe.android:utils:1.0.6'
 
     // Test dependencies
