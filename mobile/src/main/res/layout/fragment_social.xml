@@ -19,7 +19,6 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -50,6 +49,7 @@
         android:layout_marginTop="8dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         android:drawableLeft="@drawable/ic_person_add"
         android:drawablePadding="8dp"
         android:drawableStart="@drawable/ic_person_add"
@@ -71,6 +71,7 @@
         android:layout_marginTop="8dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         android:drawableLeft="@drawable/ic_email"
         android:drawablePadding="8dp"
         android:drawableStart="@drawable/ic_email"
@@ -108,6 +109,7 @@
         android:layout_marginTop="8dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         android:drawableLeft="@drawable/ic_star"
         android:drawablePadding="8dp"
         android:drawableStart="@drawable/ic_star"
@@ -129,6 +131,7 @@
         android:layout_marginTop="8dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         android:drawableLeft="@drawable/ic_share"
         android:drawableStart="@drawable/ic_share"
         android:drawablePadding="8dp"
@@ -167,6 +170,7 @@
         android:layout_marginTop="8dp"
         android:background="?attr/selectableItemBackground"
         android:clickable="true"
+        android:focusable="true"
         android:drawableLeft="@drawable/ic_github_circle"
         android:drawableStart="@drawable/ic_github_circle"
         android:drawablePadding="8dp"
