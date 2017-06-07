@@ -30,7 +30,6 @@ import android.widget.TextView;
 
 import java.text.DateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 import saschpe.android.utils.adapter.base.CursorRecyclerAdapter;
 import saschpe.birthdays.R;
@@ -93,9 +92,15 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Event
 
     @Override
     public void onBindViewHolderCursor(final EventViewHolder holder, final Cursor cursor) {
-        DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
+        DateFormat df = DateFormat.getDateInstance(DateFormat.DEFAULT);
+
+        Calendar birthday = Calendar.getInstance();
+        int thisYear = birthday.get(Calendar.YEAR);
+        birthday.setTimeInMillis(cursor.getInt(PROJECTION_DT_START_INDEX));
+        birthday.set(Calendar.YEAR, thisYear);
+
         holder.name.setText(cursor.getString(PROJECTION_TITLE_INDEX));
-        holder.date.setText(df.format(new Date(cursor.getInt(PROJECTION_DT_START_INDEX))));
+        holder.date.setText(df.format(birthday.getTime()));
         holder.description.setText(cursor.getString(PROJECTION_DESCRIPTION_INDEX));
         /*TODO: Fix eventId issue first:
         holder.container.setOnClickListener(new View.OnClickListener() {
