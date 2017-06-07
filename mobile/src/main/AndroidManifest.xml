@@ -77,10 +77,6 @@
         <activity
             android:name=".activity.AccountCreateActivity" />
 
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
-
         <service
             android:name=".service.BirthdaysIntentService"
             android:exported="false" />
@@ -98,7 +94,8 @@
         </service>
 
         <service
-            android:name=".service.AuthenticatorService">
+            android:name=".service.AuthenticatorService"
+            android:permission="android.permission.ACCOUNT_MANAGER">
             <intent-filter>
                 <action android:name="android.accounts.AccountAuthenticator" />
             </intent-filter>
