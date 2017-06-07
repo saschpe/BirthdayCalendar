@@ -16,7 +16,6 @@
  */
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.cookpad.android.licensetools'
 
 android {
     compileSdkVersion 25
