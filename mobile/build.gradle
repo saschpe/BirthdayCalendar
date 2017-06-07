@@ -38,7 +38,8 @@ android {
         }
         release {
             minifyEnabled true
-            shrinkResources true
+            // https://issuetracker.google.com/issues/38411240
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.debug
         }
