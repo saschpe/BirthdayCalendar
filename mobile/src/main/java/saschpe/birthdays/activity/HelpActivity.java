@@ -17,11 +17,15 @@
 
 package saschpe.birthdays.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.ActionBar;
@@ -30,7 +34,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import saschpe.android.utils.adapter.FragmentListPagerAdapter;
 import saschpe.android.versioninfo.widget.VersionInfoDialogFragment;
 import saschpe.birthdays.BuildConfig;
 import saschpe.birthdays.R;
@@ -52,18 +55,13 @@ public final class HelpActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-        // Set up fragment pager adapter
-        FragmentListPagerAdapter pagerAdapter = new FragmentListPagerAdapter(getSupportFragmentManager());
-        pagerAdapter.addFragment(new SocialFragment(), getString(R.string.social));
-        pagerAdapter.addFragment(new OpenSourceLicensesFragment(), getString(R.string.open_source_licenses));
-
         // Set up nested scrollview
         NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.nested_scroll);
         scrollView.setFillViewport(true);
 
         // Set up view pager
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        viewPager.setAdapter(pagerAdapter);
+        viewPager.setAdapter(new HelpFragmentPagerAdapter(this, getSupportFragmentManager()));
 
         // Set up  tab layout
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -99,5 +97,38 @@ public final class HelpActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private static final class HelpFragmentPagerAdapter extends FragmentPagerAdapter {
+        private final String[] pageTitles;
+
+        HelpFragmentPagerAdapter(final Context context, final FragmentManager fm) {
+            super(fm);
+            pageTitles = new String[] {
+                    context.getString(R.string.social),
+                    context.getString(R.string.open_source_licenses)
+            };
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                default:
+                    return new SocialFragment();
+                case 1:
+                    return new OpenSourceLicensesFragment();
+            }
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return pageTitles[position];
+        }
     }
 }

@@ -29,6 +29,9 @@ import android.provider.CalendarContract;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.NestedScrollView;
@@ -40,7 +43,6 @@ import android.view.MenuItem;
 import java.lang.ref.WeakReference;
 
 import saschpe.birthdays.R;
-import saschpe.birthdays.adapter.ViewPagerAdapter;
 import saschpe.birthdays.fragment.BirthdaysFragment;
 import saschpe.birthdays.fragment.SourcesFragment;
 import saschpe.birthdays.helper.PreferencesHelper;
@@ -86,18 +88,13 @@ public final class MainActivity extends AppCompatActivity {
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         calendarSyncHandler = new CalendarSyncHandler(this);
 
-        // Set up fragment pager adapter
-        ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        pagerAdapter.addFragment(new BirthdaysFragment(), getString(R.string.birthdays));
-        pagerAdapter.addFragment(new SourcesFragment(), getString(R.string.sources));
-
         // Set up nested scrollview
         NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.nested_scroll);
         scrollView.setFillViewport(true);
 
         // Set up view pager
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        viewPager.setAdapter(pagerAdapter);
+        viewPager.setAdapter(new MainFragmentPagerAdapter(this, getSupportFragmentManager()));
         if (PreferencesHelper.getFirstRun(this)) {
             viewPager.setCurrentItem(1); // Only show setup on first run
         }
@@ -187,6 +184,39 @@ public final class MainActivity extends AppCompatActivity {
                             Snackbar.LENGTH_SHORT).show();
                     break;
             }
+        }
+    }
+
+    private static final class MainFragmentPagerAdapter extends FragmentPagerAdapter {
+        private final String[] pageTitles;
+
+        MainFragmentPagerAdapter(final Context context, final FragmentManager fm) {
+            super(fm);
+            pageTitles = new String[] {
+                    context.getString(R.string.birthdays),
+                    context.getString(R.string.sources)
+            };
+        }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                default:
+                    return new BirthdaysFragment();
+                case 1:
+                    return new SourcesFragment();
+            }
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return pageTitles[position];
         }
     }
 }

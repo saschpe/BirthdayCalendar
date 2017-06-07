@@ -77,7 +77,6 @@ public final class SourcesFragment extends Fragment implements
         });
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_sources, container, false);
