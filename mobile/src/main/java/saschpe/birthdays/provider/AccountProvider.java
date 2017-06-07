@@ -28,6 +28,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.provider.BaseColumns;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -58,7 +59,7 @@ public class AccountProvider extends ContentProvider {
     private AccountDatabase database;
 
     @Override
-    public int delete(Uri uri, String selection, String[] selectionArgs) {
+    public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
         Log.v(TAG, "Delete uri " + uri);
 
         final SQLiteDatabase db = database.getWritableDatabase();
@@ -83,13 +84,15 @@ public class AccountProvider extends ContentProvider {
         }
 
         // Notify about changes in DB
-        getContext().getContentResolver().notifyChange(uri, null);
+        if (getContext() != null) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
 
         return count;
     }
 
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         final int match = URI_MATCHER.match(uri);
         switch (match) {
             case ACCOUNT_LIST:
@@ -102,7 +105,7 @@ public class AccountProvider extends ContentProvider {
     }
 
     @Override
-    public Uri insert(Uri uri, ContentValues values) {
+    public Uri insert(@NonNull Uri uri, ContentValues values) {
         Log.d(TAG, "Insert uri " + uri + " with values: " + values.toString());
 
         final SQLiteDatabase db = database.getWritableDatabase();
@@ -123,7 +126,9 @@ public class AccountProvider extends ContentProvider {
         }
 
         // Notify about changes in DB
-        getContext().getContentResolver().notifyChange(uri, null);
+        if (getContext() != null) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
 
         return rowUri;
     }
@@ -136,8 +141,8 @@ public class AccountProvider extends ContentProvider {
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection,
-            String[] selectionArgs, String sortOrder) {
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection,
+                        String[] selectionArgs, String sortOrder) {
         Log.v(TAG, "Query uri " + uri + " with projection: " + Arrays.toString(projection));
 
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -158,13 +163,15 @@ public class AccountProvider extends ContentProvider {
             DatabaseUtils.dumpCursor(cursor);
 
         // Notify through cursor
-        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        if (getContext() != null) {
+            cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        }
         return cursor;
     }
 
     @Override
-    public int update(Uri uri, ContentValues values, String selection,
-            String[] selectionArgs) {
+    public int update(@NonNull Uri uri, ContentValues values, String selection,
+                      String[] selectionArgs) {
         Log.e(TAG, "Not supported");
         throw new UnsupportedOperationException("Not supported");
     }

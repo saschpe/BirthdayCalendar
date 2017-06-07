@@ -94,7 +94,6 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Event
     @Override
     public void onBindViewHolderCursor(final EventViewHolder holder, final Cursor cursor) {
         DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
-        holder.eventId = cursor.getLong(PROJECTION_ID_INDEX);
         holder.name.setText(cursor.getString(PROJECTION_TITLE_INDEX));
         holder.date.setText(df.format(new Date(cursor.getInt(PROJECTION_DT_START_INDEX))));
         holder.description.setText(cursor.getString(PROJECTION_DESCRIPTION_INDEX));
@@ -112,15 +111,12 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Event
     }
 
     static class EventViewHolder extends RecyclerView.ViewHolder {
-        final View container;
-        long eventId;
         final TextView date;
         final TextView name;
         final TextView description;
 
         EventViewHolder(View itemView) {
             super(itemView);
-            container = itemView.findViewById(R.id.constraint_layout);
             date = (TextView) itemView.findViewById(R.id.date);
             name = (TextView) itemView.findViewById(R.id.title);
             description = (TextView) itemView.findViewById(R.id.description);

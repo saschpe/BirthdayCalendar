@@ -63,14 +63,14 @@ public class ContactAccountListLoader extends AsyncTaskLoader<List<AccountModel>
                             ContactsContract.RawContacts.ACCOUNT_TYPE
                     }, null, null, null);
 
-            while (cursor.moveToNext()) {
-                String account_name = cursor.getString(cursor.getColumnIndex(ContactsContract.RawContacts.ACCOUNT_NAME));
-                String account_type = cursor.getString(cursor.getColumnIndex(ContactsContract.RawContacts.ACCOUNT_TYPE));
-                Account account = new Account(account_name, account_type);
-                contactAccounts.add(account);
+            if (cursor != null) {
+                while (cursor.moveToNext()) {
+                    String account_name = cursor.getString(cursor.getColumnIndex(ContactsContract.RawContacts.ACCOUNT_NAME));
+                    String account_type = cursor.getString(cursor.getColumnIndex(ContactsContract.RawContacts.ACCOUNT_TYPE));
+                    Account account = new Account(account_name, account_type);
+                    contactAccounts.add(account);
+                }
             }
-        } catch (Exception e) {
-            Log.e(TAG, "Error retrieving accounts", e);
         } finally {
             if (cursor != null && !cursor.isClosed()) {
                 cursor.close();

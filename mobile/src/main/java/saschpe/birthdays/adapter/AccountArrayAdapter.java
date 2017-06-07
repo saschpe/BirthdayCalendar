@@ -59,7 +59,8 @@ public final class AccountArrayAdapter extends ArrayAdapter<AccountModel, Accoun
     public void onBindViewHolder(final AccountViewHolder holder, int position) {
         final AccountModel item = getItem(position);
 
-        holder.label.setText(item.getLabel() + " (" + item.getAccount().name + ")");
+        holder.label.setText(holder.label.getResources()
+                .getString(R.string.account_title_template, item.getLabel(), item.getAccount().name));
         holder.icon.setImageDrawable(item.getIcon());
         holder.selected.setChecked(item.isSelected());
         holder.selected.setOnClickListener(new View.OnClickListener() {

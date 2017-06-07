@@ -113,6 +113,7 @@ public class CalendarSyncService extends Service {
         Cursor cursor = getContactsEvents(context, cr);
         if (cursor == null) {
             Log.e(TAG, "Failed to parse contacts events");
+            return;
         }
 
         try {
@@ -125,7 +126,7 @@ public class CalendarSyncService extends Service {
             int backRef = 0;
 
             // Loop over all events
-            while (cursor != null && cursor.moveToNext()) {
+            while (cursor.moveToNext()) {
                 final String eventDateString = cursor.getString(eventDateColumn);
                 final String displayName = cursor.getString(displayNameColumn);
                 final int eventType = cursor.getInt(eventTypeColumn);
@@ -137,15 +138,6 @@ public class CalendarSyncService extends Service {
                     Calendar eventCalendar = Calendar.getInstance();
                     eventCalendar.setTime(eventDate);
                     int eventYear = eventCalendar.get(Calendar.YEAR);
-                    //Log.debug("Event year: " + eventYear);
-
-                    // If year < 1800 don't show brackets with age behind name. When no year is defined
-                    // parseEventDateString() sets it to 1700. Also iCloud for example sets year to
-                    // 1604 if no year is defined in their user interface.
-                    boolean hasYear = false;
-                    if (eventYear >= 1800) {
-                        hasYear = true;
-                    }
 
                     // Get current year
                     Calendar currentCalendar = Calendar.getInstance();
@@ -159,12 +151,6 @@ public class CalendarSyncService extends Service {
                     for (int year = startYear; year <= endYear; year++) {
                         // Calculate age
                         final int age = year - eventYear;
-                        // If birthday has year and age of this event >= 0, display age in title
-                        boolean includeAge = false;
-                        if (hasYear && age >= 0) {
-                            includeAge = true;
-                        }
-                        //Log.debug("Year: " + year + " age: " + age + " include age: " + includeAge);
 
                         String title = null;
                         String description = "";
@@ -490,15 +476,16 @@ public class CalendarSyncService extends Service {
         Log.d(TAG, "Updating calendar " + uri.toString() + " color " + color);
 
         ContentProviderClient client = cr.acquireContentProviderClient(CalendarContract.AUTHORITY);
-
-        ContentValues values = new ContentValues();
-        values.put(CalendarContract.Calendars.CALENDAR_COLOR, color);
-        try {
-            client.update(uri, values, null, null);
-        } catch (RemoteException e) {
-            Log.e(TAG, "Failed to update calendar color!", e);
+        if (client != null) {
+            ContentValues values = new ContentValues();
+            values.put(CalendarContract.Calendars.CALENDAR_COLOR, color);
+            try {
+                client.update(uri, values, null, null);
+            } catch (RemoteException e) {
+                Log.e(TAG, "Failed to update calendar color!", e);
+            }
+            client.release();
         }
-        client.release();
     }
 
     /**
