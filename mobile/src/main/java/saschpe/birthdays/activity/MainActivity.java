@@ -27,6 +27,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.CalendarContract;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -39,6 +40,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import java.lang.ref.WeakReference;
 
@@ -53,7 +55,6 @@ import static saschpe.birthdays.service.BirthdaysIntentService.MESSAGE_WHAT_STAR
 public final class MainActivity extends AppCompatActivity {
     public static final String ACTION_OPEN_EVENT = "saschpe.birthdays.action.OPEN_EVENT";
     public static final String ACTION_SYNC_REQUESTED = "saschpe.birthdays.action.SYNC_REQUESTED";
-
     public static final String EXTRA_EVENT_ID = "saschpe.birthdays.extra.EVENT_ID";
 
     private CalendarSyncHandler calendarSyncHandler;
@@ -103,6 +104,15 @@ public final class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         tabLayout.setupWithViewPager(viewPager);
+
+        // Open calendar FAB
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.calendar_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openCalendar();
+            }
+        });
     }
 
     @Override
@@ -132,9 +142,6 @@ public final class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.calendar:
-                openCalendar();
-                break;
             case R.id.settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;

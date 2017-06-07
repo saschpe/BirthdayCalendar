@@ -21,12 +21,6 @@
     tools:context=".activity.MainActivity">
 
     <item
-        android:id="@+id/calendar"
-        android:title="@string/calendar"
-        android:icon="@drawable/ic_event"
-        app:showAsAction="ifRoom" />
-
-    <item
         android:id="@+id/settings"
         android:title="@string/settings"
         android:icon="@drawable/ic_settings"
