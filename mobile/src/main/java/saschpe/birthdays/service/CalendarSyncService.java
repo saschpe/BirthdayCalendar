@@ -295,9 +295,7 @@ public class CalendarSyncService extends Service {
         builder.withValue(CalendarContract.Events.HAS_ALARM, 1);
 
         // Set availability to free.
-        if (Build.VERSION.SDK_INT >= 14) {
-            builder.withValue(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_FREE);
-        }
+        builder.withValue(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_FREE);
         // Add button to open contact
         if (Build.VERSION.SDK_INT >= 16 && lookupKey != null) {
             builder.withValue(CalendarContract.Events.CUSTOM_APP_PACKAGE, context.getPackageName());
