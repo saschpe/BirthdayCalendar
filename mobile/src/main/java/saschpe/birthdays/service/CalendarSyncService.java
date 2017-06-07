@@ -58,7 +58,7 @@ import saschpe.birthdays.R;
 import saschpe.birthdays.helper.PreferencesHelper;
 import saschpe.birthdays.provider.AccountProviderHelper;
 
-public class CalendarSyncService extends Service {
+public final class CalendarSyncService extends Service {
     public static final String ACTION_SYNC_DONE = "saschpe.birthdays.service.action.SYNC_DONE";
 
     private static final String TAG = CalendarSyncService.class.getSimpleName();

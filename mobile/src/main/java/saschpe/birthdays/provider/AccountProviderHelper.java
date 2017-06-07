@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class AccountProviderHelper {
+public final class AccountProviderHelper {
     private static final String TAG = AccountProviderHelper.class.getSimpleName();
 
     public static void setAccountList(Context context, List<Account> accounts) {

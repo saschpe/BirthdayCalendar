@@ -48,7 +48,7 @@ import saschpe.birthdays.service.BirthdaysIntentService;
 
 import static saschpe.birthdays.service.BirthdaysIntentService.MESSAGE_WHAT_STARTED;
 
-public class MainActivity extends AppCompatActivity {
+public final class MainActivity extends AppCompatActivity {
     public static final String ACTION_OPEN_EVENT = "saschpe.birthdays.action.OPEN_EVENT";
     public static final String ACTION_SYNC_REQUESTED = "saschpe.birthdays.action.SYNC_REQUESTED";
 

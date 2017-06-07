@@ -22,7 +22,7 @@ import android.os.Bundle;
 
 import saschpe.birthdays.helper.AccountHelper;
 
-public class AccountCreateActivity extends AccountAuthenticatorActivity {
+public final class AccountCreateActivity extends AccountAuthenticatorActivity {
     /**
      * Retrieves the AccountAuthenticatorResponse from either the intent of the
      * icicle, if the icicle is non-zero.

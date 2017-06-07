@@ -28,7 +28,7 @@ import android.util.Log;
 /**
  * Describes an item in an account list view
  */
-public class AccountModel {
+public final class AccountModel {
     private static final String TAG = AccountModel.class.getSimpleName();
 
     private final Account account;

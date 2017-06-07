@@ -48,7 +48,7 @@ import saschpe.birthdays.model.AccountModel;
 import saschpe.birthdays.provider.AccountProviderHelper;
 import saschpe.birthdays.service.loader.ContactAccountListLoader;
 
-public class SourcesFragment extends Fragment implements
+public final class SourcesFragment extends Fragment implements
         LoaderManager.LoaderCallbacks<List<AccountModel>> {
     private static final String TAG = SourcesFragment.class.getSimpleName();
     private static final String[] RUNTIME_PERMISSIONS = new String[] {

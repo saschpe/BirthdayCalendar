@@ -24,7 +24,7 @@ import android.preference.PreferenceManager;
 
 import saschpe.birthdays.R;
 
-public class PreferencesHelper {
+public final class PreferencesHelper {
     public static boolean getFirstRun(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(context.getString(R.string.pref_first_run_key),

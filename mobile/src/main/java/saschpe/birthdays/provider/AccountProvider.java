@@ -36,7 +36,7 @@ import java.util.Arrays;
 
 import saschpe.birthdays.BuildConfig;
 
-public class AccountProvider extends ContentProvider {
+public final class AccountProvider extends ContentProvider {
     private static final String TAG = AccountProvider.class.getSimpleName();
     private static final UriMatcher URI_MATCHER = buildUriMatcher();
     private static final int ACCOUNT_LIST = 100;

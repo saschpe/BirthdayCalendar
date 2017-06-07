@@ -20,7 +20,7 @@ package saschpe.birthdays;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatDelegate;
 
-public class Application extends android.app.Application {
+public final class Application extends android.app.Application {
     @Override
     public void onCreate() {
         super.onCreate();

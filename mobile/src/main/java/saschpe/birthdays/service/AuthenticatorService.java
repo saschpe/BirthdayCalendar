@@ -26,7 +26,7 @@ import saschpe.birthdays.accounts.BirthdaysAccountAuthenticator;
 /**
  * A bound Service that instantiates the account_authenticator when started.
  */
-public class AuthenticatorService extends Service {
+public final class AuthenticatorService extends Service {
     private BirthdaysAccountAuthenticator birthdaysAccountAuthenticator;
 
     @Override

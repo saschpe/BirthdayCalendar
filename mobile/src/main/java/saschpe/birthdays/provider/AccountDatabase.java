@@ -23,7 +23,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 import android.util.Log;
 
-class AccountDatabase extends SQLiteOpenHelper {
+final class AccountDatabase extends SQLiteOpenHelper {
     private static final String TAG = AccountDatabase.class.getSimpleName();
     private static final String DATABASE_NAME = "contactreminder.db";
     private static final int DATABASE_VERSION = 1;

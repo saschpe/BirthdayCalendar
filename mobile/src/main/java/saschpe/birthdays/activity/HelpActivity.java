@@ -37,7 +37,7 @@ import saschpe.birthdays.R;
 import saschpe.birthdays.fragment.OpenSourceLicensesFragment;
 import saschpe.birthdays.fragment.SocialFragment;
 
-public class HelpActivity extends AppCompatActivity {
+public final class HelpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

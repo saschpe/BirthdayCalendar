@@ -27,12 +27,11 @@ import android.webkit.WebView;
 
 import saschpe.birthdays.R;
 
-public class OpenSourceLicensesFragment extends Fragment {
+public final class OpenSourceLicensesFragment extends Fragment {
     private static final String LICENSES_HTML_PATH = "file:///android_asset/licenses.html";
 
     private WebView webView;
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_open_source_licenses, container, false);

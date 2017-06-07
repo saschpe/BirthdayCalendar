@@ -33,7 +33,7 @@ import android.util.Log;
 import saschpe.birthdays.R;
 import saschpe.birthdays.service.BirthdaysIntentService;
 
-public class AccountHelper {
+public final class AccountHelper {
     private static final String TAG = AccountHelper.class.getSimpleName();
 
     public static Bundle addAccount(Context context) {

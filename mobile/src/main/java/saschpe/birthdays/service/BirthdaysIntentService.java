@@ -35,7 +35,7 @@ import saschpe.birthdays.helper.AccountHelper;
  * An {@link android.app.IntentService} subclass for handling asynchronous task requests in
  * a service on a separate handler thread.
  */
-public class BirthdaysIntentService extends IntentService {
+public final class BirthdaysIntentService extends IntentService {
     private static final String TAG = BirthdaysIntentService.class.getSimpleName();
     public static final String ACTION_SYNC = "saschpe.birthdays.service.action.SYNC";
     public static final String ACTION_CHANGE_COLOR = "saschpe.birthdays.service.action.CHANGE_COLOR";

@@ -24,7 +24,7 @@ import android.provider.BaseColumns;
 
 import saschpe.birthdays.BuildConfig;
 
-class AccountContract {
+final class AccountContract {
     interface Columns {
         String ACCOUNT_NAME = "account_name";
         String ACCOUNT_TYPE = "account_type";

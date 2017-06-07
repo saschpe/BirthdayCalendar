@@ -28,7 +28,7 @@ import android.os.Bundle;
  * Handle the transfer of data between a server and the
  * app, using the Android sync adapter framework.
  */
-class CalendarSyncAdapter extends AbstractThreadedSyncAdapter {
+final class CalendarSyncAdapter extends AbstractThreadedSyncAdapter {
     /**
      * Set up the sync adapter
      */

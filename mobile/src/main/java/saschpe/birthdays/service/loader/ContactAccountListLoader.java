@@ -37,7 +37,7 @@ import saschpe.birthdays.helper.AccountHelper;
 import saschpe.birthdays.model.AccountModel;
 import saschpe.birthdays.provider.AccountProviderHelper;
 
-public class ContactAccountListLoader extends AsyncTaskLoader<List<AccountModel>> {
+public final class ContactAccountListLoader extends AsyncTaskLoader<List<AccountModel>> {
     private static final String TAG = ContactAccountListLoader.class.getSimpleName();
 
     private List<AccountModel> accounts;
