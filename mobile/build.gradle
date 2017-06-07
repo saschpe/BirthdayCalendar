@@ -58,7 +58,7 @@ dependencies {
     implementation 'com.android.support:support-vector-drawable:25.3.1'
     implementation 'com.github.yukuku:ambilwarna:2.0.1'
     implementation 'saschpe.android:versioninfo:1.2.8'
-    implementation 'saschpe.android:utils:1.0.6'
+    implementation 'saschpe.android:utils:1.0.8.2'
 
     // Test dependencies
     testImplementation 'junit:junit:4.12'
