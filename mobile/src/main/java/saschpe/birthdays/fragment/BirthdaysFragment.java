@@ -55,7 +55,7 @@ public class BirthdaysFragment extends Fragment {
     private ProgressBar progressBar;
     private RecyclerView recyclerView;
     private int spacePx;
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             switch (intent.getAction()) {

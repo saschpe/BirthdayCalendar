@@ -74,9 +74,9 @@ public final class AccountArrayAdapter extends ArrayAdapter<AccountModel, Accoun
     }
 
     static final class AccountViewHolder extends RecyclerView.ViewHolder {
-        TextView label;
-        ImageView icon;
-        CheckBox selected;
+        final TextView label;
+        final ImageView icon;
+        final CheckBox selected;
 
         AccountViewHolder(View itemView) {
             super(itemView);

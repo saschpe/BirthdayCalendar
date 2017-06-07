@@ -56,7 +56,7 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Event
     // "My projections need selections..."
     private static final String SELECTION = "(" + CalendarContract.Events.CALENDAR_ID + " = ?)";
 
-    private LayoutInflater inflater;
+    private final LayoutInflater inflater;
 
     public EventAdapter(@NonNull Context context) {
         String[] selectionArgs = new String[] {
@@ -112,11 +112,11 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Event
     }
 
     static class EventViewHolder extends RecyclerView.ViewHolder {
-        View container;
+        final View container;
         long eventId;
-        TextView date;
-        TextView name;
-        TextView description;
+        final TextView date;
+        final TextView name;
+        final TextView description;
 
         EventViewHolder(View itemView) {
             super(itemView);

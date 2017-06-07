@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CalendarSyncHandler calendarSyncHandler;
     private CoordinatorLayout coordinatorLayout;
-    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             switch (intent.getAction()) {

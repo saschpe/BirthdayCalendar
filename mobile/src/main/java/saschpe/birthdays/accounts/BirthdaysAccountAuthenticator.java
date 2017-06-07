@@ -34,7 +34,7 @@ import saschpe.birthdays.activity.AccountCreateActivity;
 public final class BirthdaysAccountAuthenticator extends AbstractAccountAuthenticator {
     private static final String TAG = BirthdaysAccountAuthenticator.class.getSimpleName();
 
-    private Context context;
+    private final Context context;
 
     public BirthdaysAccountAuthenticator(Context context) {
         super(context);
