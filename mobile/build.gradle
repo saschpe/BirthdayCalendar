@@ -25,8 +25,8 @@ android {
         applicationId 'saschpe.contactevents'
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 160151
-        versionName '1.5.1'
+        versionCode 160152
+        versionName '1.5.2'
         archivesBaseName = "${applicationId}-${versionName}"
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
