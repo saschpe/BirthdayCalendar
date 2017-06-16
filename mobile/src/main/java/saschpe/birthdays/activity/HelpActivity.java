@@ -92,7 +92,7 @@ public final class HelpActivity extends AppCompatActivity {
                 return true;
             case R.id.privacy_policy:
                 Intent intent = new Intent(Intent.ACTION_VIEW)
-                        .setData(Uri.parse("https://saschpe.github.io/BirthdayCalendar/docs/privacy-policy.html"));
+                        .setData(Uri.parse("https://sites.google.com/view/birthday-calendar/privacy-policy"));
                 startActivity(intent);
                 break;
         }
