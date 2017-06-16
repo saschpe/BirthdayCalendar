@@ -32,7 +32,7 @@ import android.widget.TextView;
 import saschpe.birthdays.R;
 
 public final class SocialFragment extends Fragment {
-    private static final String[] SUPPORT_EMAIL_ADDRESS = new String[] {"sascha+gp@peilicke.de"};
+    private static final String[] SUPPORT_EMAIL_ADDRESS = new String[] {"saschpe+birthdaycalender@mailbox.org"};
     private static final String TWITTER_NAME = "saschpe";
 
     private TextView provideFeedback;
