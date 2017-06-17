@@ -59,10 +59,8 @@ import saschpe.birthdays.helper.PreferencesHelper;
 import saschpe.birthdays.provider.AccountProviderHelper;
 
 public final class CalendarSyncService extends Service {
-    public static final String ACTION_SYNC_DONE = "saschpe.birthdays.service.action.SYNC_DONE";
-
     private static final String TAG = CalendarSyncService.class.getSimpleName();
-    private static final String[] DATE_FORMATS = {
+    private static final String[] DATE_FORMAT_STRINGS = {
             "yyyy-MM-dd",   // Most used
             "--MM-dd",      // Most used format without year
             "yyyyMMdd",     // HTC Desire
@@ -73,6 +71,16 @@ public final class CalendarSyncService extends Service {
             "dd/MM/yyyy",
             "dd/MM",
     };
+    private static final SimpleDateFormat[] SIMPLE_DATE_FORMATS;
+
+    public static final String ACTION_SYNC_DONE = "saschpe.birthdays.service.action.SYNC_DONE";
+
+    static {
+        SIMPLE_DATE_FORMATS = new SimpleDateFormat[DATE_FORMAT_STRINGS.length];
+        for (int i = 0; i< DATE_FORMAT_STRINGS.length; i++) {
+            SIMPLE_DATE_FORMATS[i] = new SimpleDateFormat(DATE_FORMAT_STRINGS[i], Locale.US);
+        }
+    }
 
     // Storage for an instance of the sync adapter
     private CalendarSyncAdapter syncAdapter = null;
@@ -91,7 +99,7 @@ public final class CalendarSyncService extends Service {
 
     /**
      * Syncing work-horse.
-     *
+     * <p>
      * Simply runs in current thread if invoked directly.
      */
     public static void performSync(Context context) {
@@ -301,7 +309,7 @@ public final class CalendarSyncService extends Service {
         /* 1. Get all raw contacts with their corresponding Account name and type (only raw
          *    contacts get Account affiliation) */
         Uri rawContactsUri = ContactsContract.RawContacts.CONTENT_URI;
-        String[] rawContactsProjection = new String[] {
+        String[] rawContactsProjection = new String[]{
                 ContactsContract.RawContacts._ID,
                 ContactsContract.RawContacts.CONTACT_ID,
                 ContactsContract.RawContacts.DISPLAY_NAME_PRIMARY,
@@ -313,7 +321,7 @@ public final class CalendarSyncService extends Service {
         /* 2. Go over all raw contacts and check if the Account is allowed. If account is allowed,
          *    get display name and lookup key and all events for this contact. Build a new
          *    MatrixCursor out of this data that can be used. */
-        String[] columns = new String[] {
+        String[] columns = new String[]{
                 BaseColumns._ID,
                 ContactsContract.Data.DISPLAY_NAME,
                 ContactsContract.Data.LOOKUP_KEY,
@@ -344,18 +352,18 @@ public final class CalendarSyncService extends Service {
                     String lookupKey = null;
 
                     // 2b. Get display name and lookup key from normal contact table
-                    String[] displayProjection = new String[] {
+                    String[] displayProjection = new String[]{
                             ContactsContract.Data.RAW_CONTACT_ID,
                             ContactsContract.Data.DISPLAY_NAME,
                             ContactsContract.Data.LOOKUP_KEY
                     };
                     String displayWhere = ContactsContract.Data.RAW_CONTACT_ID + "= ?";
-                    String[] displaySelectionArgs = new String[] {
+                    String[] displaySelectionArgs = new String[]{
                             String.valueOf(rawId)
                     };
                     Cursor displayCursor = contentResolver.query(ContactsContract.Data.CONTENT_URI, displayProjection, displayWhere, displaySelectionArgs, null);
                     try {
-                        if (displayCursor != null && displayCursor.moveToNext()){
+                        if (displayCursor != null && displayCursor.moveToNext()) {
                             displayName = displayCursor.getString(displayCursor.getColumnIndex(ContactsContract.Data.DISPLAY_NAME));
                             lookupKey = displayCursor.getString(displayCursor.getColumnIndex(ContactsContract.Data.LOOKUP_KEY));
                         }
@@ -371,7 +379,7 @@ public final class CalendarSyncService extends Service {
                      *     should have been filtered. */
                     Uri thisRawContactUri = ContentUris.withAppendedId(ContactsContract.RawContacts.CONTENT_URI, rawId);
                     Uri entityUri = Uri.withAppendedPath(thisRawContactUri, ContactsContract.RawContacts.Entity.CONTENT_DIRECTORY);
-                    String[] eventsProjection = new String[] {
+                    String[] eventsProjection = new String[]{
                             ContactsContract.RawContacts._ID,
                             ContactsContract.RawContacts.Entity.DATA_ID,
                             ContactsContract.CommonDataKinds.Event.START_DATE,
@@ -379,7 +387,7 @@ public final class CalendarSyncService extends Service {
                             ContactsContract.CommonDataKinds.Event.LABEL
                     };
                     String eventsWhere = ContactsContract.RawContacts.Entity.MIMETYPE + " = ? AND " + ContactsContract.RawContacts.Entity.DATA_ID + " IS NOT NULL";
-                    String[] eventsSelectionArgs = new String[] {
+                    String[] eventsSelectionArgs = new String[]{
                             ContactsContract.CommonDataKinds.Event.CONTENT_ITEM_TYPE
                     };
                     Cursor eventsCursor = contentResolver.query(entityUri, eventsProjection, eventsWhere, eventsSelectionArgs, null);
@@ -428,40 +436,38 @@ public final class CalendarSyncService extends Service {
         return mc;
     }
 
-    private static Date parseEventDateString(String eventDateString) {
-        if (eventDateString != null) {
-            Date eventDate = null;
-
-            for (String dateFormat : DATE_FORMATS) {
-                if (eventDate == null) {
-                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat, Locale.US);
-                    simpleDateFormat.setTimeZone(TimeZone.getDefault());
-
-                    eventDate = simpleDateFormat.parse(eventDateString, new ParsePosition(0));
-                    if (eventDate != null && !dateFormat.contains("yyyy")) {
-                        // Because no year is defined in address book, set year to 1700. When
-                        // year < 1800, the age will be not displayed in brackets
-                        Calendar cal = Calendar.getInstance();
-                        cal.setTime(eventDate);
-                        cal.set(Calendar.YEAR, 1700);
-                    }
-                }
-            }
-            // Unix timestamp - Some Motorola devices
-            if (eventDate == null) {
-                try {
-                    eventDate = new Date(Long.parseLong(eventDateString));
-                } catch (NumberFormatException e) {
-                    Log.e(TAG, "Error parsing event date string " + eventDateString);
-                }
-            }
-            /*if (eventDate != null) {
-                Log.debug("Parsed event date string: " + eventDate.toString());
-            }*/
-            return eventDate;
-        } else {
+    private static Date parseEventDateString(final String eventDateString) {
+        if (eventDateString == null) {
             return null;
         }
+
+        Date eventDate = null;
+        for (int i = 0; i < DATE_FORMAT_STRINGS.length; i++) {
+            String dateFormatString = DATE_FORMAT_STRINGS[i];
+            SimpleDateFormat simpleDateFormat = SIMPLE_DATE_FORMATS[i];
+
+            eventDate = simpleDateFormat.parse(eventDateString, new ParsePosition(0));
+            if (eventDate != null) {
+                if (!dateFormatString.contains("yyyy")) {
+                    // Because no year is defined in address book, set year to 1700. When
+                    // year < 1800, the age will be not displayed in brackets
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(eventDate);
+                    cal.set(Calendar.YEAR, 1700);
+                }
+                break;
+            }
+        }
+
+        // Unix timestamp - Some Motorola devices
+        if (eventDate == null) {
+            try {
+                eventDate = new Date(Long.parseLong(eventDateString));
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "Error parsing event date string " + eventDateString);
+            }
+        }
+        return eventDate;
     }
 
     /**
@@ -490,7 +496,7 @@ public final class CalendarSyncService extends Service {
 
     /**
      * Returns birthday calendar ID.
-     *
+     * <p>
      * If no calendar is present, a new one is created.
      *
      * @return calendar id
@@ -499,15 +505,15 @@ public final class CalendarSyncService extends Service {
         final Uri calenderUri = getCalendarUri(context, CalendarContract.Calendars.CONTENT_URI);
 
         final String selection = CalendarContract.Calendars.ACCOUNT_NAME + " = ? AND " +
-                                 CalendarContract.Calendars.ACCOUNT_TYPE + " = ? AND " +
-                                 CalendarContract.Calendars.NAME + " = ?";
+                CalendarContract.Calendars.ACCOUNT_TYPE + " = ? AND " +
+                CalendarContract.Calendars.NAME + " = ?";
         final String calendarName = context.getString(R.string.calendar_name);
 
         ContentResolver cr = context.getContentResolver();
         Cursor cursor = cr.query(calenderUri,
-                new String[] { BaseColumns._ID },
+                new String[]{BaseColumns._ID},
                 selection,
-                new String[] {
+                new String[]{
                         context.getString(R.string.app_name),
                         context.getString(R.string.account_type),
                         calendarName
