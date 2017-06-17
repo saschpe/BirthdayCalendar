@@ -27,6 +27,7 @@
         android:orderInCategory="101"
         android:title="@string/version_info"
         app:showAsAction="never" />
+
     <item
         android:id="@+id/privacy_policy"
         android:icon="@drawable/ic_info"

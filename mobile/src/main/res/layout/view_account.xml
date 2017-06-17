@@ -36,10 +36,7 @@
         android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        tools:layout_constraintLeft_creator="1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/label"
@@ -48,17 +45,14 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:gravity="center_vertical"
         android:ellipsize="marquee"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/selected"
         app:layout_constraintLeft_toRightOf="@+id/icon"
-        tools:text="@string/lorem_ipsum_long"
-        style="@android:style/TextAppearance.DeviceDefault.Medium" />
+        tools:text="@string/lorem_ipsum_long" />
 
     <CheckBox
         android:id="@+id/selected"
@@ -68,12 +62,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:clickable="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        app:layout_constraintBottom_toBottomOf="@+id/label"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintBottom_creator="1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
