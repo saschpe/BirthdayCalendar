@@ -27,11 +27,10 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraint_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <!-- TODO: Fix eventId issue first:
+        android:layout_height="wrap_content"
         android:background="?android:selectableItemBackground"
         android:clickable="true"
-        -->
+        android:focusable="true">
 
         <TextView
             android:id="@+id/date"

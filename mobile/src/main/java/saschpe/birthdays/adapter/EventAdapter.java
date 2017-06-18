@@ -17,11 +17,14 @@
 
 package saschpe.birthdays.adapter;
 
+import android.content.ContentUris;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,24 +41,26 @@ import saschpe.birthdays.service.CalendarSyncService;
 /**
  * Displays events from this app's calendar.
  */
-public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.EventViewHolder> {
+public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.BirthdayViewHolder> {
     // Projection array. Creating indices for this array instead of doing
     // dynamic lookups improves performance.
     private static final String[] PROJECTION = new String[] {
-            CalendarContract.Events._ID,
-            CalendarContract.Events.TITLE,
-            CalendarContract.Events.DESCRIPTION,
-            CalendarContract.Events.DTSTART,
+            CalendarContract.Instances._ID,
+            CalendarContract.Instances.TITLE,
+            CalendarContract.Instances.DESCRIPTION,
+            CalendarContract.Instances.DTSTART,
+            CalendarContract.Instances.EVENT_ID
     };
     // The indices for the projection array above.
-    private static final int PROJECTION_ID_INDEX = 0;
     private static final int PROJECTION_TITLE_INDEX = 1;
     private static final int PROJECTION_DESCRIPTION_INDEX = 2;
     private static final int PROJECTION_DT_START_INDEX = 3;
+    private static final int PROJECTION_EVENT_ID_INDEX = 4;
     // "My projections need selections..."
     private static final String SELECTION = "(" + CalendarContract.Events.CALENDAR_ID + " = ?)";
 
     private final LayoutInflater inflater;
+    public static final DateFormat DEFAULT_DATE_FORMAT = DateFormat.getDateInstance(DateFormat.DEFAULT);
 
     public EventAdapter(@NonNull Context context) {
         String[] selectionArgs = new String[] {
@@ -85,43 +90,41 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Event
     }
 
     @Override
-    public EventViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = inflater.inflate(R.layout.view_agenda_item, parent, false);
-        return new EventViewHolder(v);
+    public BirthdayViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = inflater.inflate(R.layout.view_birthday, parent, false);
+        return new BirthdayViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolderCursor(final EventViewHolder holder, final Cursor cursor) {
-        DateFormat df = DateFormat.getDateInstance(DateFormat.DEFAULT);
-
+    public void onBindViewHolderCursor(final BirthdayViewHolder holder, final Cursor cursor) {
         Calendar birthday = Calendar.getInstance();
-        int thisYear = birthday.get(Calendar.YEAR);
-        birthday.setTimeInMillis(cursor.getInt(PROJECTION_DT_START_INDEX));
-        birthday.set(Calendar.YEAR, thisYear);
+        birthday.setTimeInMillis(cursor.getLong(PROJECTION_DT_START_INDEX));
 
         holder.name.setText(cursor.getString(PROJECTION_TITLE_INDEX));
-        holder.date.setText(df.format(birthday.getTime()));
+        holder.date.setText(DEFAULT_DATE_FORMAT.format(birthday.getTime()));
         holder.description.setText(cursor.getString(PROJECTION_DESCRIPTION_INDEX));
-        /*TODO: Fix eventId issue first:
-        holder.container.setOnClickListener(new View.OnClickListener() {
+        holder.eventId = cursor.getLong(PROJECTION_EVENT_ID_INDEX);
+        holder.constraintLayout.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.ACTION_OPEN_EVENT)
-                        .putExtra(MainActivity.EXTRA_EVENT_ID, holder.eventId);
-
-                LocalBroadcastManager.getInstance(v.getContext())
-                        .sendBroadcast(intent);
+            public void onClick(final View view) {
+                Uri uri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, holder.eventId);
+                Intent intent = new Intent(Intent.ACTION_VIEW)
+                        .setData(uri);
+                view.getContext().startActivity(intent);
             }
-        });*/
+        });
     }
 
-    static class EventViewHolder extends RecyclerView.ViewHolder {
+    static final class BirthdayViewHolder extends RecyclerView.ViewHolder {
         final TextView date;
         final TextView name;
         final TextView description;
+        final ConstraintLayout constraintLayout;
+        Long eventId;
 
-        EventViewHolder(View itemView) {
+        BirthdayViewHolder(final View itemView) {
             super(itemView);
+            constraintLayout = (ConstraintLayout) itemView.findViewById(R.id.constraint_layout);
             date = (TextView) itemView.findViewById(R.id.date);
             name = (TextView) itemView.findViewById(R.id.title);
             description = (TextView) itemView.findViewById(R.id.description);
