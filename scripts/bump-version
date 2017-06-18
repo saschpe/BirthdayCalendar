@@ -6,14 +6,13 @@
 #
 # Semantic Versioning: MAJOR.MINOR.PATCH
 
-. tools/inc.functions.sh
+. scripts/inc.functions.sh
 
 if [ $# -ne 1 ] ; then
     die "Usage: $0 [VERSION_NAME]\n\n\tExample: $0 0.0.1"
 fi
 
 MOBILE_GRADLE="mobile/build.gradle"
-#WEAR_GRADLE="wear/build.gradle"
 
 # Increase version name
 OLD_VERSION_NAME=$(get_version_name ${MOBILE_GRADLE})
@@ -24,19 +23,12 @@ if [ "$NEW_VERSION_NAME" \< "$OLD_VERSION_NAME" -o \
 fi
 sed -i -e "s|versionName '$OLD_VERSION_NAME|versionName '$NEW_VERSION_NAME|" \
     ${MOBILE_GRADLE}
-     #${WEAR_GRADLE}
 
 # Bump mobile app version code for Google's Play Store
 OLD_VERSION_CODE=$(get_version_code ${MOBILE_GRADLE})
 NEW_VERSION_CODE=$(($OLD_VERSION_CODE+1))
 sed -i -e "s/versionCode $OLD_VERSION_CODE/versionCode $NEW_VERSION_CODE/" \
     ${MOBILE_GRADLE}
-
-# Bump standalone wear app version code for Google's Play Store
-#OLD_VERSION_CODE=$(get_version_code ${WEAR_GRADLE})
-#NEW_VERSION_CODE=$(($OLD_VERSION_CODE+1))
-#sed -i -e "s/versionCode $OLD_VERSION_CODE/versionCode $NEW_VERSION_CODE/" \
-#     ${WEAR_GRADLE}
 
 # Create a commit with appropriate tag
 git commit \
