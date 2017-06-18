@@ -35,7 +35,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.ViewPager;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -92,10 +91,6 @@ public final class MainActivity extends AppCompatActivity {
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
         calendarSyncHandler = new CalendarSyncHandler(this);
-
-        // Set up nested scrollview
-        NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.nested_scroll);
-        scrollView.setFillViewport(true);
 
         // Set up view pager
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
