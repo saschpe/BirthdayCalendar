@@ -124,6 +124,10 @@ public final class CalendarSyncService extends Service {
             return;
         }
 
+        // Get current year
+        Calendar currentCalendar = Calendar.getInstance();
+        final int currentYear = currentCalendar.get(Calendar.YEAR);
+
         try {
             final int eventDateColumn = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.START_DATE);
             final int displayNameColumn = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
@@ -146,10 +150,6 @@ public final class CalendarSyncService extends Service {
                     Calendar eventCalendar = Calendar.getInstance();
                     eventCalendar.setTime(eventDate);
                     int eventYear = eventCalendar.get(Calendar.YEAR);
-
-                    // Get current year
-                    Calendar currentCalendar = Calendar.getInstance();
-                    final int currentYear = currentCalendar.get(Calendar.YEAR);
 
                     // Insert events for the past 2 years and the next 5 years. Events are not inserted
                     // as recurring events to have different titles with birthday age in it.
