@@ -33,6 +33,6 @@
         android:icon="@drawable/ic_info"
         android:orderInCategory="101"
         android:title="@string/help_and_feedback"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
 </menu>
