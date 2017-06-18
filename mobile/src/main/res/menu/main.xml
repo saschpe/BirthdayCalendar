@@ -26,7 +26,7 @@
         android:title="@string/settings"
         android:icon="@drawable/ic_settings"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/help_and_feedback"
