@@ -36,7 +36,7 @@ import saschpe.birthdays.service.BirthdaysIntentService;
 public final class AccountHelper {
     private static final String TAG = AccountHelper.class.getSimpleName();
 
-    public static Bundle addAccount(Context context) {
+    public static Bundle addAccount(final Context context) {
         Log.d(TAG, "AccountHelper.addAccount: Adding account...");
 
         final Account account = new Account(context.getString(R.string.app_name), context.getString(R.string.account_type));
@@ -68,7 +68,7 @@ public final class AccountHelper {
     /**
      * Adds account and forces manual sync afterwards if adding was successful
      */
-    public static Bundle addAccountAndSync(Context context, Handler backgroundStatusHandler) {
+    public static Bundle addAccountAndSync(final Context context, final Handler backgroundStatusHandler) {
         final Bundle result = addAccount(context);
         if (result != null) {
             if (result.containsKey(AccountManager.KEY_ACCOUNT_NAME)) {
@@ -86,7 +86,7 @@ public final class AccountHelper {
     /**
      * Remove account from Android system
      */
-    public static boolean removeAccount(Context context) {
+    public static boolean removeAccount(final Context context) {
         Log.d(TAG, "Removing account...");
         AccountManager manager = AccountManager.get(context);
         final Account account = new Account(context.getString(R.string.app_name), context.getString(R.string.account_type));
@@ -107,7 +107,7 @@ public final class AccountHelper {
     /**
      * Checks whether the account is enabled or not
      */
-    public static boolean isAccountActivated(Context context) {
+    public static boolean isAccountActivated(final Context context) {
         AccountManager manager = AccountManager.get(context);
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED) {
             Log.e(TAG, "Lacking permission GET_ACCOUNTS to query existing accounts!");

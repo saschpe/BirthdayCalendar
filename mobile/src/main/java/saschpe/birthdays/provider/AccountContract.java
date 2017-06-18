@@ -63,7 +63,7 @@ final class AccountContract {
          */
         static final String DEFAULT_SORT = Columns.ACCOUNT_TYPE + " ASC";
 
-        static Uri buildUri(String id) {
+        static Uri buildUri(final String id) {
             return CONTENT_URI.buildUpon().appendPath(id).build();
         }
 
@@ -75,7 +75,7 @@ final class AccountContract {
     /**
      * Simplify life and return a cursor on account list.
      */
-    static Cursor getAccountListCursor(Context context, String selection, String[] selectionArgs) {
+    static Cursor getAccountListCursor(final Context context, final String selection, final String[] selectionArgs) {
         return context.getContentResolver().query(
                 AccountList.CONTENT_URI,
                 new String[]{

@@ -48,7 +48,6 @@ public final class SocialFragment extends Fragment {
         packageName = getContext().getPackageName().replace(".debug", "");
     }
 
-    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_social, container, false);

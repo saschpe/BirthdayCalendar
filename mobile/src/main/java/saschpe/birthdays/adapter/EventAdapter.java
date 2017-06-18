@@ -60,7 +60,7 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Birth
     private static final String SELECTION = "(" + CalendarContract.Events.CALENDAR_ID + " = ?)";
 
     private final LayoutInflater inflater;
-    public static final DateFormat DEFAULT_DATE_FORMAT = DateFormat.getDateInstance(DateFormat.DEFAULT);
+    private static final DateFormat DEFAULT_DATE_FORMAT = DateFormat.getDateInstance(DateFormat.DEFAULT);
 
     public EventAdapter(@NonNull Context context) {
         String[] selectionArgs = new String[] {

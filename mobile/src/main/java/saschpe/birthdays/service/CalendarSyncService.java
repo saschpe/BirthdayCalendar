@@ -230,7 +230,7 @@ public final class CalendarSyncService extends Service {
                 }
             }
         } finally {
-            if (cursor != null && !cursor.isClosed())
+            if (!cursor.isClosed())
                 cursor.close();
         }
 

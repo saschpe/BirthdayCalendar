@@ -196,6 +196,7 @@ public final class SettingsActivity extends AppCompatPreferenceActivity {
                                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                                 PackageManager.DONT_KILL_APP);
 
+                        //noinspection ConstantConditions
                         Snackbar.make(getView(), R.string.hide_app_icon_enable,
                                 Snackbar.LENGTH_LONG).show();
                     } else {

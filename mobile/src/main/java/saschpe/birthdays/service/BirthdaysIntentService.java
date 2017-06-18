@@ -37,15 +37,11 @@ import saschpe.birthdays.helper.AccountHelper;
  */
 public final class BirthdaysIntentService extends IntentService {
     private static final String TAG = BirthdaysIntentService.class.getSimpleName();
-    public static final String ACTION_SYNC = "saschpe.birthdays.service.action.SYNC";
-    public static final String ACTION_CHANGE_COLOR = "saschpe.birthdays.service.action.CHANGE_COLOR";
-    public static final String EXTRA_ERROR_CODE = "saschpe.birthdays.service.extra.ERROR_CODE";
-    public static final String EXTRA_ERROR_THROWABLE = "saschpe.birthdays.service.extra.ERROR_EXCEPTION";
-    public static final String EXTRA_ERROR_MESSAGE = "saschpe.birthdays.service.extra.ERROR_MESSAGE";
-    public static final String EXTRA_MESSENGER = "saschpe.birthdays.service.extra.MESSENGER";
+    private static final String ACTION_SYNC = "saschpe.birthdays.service.action.SYNC";
+    private static final String ACTION_CHANGE_COLOR = "saschpe.birthdays.service.action.CHANGE_COLOR";
+    private static final String EXTRA_MESSENGER = "saschpe.birthdays.service.extra.MESSENGER";
     public static final int MESSAGE_WHAT_STARTED = 1;
-    public static final int MESSAGE_WHAT_DONE = 2;
-    public static final int MESSAGE_WHAT_ERROR = 3;
+    private static final int MESSAGE_WHAT_DONE = 2;
 
     private Messenger messenger;
 
