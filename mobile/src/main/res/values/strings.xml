@@ -31,19 +31,23 @@
     <string name="birthday_calendar_ready">Your birthday calendar is ready!</string>
     <string name="calendar">Calendar</string>
     <string name="dismiss">Dismiss</string>
-    <string name="event_birthday_title_template">%1$s\'s birthday</string>
-    <string name="event_birthday_description_singular_template">%1$s was born %2$d and is now %3$d year old</string>
-    <string name="event_birthday_description_plural_template">%1$s was born %2$d and is now %3$d years old</string>
+    <plurals name="event_anniversary_description_template">
+        <item quantity="one">%1$s celebrates %2$d year</item>
+        <item quantity="other">%1$s celebrates %2$d years</item>
+    </plurals>
     <string name="event_anniversary_title_template">%1$s\'s anniversary</string>
-    <string name="event_anniversary_description_singular_template">%1$s celebrates %2$d year</string>
-    <string name="event_anniversary_description_plural_template">%1$s celebrates %2$d years</string>
+    <plurals name="event_birthday_description_template">
+        <item quantity="one">%1$s was born %2$d and turns %3$d year today</item>
+        <item quantity="other">%1$s was born %2$d and turns %3$d years today</item>
+    </plurals>
+    <string name="event_birthday_title_template">%1$s\'s birthday</string>
     <string name="event_other_title_template">%1$s\'s other event</string>
     <string name="event_custom_title_template">%2$s of %1$s</string>
     <string name="feedback">Feedback</string>
     <string name="feedback_mail_subject_template">Feedback for %s</string>
     <string name="follow">Follow</string>
     <string name="follow_on_twitter">Follow us on Twitter</string>
-    <string name="fork_on_github">Fork on Github</string>
+    <string name="fork_on_github">Fork on GitHub</string>
     <string name="get_app_template">Get the %s Android app</string>
     <string name="help">Help</string>
     <string name="help_and_feedback">Help &amp; feedback</string>
@@ -73,26 +77,22 @@
     <string name="terms_of_service">Terms of service</string>
     <string name="version_info">Version info</string>
 
+    <!-- Settings -->
     <string name="pref_first_run_key" translatable="false">first_run</string>
     <bool name="pref_first_run_default">true</bool>
-
     <string name="pref_birthdays_sync_key" translatable="false">sync_birthdays</string>
     <string name="pref_birthdays_sync_description">Display birthday reminder events</string>
     <bool name="pref_birthdays_sync_default">true</bool>
-
     <string name="pref_anniversaries_sync_key" translatable="false">sync_anniversaries</string>
     <string name="pref_anniversaries_sync_description">Display anniversary reminder events</string>
     <bool name="pref_anniversaries_sync_default">true</bool>
-
     <string name="pref_other_events_sync_key" translatable="false">sync_other_events</string>
     <string name="pref_other_events_sync_title">Other events</string>
     <string name="pref_other_events_sync_description">Display other reminder events</string>
     <bool name="pref_other_events_sync_default">false</bool>
-
     <string name="pref_calendar_color_key" translatable="false">calendar_color</string>
     <string name="pref_calendar_color_title">Calendar color</string>
     <color name="pref_calendar_color_default">@color/primary</color>
-
     <!-- Settings for Notifications -->
     <string name="pref_reminder_time_1_key" translatable="false">reminder_key_1</string>
     <string name="pref_reminder_time_1_title">Remind me</string>
@@ -115,7 +115,6 @@
     <string name="pref_reminder_time_1_default" translatable="false">0</string>
     <string name="pref_reminder_time_2_default" translatable="false">-2</string>
     <!-- See http://developer.android.com/reference/android/provider/CalendarContract.RemindersColumns.html#MINUTES -->
-
     <!-- Settings for Data & Sync -->
     <string name="pref_header_data_sync">Data &amp; sync</string>
     <string name="pref_periodic_sync_frequency_key" translatable="false">sync_frequency</string>
@@ -131,7 +130,6 @@
         <item>86400000</item> <!-- 24 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_DAY, Sigh... -->
     </string-array>
     <integer name="pref_periodic_sync_frequency_default">86400000</integer>
-
     <!-- Miscellaneous settings -->
     <string name="pref_hide_app_icon_key" translatable="false">hide_app_icon</string>
     <bool name="pref_hide_app_icon_default">false</bool>

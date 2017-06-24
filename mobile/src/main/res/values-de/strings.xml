@@ -30,8 +30,15 @@
     <string name="birthdays_and_anniversaries">Geburts- und Jahrestage</string>
     <string name="calendar">Kalender</string>
     <string name="dismiss">Alles klar</string>
-    <string name="event_anniversary_description_plural_template">%1$s feiert %2$d Jahre</string>
+    <plurals name="event_anniversary_description_template">
+        <item quantity="one">%1$s feiert %2$d Jahr</item>
+        <item quantity="other">%1$s feiert %2$d Jahre</item>
+    </plurals>
     <string name="event_anniversary_title_template">%1$s\'s Jahrestag</string>
+    <plurals name="event_birthday_description_template">
+        <item quantity="one">%1$s wurde %2$d geboren und wird heute %3$d Jahr alt</item>
+        <item quantity="other">%1$s wurde %2$d geboren und wird heute %3$d Jahre alt</item>
+    </plurals>
     <string name="event_birthday_title_template">%1$s\'s Geburtstag</string>
     <string name="event_custom_title_template">%2$s von %1$s</string>
     <string name="event_other_title_template">%1$s\'s anderes Ereignis</string>
@@ -74,9 +81,6 @@
     <string name="support_us">Unterstütze uns</string>
     <string name="sources">Quellen</string>
     <string name="terms_of_service">Nutzungsbedingungen</string>
-    <string name="event_anniversary_description_singular_template">%1$s feiert %2$d Jahr</string>
-    <string name="event_birthday_description_plural_template">%1$s wurde %2$d geboren und ist nun %3$d Jahre alt</string>
-    <string name="event_birthday_description_singular_template">%1$s wurde %2$d geboren und ist nun %3$d Jahr alt</string>
     <string-array name="pref_reminder_time_titles">
         <item>nicht weiter</item>
         <item>am selben Tag</item>

@@ -174,19 +174,11 @@ public final class CalendarSyncService extends Service {
                                     break;
                                 case ContactsContract.CommonDataKinds.Event.TYPE_ANNIVERSARY:
                                     title = context.getString(R.string.event_anniversary_title_template, displayName);
-                                    if (age == 1) {
-                                        description = context.getString(R.string.event_anniversary_description_singular_template, displayName, age);
-                                    } else {
-                                        description = context.getString(R.string.event_anniversary_description_plural_template, displayName, age);
-                                    }
+                                    description = context.getResources().getQuantityString(R.plurals.event_anniversary_description_template, age, displayName);
                                     break;
                                 case ContactsContract.CommonDataKinds.Event.TYPE_BIRTHDAY:
                                     title = context.getString(R.string.event_birthday_title_template, displayName);
-                                    if (age == 1) {
-                                        description = context.getString(R.string.event_birthday_description_singular_template, displayName, eventYear, age);
-                                    } else {
-                                        description = context.getString(R.string.event_birthday_description_plural_template, displayName, eventYear, age);
-                                    }
+                                    description = context.getResources().getQuantityString(R.plurals.event_birthday_description_template, age, displayName, eventYear, age);
                                     break;
                                 default:
                                     // Includes ContactsContract.CommonDataKinds.Event.TYPE_OTHER
