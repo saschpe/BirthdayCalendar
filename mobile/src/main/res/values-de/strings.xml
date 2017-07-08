@@ -29,7 +29,14 @@
     <string name="birthdays">Geburtstage</string>
     <string name="birthdays_and_anniversaries">Geburts- und Jahrestage</string>
     <string name="calendar">Kalender</string>
+    <string name="claim_one_title">Niemals</string>
+    <string name="claim_one_description">Wieder einen Geburtstag vergessen. Erstellt Geburtstags-Einträge für alle deine Social-Networks direkt im Google Kalender.</string>
+    <string name="claim_two_title">Universel</string>
+    <string name="claim_two_description">Unterstützt Facebook, LinkedIn, Xing, Skype und alle anderen Apps die Kontakte mit deinem Gerät synchronisieren.</string>
+    <string name="claim_three_title">Erinnerungen</string>
+    <string name="claim_three_description">Stelle Erinnerungen und Alarme ein und entscheide welche Geburtstage du sehen willst.</string>
     <string name="dismiss">Alles klar</string>
+    <string name="done">Fertig</string>
     <plurals name="event_anniversary_description_template">
         <item quantity="one">%1$s feiert %2$d Jahr</item>
         <item quantity="other">%1$s feiert %2$d Jahre</item>
@@ -57,6 +64,7 @@
     <string name="launch_app">Starte App</string>
     <string name="loading">Laden</string>
     <string name="miscellaneous">Verschiedenes</string>
+    <string name="next">Weiter</string>
     <string name="notifications">Erinnerungen</string>
     <string name="open">Öffnen</string>
     <string name="open_source">Open Source</string>
@@ -76,6 +84,7 @@
     <string name="recommend_to_a_friend">Empfiel die app einem Freund</string>
     <string name="send_email">Sende E-Mail…</string>
     <string name="settings">Einstellungen</string>
+    <string name="skip">Überspringen</string>
     <string name="share_via">Teile mit…</string>
     <string name="social">Social</string>
     <string name="support_us">Unterstütze uns</string>
