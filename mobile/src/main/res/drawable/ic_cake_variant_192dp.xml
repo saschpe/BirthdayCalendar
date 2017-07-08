@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2016 Sascha Peilicke
+  ~ Copyright (C) 2017 Sascha Peilicke
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -16,13 +16,6 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<resources>
-
-    <color name="primary">#9C27B0</color>
-    <color name="primary_dark">#7B1FA2</color>
-    <color name="accent">#FF4081</color>
-
-    <color name="grey">#757575</color>
-    <color name="light_grey">#bdbdbd</color>
-
-</resources>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_cake_variant_white_192dp"/>
+</selector>

@@ -21,6 +21,7 @@ import android.app.AlarmManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 
 import saschpe.birthdays.R;
 
@@ -69,5 +70,17 @@ public final class PreferencesHelper {
         minutes[0] = Long.valueOf(prefs.getString(context.getString(R.string.pref_reminder_time_1_key), context.getResources().getString(R.string.pref_reminder_time_1_default)));
         minutes[1] = Long.valueOf(prefs.getString(context.getString(R.string.pref_reminder_time_2_key), context.getResources().getString(R.string.pref_reminder_time_2_default)));
         return minutes;
+    }
+
+    public static boolean hasOnboardingFinished(final @NonNull Context context) {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(context.getString(R.string.pref_onboarding_finished_key),
+                        context.getResources().getBoolean(R.bool.pref_onboarding_finished_default));
+    }
+
+    public static void setOnboardingFinished(final @NonNull Context context, boolean value) {
+        PreferenceManager.getDefaultSharedPreferences(context).edit()
+                .putBoolean(context.getString(R.string.pref_onboarding_finished_key), value)
+                .apply();
     }
 }

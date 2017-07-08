@@ -85,6 +85,10 @@ public final class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if (!PreferencesHelper.hasOnboardingFinished(this)) {
+            startActivity(new Intent(this, OnBoardingActivity.class));
+        }
+
         // Set up toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
