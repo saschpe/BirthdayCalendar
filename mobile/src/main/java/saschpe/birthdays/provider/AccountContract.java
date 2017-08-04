@@ -21,6 +21,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.BaseColumns;
+import android.support.annotation.NonNull;
 
 import saschpe.birthdays.BuildConfig;
 
@@ -75,7 +76,7 @@ final class AccountContract {
     /**
      * Simplify life and return a cursor on account list.
      */
-    static Cursor getAccountListCursor(final Context context, final String selection, final String[] selectionArgs) {
+    static Cursor getAccountListCursor(final @NonNull Context context) {
         return context.getContentResolver().query(
                 AccountList.CONTENT_URI,
                 new String[]{
@@ -84,7 +85,7 @@ final class AccountContract {
                         AccountList.ACCOUNT_TYPE
                 },
                 null,
-                selectionArgs,
+                null,
                 AccountList.DEFAULT_SORT);
     }
 

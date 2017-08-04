@@ -54,7 +54,7 @@ public final class AccountProviderHelper {
 
     public static List<Account> getAccountList(Context context) {
         List<Account> accounts = new ArrayList<>();
-        Cursor cursor = AccountContract.getAccountListCursor(context, null, null);
+        Cursor cursor = AccountContract.getAccountListCursor(context);
 
         try {
             while (cursor != null && cursor.moveToNext()) {
