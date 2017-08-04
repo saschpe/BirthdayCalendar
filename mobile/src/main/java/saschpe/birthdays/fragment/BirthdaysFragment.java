@@ -82,8 +82,8 @@ public final class BirthdaysFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_birthdays, container, false);
-        progressBar = (ProgressBar) rootView.findViewById(R.id.progress_bar);
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
+        progressBar = rootView.findViewById(R.id.progress_bar);
+        recyclerView = rootView.findViewById(R.id.recycler_view);
         return rootView;
     }
 

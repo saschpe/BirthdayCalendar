@@ -47,7 +47,7 @@ public final class HelpActivity extends AppCompatActivity {
         setContentView(R.layout.activity_help);
 
         // Set up toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         final ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -56,15 +56,15 @@ public final class HelpActivity extends AppCompatActivity {
         }
 
         // Set up nested scrollview
-        NestedScrollView scrollView = (NestedScrollView) findViewById(R.id.nested_scroll);
+        NestedScrollView scrollView = findViewById(R.id.nested_scroll);
         scrollView.setFillViewport(true);
 
         // Set up view pager
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(new HelpFragmentPagerAdapter(this, getSupportFragmentManager()));
 
         // Set up  tab layout
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         tabLayout.setupWithViewPager(viewPager);
     }

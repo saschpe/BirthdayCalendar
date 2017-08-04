@@ -81,9 +81,9 @@ public final class AccountArrayAdapter extends ArrayAdapter<AccountModel, Accoun
 
         AccountViewHolder(View itemView) {
             super(itemView);
-            label = (TextView) itemView.findViewById(R.id.label);
-            icon = (ImageView) itemView.findViewById(R.id.icon);
-            selected = (CheckBox) itemView.findViewById(R.id.selected);
+            label = itemView.findViewById(R.id.label);
+            icon = itemView.findViewById(R.id.icon);
+            selected = itemView.findViewById(R.id.selected);
         }
     }
 }

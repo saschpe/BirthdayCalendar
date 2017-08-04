@@ -124,10 +124,10 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Birth
 
         BirthdayViewHolder(final View itemView) {
             super(itemView);
-            constraintLayout = (ConstraintLayout) itemView.findViewById(R.id.constraint_layout);
-            date = (TextView) itemView.findViewById(R.id.date);
-            name = (TextView) itemView.findViewById(R.id.title);
-            description = (TextView) itemView.findViewById(R.id.description);
+            constraintLayout = itemView.findViewById(R.id.constraint_layout);
+            date = itemView.findViewById(R.id.date);
+            name = itemView.findViewById(R.id.title);
+            description = itemView.findViewById(R.id.description);
         }
     }
 }

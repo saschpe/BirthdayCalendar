@@ -51,11 +51,11 @@ public final class SocialFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_social, container, false);
-        provideFeedback = (TextView) view.findViewById(R.id.provide_feedback);
-        followTwitter = (TextView) view.findViewById(R.id.follow_twitter);
-        rateOnPlayStore = (TextView) view.findViewById(R.id.rate_play_store);
-        recommendToFriend = (TextView) view.findViewById(R.id.recommend_to_friend);
-        forkOnGithub = (TextView) view.findViewById(R.id.fork_on_github);
+        provideFeedback = view.findViewById(R.id.provide_feedback);
+        followTwitter = view.findViewById(R.id.follow_twitter);
+        rateOnPlayStore = view.findViewById(R.id.rate_play_store);
+        recommendToFriend = view.findViewById(R.id.recommend_to_friend);
+        forkOnGithub = view.findViewById(R.id.fork_on_github);
         return view;
     }
 

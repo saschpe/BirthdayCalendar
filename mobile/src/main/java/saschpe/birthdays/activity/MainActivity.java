@@ -90,26 +90,26 @@ public final class MainActivity extends AppCompatActivity {
         }
 
         // Set up toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator_layout);
+        coordinatorLayout = findViewById(R.id.coordinator_layout);
         calendarSyncHandler = new CalendarSyncHandler(this);
 
         // Set up view pager
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(new MainFragmentPagerAdapter(this, getSupportFragmentManager()));
         if (PreferencesHelper.getFirstRun(this)) {
             viewPager.setCurrentItem(1); // Only show setup on first run
         }
 
         // Set up  tab layout
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         tabLayout.setupWithViewPager(viewPager);
 
         // Open calendar FAB
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.calendar_fab);
+        FloatingActionButton fab = findViewById(R.id.calendar_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

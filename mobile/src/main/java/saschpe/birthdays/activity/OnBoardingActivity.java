@@ -72,12 +72,12 @@ public final class OnBoardingActivity extends AppCompatActivity {
                 ContextCompat.getColor(this, R.color.primary_dark)
         };
         indicators = new ImageView[]{
-                (ImageView) findViewById(R.id.indicator_one),
-                (ImageView) findViewById(R.id.indicator_two),
-                (ImageView) findViewById(R.id.indicator_three)
+                findViewById(R.id.indicator_one),
+                findViewById(R.id.indicator_two),
+                findViewById(R.id.indicator_three)
         };
 
-        next = (ImageButton) findViewById(R.id.next);
+        next = findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,7 +85,7 @@ public final class OnBoardingActivity extends AppCompatActivity {
                 viewPager.setCurrentItem(page);
             }
         });
-        Button skip = (Button) findViewById(R.id.skip);
+        Button skip = findViewById(R.id.skip);
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,7 +93,7 @@ public final class OnBoardingActivity extends AppCompatActivity {
                 finish();
             }
         });
-        done = (Button) findViewById(R.id.done);
+        done = findViewById(R.id.done);
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,7 +103,7 @@ public final class OnBoardingActivity extends AppCompatActivity {
             }
         });
 
-        viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager = findViewById(R.id.pager);
         viewPager.setAdapter(new OnBoardingPagerAdapter(getSupportFragmentManager()));
         viewPager.setCurrentItem(page);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -162,9 +162,9 @@ public final class OnBoardingActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_on_boarding, container, false);
             view.setTag(page);
-            image = (ImageView) view.findViewById(R.id.image);
-            title = (TextView) view.findViewById(R.id.title);
-            description = (TextView) view.findViewById(R.id.description);
+            image = view.findViewById(R.id.image);
+            title = view.findViewById(R.id.title);
+            description = view.findViewById(R.id.description);
             return view;
         }
 
