@@ -24,7 +24,6 @@
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -34,7 +33,6 @@
             android:layout_height="180dp">
 
             <ImageView
-                android:id="@+id/avatar"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:layout_gravity="bottom|center_horizontal"
