@@ -32,10 +32,10 @@ public final class PreferencesHelper {
                         context.getResources().getBoolean(R.bool.pref_first_run_default));
     }
 
-    public static void setFirstRun(Context context, boolean value) {
+    public static void setFirstRun(Context context) {
         PreferenceManager.getDefaultSharedPreferences(context)
                 .edit()
-                .putBoolean(context.getString(R.string.pref_first_run_key), value)
+                .putBoolean(context.getString(R.string.pref_first_run_key), false)
                 .apply();
     }
 
@@ -72,15 +72,15 @@ public final class PreferencesHelper {
         return minutes;
     }
 
-    public static boolean hasOnboardingFinished(final @NonNull Context context) {
+    public static boolean hasOnBoardingFinished(final @NonNull Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(context.getString(R.string.pref_onboarding_finished_key),
                         context.getResources().getBoolean(R.bool.pref_onboarding_finished_default));
     }
 
-    public static void setOnboardingFinished(final @NonNull Context context, boolean value) {
+    public static void setOnBoardingFinished(final @NonNull Context context) {
         PreferenceManager.getDefaultSharedPreferences(context).edit()
-                .putBoolean(context.getString(R.string.pref_onboarding_finished_key), value)
+                .putBoolean(context.getString(R.string.pref_onboarding_finished_key), true)
                 .apply();
     }
 }

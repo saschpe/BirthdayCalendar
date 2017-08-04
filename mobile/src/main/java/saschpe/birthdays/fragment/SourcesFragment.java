@@ -163,7 +163,7 @@ public final class SourcesFragment extends Fragment implements
 
         if (PreferencesHelper.getFirstRun(getActivity()) ||
                 !contactAccountWhiteList.equals(AccountProviderHelper.getAccountList(getActivity()))) {
-            PreferencesHelper.setFirstRun(getActivity(), false);
+            PreferencesHelper.setFirstRun(getActivity());
             AccountProviderHelper.setAccountList(getActivity(), contactAccountWhiteList);
 
             LocalBroadcastManager.getInstance(getActivity())

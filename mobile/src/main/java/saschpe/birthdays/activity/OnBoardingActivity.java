@@ -99,7 +99,7 @@ public final class OnBoardingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(OnBoardingActivity.this, MainActivity.class));
                 finish();
-                PreferencesHelper.setOnboardingFinished(OnBoardingActivity.this, true);
+                PreferencesHelper.setOnBoardingFinished(OnBoardingActivity.this);
             }
         });
 
