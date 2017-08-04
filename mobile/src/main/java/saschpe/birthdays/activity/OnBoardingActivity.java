@@ -129,7 +129,7 @@ public final class OnBoardingActivity extends AppCompatActivity {
         updateIndicators(page);
     }
 
-    void updateIndicators(final int position) {
+    private void updateIndicators(final int position) {
         for (int i = 0; i < indicators.length; i++) {
             indicators[i].setBackgroundResource(
                     i == position ? R.drawable.indicator_selected : R.drawable.indicator_unselected
