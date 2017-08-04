@@ -174,7 +174,7 @@ public final class CalendarSyncService extends Service {
                                     break;
                                 case ContactsContract.CommonDataKinds.Event.TYPE_ANNIVERSARY:
                                     title = context.getString(R.string.event_anniversary_title_template, displayName);
-                                    description = context.getResources().getQuantityString(R.plurals.event_anniversary_description_template, age, displayName);
+                                    description = context.getResources().getQuantityString(R.plurals.event_anniversary_description_template, age, displayName, age);
                                     break;
                                 case ContactsContract.CommonDataKinds.Event.TYPE_BIRTHDAY:
                                     title = context.getString(R.string.event_birthday_title_template, displayName);
