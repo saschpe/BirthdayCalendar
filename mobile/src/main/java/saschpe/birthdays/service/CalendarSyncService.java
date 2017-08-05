@@ -134,7 +134,7 @@ public final class CalendarSyncService extends Service {
             final int eventTypeColumn = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.TYPE);
             final int eventCustomLabelColumn = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.LABEL);
             final int eventLookupKeyColumn = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.LOOKUP_KEY);
-            final int contactIdColumn = cursor.getColumnIndex(ContactsContract.Data.RAW_CONTACT_ID);
+            final int contactIdColumn = cursor.getColumnIndex(ContactsContract.Data.CONTACT_ID);
 
             int backRef = 0;
 
@@ -278,6 +278,8 @@ public final class CalendarSyncService extends Service {
         builder.withValue(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CONFIRMED);
 
         // Add custom values
+
+        Log.d("XXX", "Adding contact ID '" + contactId + "'");
         builder.withValue(CalendarContract.Events.SYNC_DATA1, contactId);
 
         // Enable reminders for this event
@@ -324,7 +326,7 @@ public final class CalendarSyncService extends Service {
                 ContactsContract.CommonDataKinds.Event.START_DATE,
                 ContactsContract.CommonDataKinds.Event.TYPE,
                 ContactsContract.CommonDataKinds.Event.LABEL,
-                ContactsContract.Data.RAW_CONTACT_ID,
+                ContactsContract.Data.CONTACT_ID,
         };
         MatrixCursor mc = new MatrixCursor(columns);
         int mcIndex = 0;
@@ -354,6 +356,7 @@ public final class CalendarSyncService extends Service {
                             ContactsContract.Data.RAW_CONTACT_ID,
                             ContactsContract.Data.DISPLAY_NAME,
                             ContactsContract.Data.LOOKUP_KEY,
+                            ContactsContract.Data.CONTACT_ID,
                     };
                     String displayWhere = ContactsContract.Data.RAW_CONTACT_ID + "= ?";
                     String[] displaySelectionArgs = new String[]{
@@ -362,9 +365,9 @@ public final class CalendarSyncService extends Service {
                     Cursor displayCursor = contentResolver.query(ContactsContract.Data.CONTENT_URI, displayProjection, displayWhere, displaySelectionArgs, null);
                     try {
                         if (displayCursor != null && displayCursor.moveToNext()) {
-                            contactId = displayCursor.getString(displayCursor.getColumnIndex(ContactsContract.Data.RAW_CONTACT_ID));
                             displayName = displayCursor.getString(displayCursor.getColumnIndex(ContactsContract.Data.DISPLAY_NAME));
                             lookupKey = displayCursor.getString(displayCursor.getColumnIndex(ContactsContract.Data.LOOKUP_KEY));
+                            contactId = displayCursor.getString(displayCursor.getColumnIndex(ContactsContract.Data.CONTACT_ID));
                         }
                     } finally {
                         if (displayCursor != null && !displayCursor.isClosed()) {
