@@ -40,8 +40,8 @@
     </plurals>
     <string name="event_anniversary_title_template">%1$s\'s Jahrestag</string>
     <plurals name="event_birthday_description_template">
-        <item quantity="one">%1$s wurde %2$d geboren und wird heute %3$d Jahr alt</item>
-        <item quantity="other">%1$s wurde %2$d geboren und wird heute %3$d Jahre alt</item>
+        <item quantity="one">%1$s wurde %2$d geboren und wird an diesem Tag %3$d Jahr alt</item>
+        <item quantity="other">%1$s wurde %2$d geboren und wird an diesem Tag %3$d Jahre alt</item>
     </plurals>
     <string name="event_birthday_title_template">%1$s\'s Geburtstag</string>
     <string name="event_custom_title_template">%2$s von %1$s</string>
