@@ -23,13 +23,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CalendarContract;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.request.RequestOptions;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -37,6 +41,7 @@ import java.util.Calendar;
 import saschpe.android.utils.adapter.base.CursorRecyclerAdapter;
 import saschpe.birthdays.R;
 import saschpe.birthdays.service.CalendarSyncService;
+import saschpe.birthdays.util.GlideApp;
 
 /**
  * Displays events from this app's calendar.
@@ -49,13 +54,15 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Birth
             CalendarContract.Instances.TITLE,
             CalendarContract.Instances.DESCRIPTION,
             CalendarContract.Instances.DTSTART,
-            CalendarContract.Instances.EVENT_ID
+            CalendarContract.Instances.EVENT_ID,
+            CalendarContract.Instances.SYNC_DATA1 + " as " + CalendarContract.Instances.SYNC_DATA1
     };
     // The indices for the projection array above.
     private static final int PROJECTION_TITLE_INDEX = 1;
     private static final int PROJECTION_DESCRIPTION_INDEX = 2;
     private static final int PROJECTION_DT_START_INDEX = 3;
     private static final int PROJECTION_EVENT_ID_INDEX = 4;
+    private static final int PROJECTION_SYNC_DATA1_INDEX = 5;
     // "My projections need selections..."
     private static final String SELECTION = "(" + CalendarContract.Events.CALENDAR_ID + " = ?)";
 
@@ -113,9 +120,24 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Birth
                 view.getContext().startActivity(intent);
             }
         });
+
+        // Display contact picture
+        Long contactId = cursor.getLong(PROJECTION_SYNC_DATA1_INDEX);
+        Uri contactUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
+        Uri photoUri = Uri.withAppendedPath(contactUri, ContactsContract.Contacts.Photo.CONTENT_DIRECTORY);
+        if (photoUri != null) {
+            GlideApp
+                    .with(holder.photo.getContext())
+                    .load(photoUri)
+                    .apply(RequestOptions.circleCropTransform())
+                    .placeholder(R.mipmap.ic_launcher)
+                    .into(holder.photo);
+            holder.photo.setVisibility(View.VISIBLE);
+        }
     }
 
     static final class BirthdayViewHolder extends RecyclerView.ViewHolder {
+        final ImageView photo;
         final TextView date;
         final TextView name;
         final TextView description;
@@ -125,6 +147,7 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Birth
         BirthdayViewHolder(final View itemView) {
             super(itemView);
             constraintLayout = itemView.findViewById(R.id.constraint_layout);
+            photo = itemView.findViewById(R.id.photo);
             date = itemView.findViewById(R.id.date);
             name = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);

@@ -134,16 +134,18 @@ public final class CalendarSyncService extends Service {
             final int eventTypeColumn = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.TYPE);
             final int eventCustomLabelColumn = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.LABEL);
             final int eventLookupKeyColumn = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Event.LOOKUP_KEY);
+            final int contactIdColumn = cursor.getColumnIndex(ContactsContract.Data.RAW_CONTACT_ID);
 
             int backRef = 0;
 
             // Loop over all events
             while (cursor.moveToNext()) {
-                final String eventDateString = cursor.getString(eventDateColumn);
-                final String displayName = cursor.getString(displayNameColumn);
-                final int eventType = cursor.getInt(eventTypeColumn);
-                final String eventLookupKey = cursor.getString(eventLookupKeyColumn);
-                final Date eventDate = parseEventDateString(eventDateString);
+                String eventDateString = cursor.getString(eventDateColumn);
+                String displayName = cursor.getString(displayNameColumn);
+                String contactId = cursor.getString(contactIdColumn);
+                int eventType = cursor.getInt(eventTypeColumn);
+                String eventLookupKey = cursor.getString(eventLookupKeyColumn);
+                Date eventDate = parseEventDateString(eventDateString);
 
                 if (eventDate != null) {
                     // Get year from event
@@ -189,7 +191,7 @@ public final class CalendarSyncService extends Service {
 
                         if (title != null) {
                             Log.d(TAG, "Title: " + title + " backref: " + backRef);
-                            operations.add(insertEvent(context, calendarId, eventDate, year, title, description, eventLookupKey));
+                            operations.add(insertEvent(context, calendarId, eventDate, year, title, description, eventLookupKey, contactId));
 
                             // Gets ContentProviderOperation to insert new reminder to the ContentProviderOperation
                             // with the given backRef. This is done using "withValueBackReference"
@@ -246,7 +248,7 @@ public final class CalendarSyncService extends Service {
         }
     }
 
-    private static ContentProviderOperation insertEvent(Context context, long calendarId, Date eventDate, int year, String title, String description, String lookupKey) {
+    private static ContentProviderOperation insertEvent(Context context, long calendarId, Date eventDate, int year, String title, String description, String lookupKey, String contactId) {
         ContentProviderOperation.Builder builder = ContentProviderOperation.newInsert(getCalendarUri(context, CalendarContract.Events.CONTENT_URI));
 
         Calendar calendar = Calendar.getInstance();
@@ -275,9 +277,11 @@ public final class CalendarSyncService extends Service {
         builder.withValue(CalendarContract.Events.DESCRIPTION, description);
         builder.withValue(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CONFIRMED);
 
-        /* Enable reminders for this event
-         * Note: Need to be explicitly set on Android < 4 to enable reminders
-         */
+        // Add custom values
+        builder.withValue(CalendarContract.Events.SYNC_DATA1, contactId);
+
+        // Enable reminders for this event
+        // Note: Need to be explicitly set on Android < 4 to enable reminders
         builder.withValue(CalendarContract.Events.HAS_ALARM, 1);
 
         // Set availability to free.
@@ -320,6 +324,7 @@ public final class CalendarSyncService extends Service {
                 ContactsContract.CommonDataKinds.Event.START_DATE,
                 ContactsContract.CommonDataKinds.Event.TYPE,
                 ContactsContract.CommonDataKinds.Event.LABEL,
+                ContactsContract.Data.RAW_CONTACT_ID,
         };
         MatrixCursor mc = new MatrixCursor(columns);
         int mcIndex = 0;
@@ -340,6 +345,7 @@ public final class CalendarSyncService extends Service {
                 }
 
                 if (addEvent) {
+                    String contactId = null;
                     String displayName = null;
                     String lookupKey = null;
 
@@ -347,7 +353,7 @@ public final class CalendarSyncService extends Service {
                     String[] displayProjection = new String[]{
                             ContactsContract.Data.RAW_CONTACT_ID,
                             ContactsContract.Data.DISPLAY_NAME,
-                            ContactsContract.Data.LOOKUP_KEY
+                            ContactsContract.Data.LOOKUP_KEY,
                     };
                     String displayWhere = ContactsContract.Data.RAW_CONTACT_ID + "= ?";
                     String[] displaySelectionArgs = new String[]{
@@ -356,6 +362,7 @@ public final class CalendarSyncService extends Service {
                     Cursor displayCursor = contentResolver.query(ContactsContract.Data.CONTENT_URI, displayProjection, displayWhere, displaySelectionArgs, null);
                     try {
                         if (displayCursor != null && displayCursor.moveToNext()) {
+                            contactId = displayCursor.getString(displayCursor.getColumnIndex(ContactsContract.Data.RAW_CONTACT_ID));
                             displayName = displayCursor.getString(displayCursor.getColumnIndex(ContactsContract.Data.DISPLAY_NAME));
                             lookupKey = displayCursor.getString(displayCursor.getColumnIndex(ContactsContract.Data.LOOKUP_KEY));
                         }
@@ -405,7 +412,7 @@ public final class CalendarSyncService extends Service {
 
                                 addedEventsIdentifiers.add(eventIdentifier);
 
-                                mc.newRow().add(mcIndex).add(displayName).add(lookupKey).add(startDate).add(type).add(label);
+                                mc.newRow().add(mcIndex).add(displayName).add(lookupKey).add(startDate).add(type).add(label).add(contactId);
                                 mcIndex++;
                             }
 
