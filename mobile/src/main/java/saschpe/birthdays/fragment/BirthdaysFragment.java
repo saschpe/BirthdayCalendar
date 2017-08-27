@@ -58,13 +58,15 @@ public final class BirthdaysFragment extends Fragment {
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            switch (intent.getAction()) {
-                case CalendarSyncService.ACTION_SYNC_DONE:
-                    // TODO: This is rather bold. Ideally we would get notified about
-                    // individual items and notify() them individually
-                    // TODO: Needs restructuring of the cursor loader...
-                    refreshAdapter();
-                    break;
+            if (intent.getAction() != null) {
+                switch (intent.getAction()) {
+                    case CalendarSyncService.ACTION_SYNC_DONE:
+                        // TODO: This is rather bold. Ideally we would get notified about
+                        // individual items and notify() them individually
+                        // TODO: Needs restructuring of the cursor loader...
+                        refreshAdapter();
+                        break;
+                }
             }
         }
     };

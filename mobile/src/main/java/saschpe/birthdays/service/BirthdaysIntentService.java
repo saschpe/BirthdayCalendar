@@ -80,21 +80,21 @@ public final class BirthdaysIntentService extends IntentService {
             messenger = (Messenger) extras.get(EXTRA_MESSENGER);
         }
 
-        sendMessage(MESSAGE_WHAT_STARTED);
-
-        switch(intent.getAction()) {
-            case ACTION_SYNC:
-                CalendarSyncService.performSync(this);
-                break;
-            case ACTION_CHANGE_COLOR:
-                // Update calendar color if enabled
-                if (AccountHelper.isAccountActivated(this)) {
-                    CalendarSyncService.updateCalendarColor(this);
-                }
-                break;
+        if (intent.getAction() != null) {
+            sendMessage(MESSAGE_WHAT_STARTED);
+            switch (intent.getAction()) {
+                case ACTION_SYNC:
+                    CalendarSyncService.performSync(this);
+                    break;
+                case ACTION_CHANGE_COLOR:
+                    // Update calendar color if enabled
+                    if (AccountHelper.isAccountActivated(this)) {
+                        CalendarSyncService.updateCalendarColor(this);
+                    }
+                    break;
+            }
+            sendMessage(MESSAGE_WHAT_DONE);
         }
-
-        sendMessage(MESSAGE_WHAT_DONE);
     }
 
     private void sendMessage(int message) {

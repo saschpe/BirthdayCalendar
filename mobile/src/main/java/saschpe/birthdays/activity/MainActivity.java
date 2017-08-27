@@ -61,21 +61,23 @@ public final class MainActivity extends AppCompatActivity {
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            switch (intent.getAction()) {
-                case ACTION_OPEN_EVENT:
-                    long eventId = intent.getLongExtra(EXTRA_EVENT_ID, -1);
-                    if (eventId >= 0) {
-                        Intent intent1 = new Intent(Intent.ACTION_VIEW)
-                                .setData(ContentUris
-                                        .withAppendedId(CalendarContract.Events.CONTENT_URI,
-                                                eventId));
-                        startActivity(intent1);
-                    }
-                    break;
-                case ACTION_SYNC_REQUESTED:
-                    // Trigger Google Calendar Provider sync after account database update
-                    BirthdaysIntentService.startActionSync(MainActivity.this, calendarSyncHandler);
-                    break;
+            if (intent.getAction() != null) {
+                switch (intent.getAction()) {
+                    case ACTION_OPEN_EVENT:
+                        long eventId = intent.getLongExtra(EXTRA_EVENT_ID, -1);
+                        if (eventId >= 0) {
+                            Intent intent1 = new Intent(Intent.ACTION_VIEW)
+                                    .setData(ContentUris
+                                            .withAppendedId(CalendarContract.Events.CONTENT_URI,
+                                                    eventId));
+                            startActivity(intent1);
+                        }
+                        break;
+                    case ACTION_SYNC_REQUESTED:
+                        // Trigger Google Calendar Provider sync after account database update
+                        BirthdaysIntentService.startActionSync(MainActivity.this, calendarSyncHandler);
+                        break;
+                }
             }
         }
     };
