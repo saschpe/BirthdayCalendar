@@ -63,5 +63,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     // Integration test dependencies
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.0'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
