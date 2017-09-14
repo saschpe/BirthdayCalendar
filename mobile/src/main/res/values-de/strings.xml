@@ -46,11 +46,6 @@
     <string name="event_birthday_title_template">%1$s\'s Geburtstag</string>
     <string name="event_custom_title_template">%2$s von %1$s</string>
     <string name="event_other_title_template">%1$s\'s anderes Ereignis</string>
-    <string name="feedback_mail_subject_template">Feedback für %s</string>
-    <string name="follow">Folgen</string>
-    <string name="follow_on_twitter">Folge uns auf Twitter</string>
-    <string name="fork_on_github">Forke uns auf Github</string>
-    <string name="get_app_template">Lade die %s Android app</string>
     <string name="help_and_feedback">Hilfe &amp; Feedback</string>
     <string name="hide_app_icon">Verstecke App-Icon</string>
     <string name="hide_app_icon_enable">Du kannst das App-Icon über "Konten" in den Systemeinstellungen wieder sichtbar machen.</string>
@@ -59,7 +54,6 @@
     <string name="miscellaneous">Verschiedenes</string>
     <string name="next">Weiter</string>
     <string name="notifications">Erinnerungen</string>
-    <string name="open_source">Open Source</string>
     <string name="open_source_licenses">Open Source Lizensen</string>
     <string name="pref_anniversaries_sync_description">Zeige Jahrestageserinnerungen</string>
     <string name="pref_birthdays_sync_description">Zeige Geburtstagserinnerungen</string>
@@ -70,15 +64,9 @@
     <string name="pref_periodic_sync_frequency_title">Synchronisierungshäufigkeit</string>
     <string name="pref_reminder_time_2_title">Erinnere mich ebenfalls</string>
     <string name="privacy_policy">Datenschutz</string>
-    <string name="provide_feedback">Feedback geben</string>
-    <string name="rate_us_in_the_play_store">Bewerte uns im Play Store</string>
-    <string name="recommend_to_a_friend">Empfiel die app einem Freund</string>
-    <string name="send_email">Sende E-Mail…</string>
     <string name="settings">Einstellungen</string>
     <string name="skip">Überspringen</string>
-    <string name="share_via">Teile mit…</string>
     <string name="social">Social</string>
-    <string name="support_us">Unterstütze uns</string>
     <string name="sources">Quellen</string>
     <string-array name="pref_reminder_time_titles">
         <item>nicht weiter</item>

@@ -23,7 +23,7 @@ android {
 
     defaultConfig {
         applicationId 'saschpe.contactevents'
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 26
         versionCode 160173
         versionName '1.7.3'
@@ -56,6 +56,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.0.0'
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.0.0'
     implementation 'com.github.yukuku:ambilwarna:2.0.1'
+    implementation 'saschpe.android:social-fragment:1.0.2'
     implementation 'saschpe.android:versioninfo:1.2.9'
     implementation 'saschpe.android:utils:1.0.8.2'
 

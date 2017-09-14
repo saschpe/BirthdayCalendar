@@ -34,11 +34,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import saschpe.android.socialfragment.app.SocialFragment;
 import saschpe.android.versioninfo.widget.VersionInfoDialogFragment;
 import saschpe.birthdays.BuildConfig;
 import saschpe.birthdays.R;
 import saschpe.birthdays.fragment.OpenSourceLicensesFragment;
-import saschpe.birthdays.fragment.SocialFragment;
 
 public final class HelpActivity extends AppCompatActivity {
     @Override
@@ -101,9 +101,11 @@ public final class HelpActivity extends AppCompatActivity {
 
     private static final class HelpFragmentPagerAdapter extends FragmentPagerAdapter {
         private final String[] pageTitles;
+        private final String applicationName;
 
         HelpFragmentPagerAdapter(final Context context, final FragmentManager fm) {
             super(fm);
+            applicationName = context.getString(R.string.app_name);
             pageTitles = new String[] {
                     context.getString(R.string.social),
                     context.getString(R.string.open_source_licenses)
@@ -120,7 +122,18 @@ public final class HelpActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                 default:
-                    return new SocialFragment();
+                    return new SocialFragment.Builder()
+                            // Mandatory
+                            .setApplicationId(BuildConfig.APPLICATION_ID)
+                            // Optional
+                            .setApplicationName(applicationName)
+                            .setContactEmailAddress("saschpe+birthdaycalender@mailbox.org")
+                            .setGithubProject("saschpe/BirthdayCalendar")
+                            .setTwitterProfile("saschpe")
+                            // Visual customization
+                            .setHeaderTextColor(R.color.accent)
+                            .setIconTint(android.R.color.white)
+                            .build();
                 case 1:
                     return new OpenSourceLicensesFragment();
             }

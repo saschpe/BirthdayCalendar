@@ -32,7 +32,6 @@ import android.content.OperationApplicationException;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.provider.BaseColumns;
@@ -289,7 +288,7 @@ public final class CalendarSyncService extends Service {
         // Set availability to free.
         builder.withValue(CalendarContract.Events.AVAILABILITY, CalendarContract.Events.AVAILABILITY_FREE);
         // Add button to open contact
-        if (Build.VERSION.SDK_INT >= 16 && lookupKey != null) {
+        if (lookupKey != null) {
             builder.withValue(CalendarContract.Events.CUSTOM_APP_PACKAGE, context.getPackageName());
             final Uri contactLookupUri = Uri.withAppendedPath(ContactsContract.Contacts.CONTENT_LOOKUP_URI, lookupKey);
             builder.withValue(CalendarContract.Events.CUSTOM_APP_URI, contactLookupUri.toString());
