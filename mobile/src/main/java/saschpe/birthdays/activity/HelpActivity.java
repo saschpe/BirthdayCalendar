@@ -127,7 +127,7 @@ public final class HelpActivity extends AppCompatActivity {
                             .setApplicationId(BuildConfig.APPLICATION_ID)
                             // Optional
                             .setApplicationName(applicationName)
-                            .setContactEmailAddress("saschpe+birthdaycalender@mailbox.org")
+                            .setContactEmailAddress("sascha+gp@peilicke.de")
                             .setGithubProject("saschpe/BirthdayCalendar")
                             .setTwitterProfile("saschpe")
                             // Visual customization
