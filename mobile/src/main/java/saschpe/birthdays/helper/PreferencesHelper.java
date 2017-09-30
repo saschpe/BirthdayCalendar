@@ -17,7 +17,6 @@
 
 package saschpe.birthdays.helper;
 
-import android.app.AlarmManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -55,9 +54,14 @@ public final class PreferencesHelper {
     }
 
     public static long getPeriodicSyncFrequency(Context context) {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-                .getLong(context.getString(R.string.pref_periodic_sync_frequency_key),
-                        AlarmManager.INTERVAL_DAY);
+        try {
+            // Happens on some devices...
+            return PreferenceManager.getDefaultSharedPreferences(context)
+                    .getLong(context.getString(R.string.pref_periodic_sync_frequency_key),
+                            context.getResources().getInteger(R.integer.pref_periodic_sync_frequency_default));
+        } catch (ClassCastException e) {
+            return context.getResources().getInteger(R.integer.pref_periodic_sync_frequency_default);
+        }
     }
 
     /**
