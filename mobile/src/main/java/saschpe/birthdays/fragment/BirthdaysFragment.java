@@ -23,7 +23,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -38,6 +41,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+
+import java.util.Calendar;
 
 import saschpe.android.utils.helper.DisplayHelper;
 import saschpe.android.utils.widget.SpacesItemDecoration;
@@ -70,6 +75,7 @@ public final class BirthdaysFragment extends Fragment {
             }
         }
     };
+    private Cursor cursor;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -130,6 +136,12 @@ public final class BirthdaysFragment extends Fragment {
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        cursor.close();
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case PERMISSION_REQUEST_ALL:
@@ -151,7 +163,28 @@ public final class BirthdaysFragment extends Fragment {
     }
 
     private void refreshAdapter() {
-        EventAdapter adapter = new EventAdapter(getContext());
+        String[] selectionArgs = new String[] {
+                String.valueOf(CalendarSyncService.getCalendar(getContext()))
+        };
+
+        // Looking one year into the future is enough to display
+        // everybody's birthday once...
+        Calendar now = Calendar.getInstance();
+        String nowString = Long.toString(now.getTimeInMillis());
+        now.add(Calendar.YEAR, 1);
+        String oneYearFromNow = Long.toString(now.getTimeInMillis());
+
+        Uri eventsUri = CalendarContract.Instances.CONTENT_URI.buildUpon()
+                .appendEncodedPath(nowString)
+                .appendEncodedPath(oneYearFromNow)
+                .build();
+
+        //noinspection MissingPermission
+        cursor = getContext().getContentResolver()
+                .query(eventsUri, EventAdapter.PROJECTION, EventAdapter.SELECTION, selectionArgs,
+                        CalendarContract.Instances.DTSTART + " ASC");
+
+        EventAdapter adapter = new EventAdapter(getContext(), cursor);
         progressBar.setVisibility(View.GONE);
         recyclerView.setAdapter(adapter);
         recyclerView.setVisibility(View.VISIBLE);

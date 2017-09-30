@@ -40,7 +40,6 @@ import java.util.Calendar;
 
 import saschpe.android.utils.adapter.base.CursorRecyclerAdapter;
 import saschpe.birthdays.R;
-import saschpe.birthdays.service.CalendarSyncService;
 import saschpe.birthdays.util.GlideApp;
 
 /**
@@ -49,7 +48,7 @@ import saschpe.birthdays.util.GlideApp;
 public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.BirthdayViewHolder> {
     // Projection array. Creating indices for this array instead of doing
     // dynamic lookups improves performance.
-    private static final String[] PROJECTION = new String[] {
+    public static final String[] PROJECTION = new String[] {
             CalendarContract.Instances._ID,
             CalendarContract.Instances.TITLE,
             CalendarContract.Instances.DESCRIPTION,
@@ -64,35 +63,13 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Birth
     private static final int PROJECTION_EVENT_ID_INDEX = 4;
     private static final int PROJECTION_SYNC_DATA1_INDEX = 5;
     // "My projections need selections..."
-    private static final String SELECTION = "(" + CalendarContract.Events.CALENDAR_ID + " = ?)";
+    public static final String SELECTION = "(" + CalendarContract.Events.CALENDAR_ID + " = ?)";
 
     private final LayoutInflater inflater;
     private static final DateFormat DEFAULT_DATE_FORMAT = DateFormat.getDateInstance(DateFormat.DEFAULT);
 
-    public EventAdapter(@NonNull Context context) {
-        String[] selectionArgs = new String[] {
-                String.valueOf(CalendarSyncService.getCalendar(context))
-        };
-
-        // Looking one year into the future is enough to display
-        // everybody's birthday once...
-        Calendar now = Calendar.getInstance();
-        String nowString = Long.toString(now.getTimeInMillis());
-        now.add(Calendar.YEAR, 1);
-        String oneYearFromNow = Long.toString(now.getTimeInMillis());
-
-        Uri eventsUri = CalendarContract.Instances.CONTENT_URI.buildUpon()
-                .appendEncodedPath(nowString)
-                .appendEncodedPath(oneYearFromNow)
-                .build();
-
-        //noinspection MissingPermission
-        Cursor cursor = context.getContentResolver()
-                .query(eventsUri, PROJECTION, SELECTION, selectionArgs,
-                        CalendarContract.Instances.DTSTART + " ASC");
-
-        init(cursor); // See base class
-
+    public EventAdapter(final @NonNull Context context, final Cursor cursor) {
+        super(cursor);
         inflater = LayoutInflater.from(context);
     }
 
