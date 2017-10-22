@@ -67,10 +67,6 @@ final class AccountContract {
         static Uri buildUri(final String id) {
             return CONTENT_URI.buildUpon().appendPath(id).build();
         }
-
-        public static String getId(Uri uri) {
-            return uri.getLastPathSegment();
-        }
     }
 
     /**

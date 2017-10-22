@@ -20,7 +20,6 @@ package saschpe.birthdays.helper;
 import android.Manifest;
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.accounts.AccountManagerFuture;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -81,27 +80,6 @@ public final class AccountHelper {
             Log.e(TAG, "Unable to add account. Result was null.");
         }
         return null;
-    }
-
-    /**
-     * Remove account from Android system
-     */
-    public static boolean removeAccount(final Context context) {
-        Log.d(TAG, "Removing account...");
-        AccountManager manager = AccountManager.get(context);
-        final Account account = new Account(context.getString(R.string.app_name), context.getString(R.string.account_type));
-        AccountManagerFuture<Boolean> future = manager.removeAccount(account, null, null);
-        if (future.isDone()) {
-            try {
-                future.getResult();
-                return true;
-            } catch (Exception e) {
-                Log.e(TAG, "Problem while removing account!", e);
-                return false;
-            }
-        } else {
-            return false;
-        }
     }
 
     /**

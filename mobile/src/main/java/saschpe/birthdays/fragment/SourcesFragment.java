@@ -71,7 +71,7 @@ public final class SourcesFragment extends Fragment implements
         adapter = new AccountArrayAdapter(getActivity(), null);
         adapter.setOnAccountSelectedListener(new AccountArrayAdapter.OnAccountSelectedListener() {
             @Override
-            public void onAccountSelected(AccountModel accountModel) {
+            public void onAccountSelected() {
                 storeSelectedAccountsAndSync();
             }
         });

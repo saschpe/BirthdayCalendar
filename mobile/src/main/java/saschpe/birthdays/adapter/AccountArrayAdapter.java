@@ -38,7 +38,7 @@ public final class AccountArrayAdapter extends ArrayAdapter<AccountModel, Accoun
     private OnAccountSelectedListener onAccountSelectedListener;
 
     public interface OnAccountSelectedListener {
-        void onAccountSelected(AccountModel accountModel);
+        void onAccountSelected();
     }
 
     public AccountArrayAdapter(@NonNull Context context, List<AccountModel> objects) {
@@ -68,7 +68,7 @@ public final class AccountArrayAdapter extends ArrayAdapter<AccountModel, Accoun
             public void onClick(View view) {
                 item.toggleSelected();
                 if (onAccountSelectedListener != null) {
-                    onAccountSelectedListener.onAccountSelected(item);
+                    onAccountSelectedListener.onAccountSelected();
                 }
             }
         });
