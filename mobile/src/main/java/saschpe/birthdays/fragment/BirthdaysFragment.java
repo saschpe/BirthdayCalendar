@@ -138,7 +138,9 @@ public final class BirthdaysFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        cursor.close();
+        if (cursor != null && !cursor.isClosed()) {
+            cursor.close();
+        }
     }
 
     @Override
