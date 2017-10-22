@@ -3,46 +3,47 @@ jdk: oraclejdk8
 sudo: false
 android:
   components:
-    - platform-tools
-    - tools
-    - build-tools-26.0.2
-    - android-26
-    - extra-android-m2repository
-    - extra-google-m2repository 
+  - platform-tools
+  - tools
+  - build-tools-26.0.2
+  - android-26
+  - extra-android-m2repository
+  - extra-google-m2repository
   licenses:
-    - android-sdk-license-.+
+  - android-sdk-license-.+
 env:
   global:
-    - secure: "sH3nvB01OfdbX/53CiPKGSwHYcjIcRfOPHDVslexcaRWc58hPPwOiFC7NSbdeqX78pl4jtUnK56QVwJgkg01neSPNcBtEkOcUa7TBDBMO7+G9woyRSLdA6knIDbFBRk01WD7Zq6YiyWb7Uar/i0+cPx68PJa926Gd7hd2V3Ab322Kf0vRRMDg4wVY6mml6U1wL4p51Ikl/9BHx/y8BdCam7eL5/HDEkt+QuQGP4q/R+ff9EG07sjLRx/RnyzaBGR7bra81XdY0HRR9irK2Np1C2NHJVOIRoVsV/DcBnjLCg0fAxq3rUyhcmgvp0fvy9nr4Xan4mz8CXGEp8vHVIYkLlD3EhZykjmnxiuYpoY7Ufu/2RwvbTRkzycjLrugOBVPweDo2Gx4Dcc6tzRMggG0whQPIhJ154JRWTRkOOWQtwFsOQKr1pjprmoJioTLKiuRcJQMnGMxrhNPNZJIEmU7PSj/yHbRelP1F4jgacQicNPRo5o+BhC0ef9UBwQFbV4KIEBuYofGFOhSQDWLcjzpzukKSD39Reqw4l27Mp1pZLcZ6NOXyCH9XsjzAp5AUep6Cz7kCiaWQJjEaCy00b+qSyf31v9dOax7+Fu3H2XUwMrrfUKVaqN1aUSqG/jyb/W2S6eMtwKYFC035PPu+1MCF5xI90ymiIPUTMZgoG3uUQ="
-    - secure: "aMZOsvEWsI0Ga8Z40w3xRe56KBE2qanFvpqQRxmmz9IWHoDemodlVcsj6qenNas96L1SpD2RDhrw9soywtT1/VEBo78geJeSNiYhXKnuNVOF19tMa9XHA/8AyBQEA//uv1SljsNqeSTQyDPSZaH2EF6AQcm0Khw1f4wYEyQn7EOr6L11eHPAelov5ISXJYvx8uTz3hDPnuASs8s4+G0uAOqYJKIvlpb640BxF20zwEgv3IeORlxGgqooVsR5CJeGIKpKCIc8V81NzskWLSxYLkBU+aajnrdF0o72nEMuaK3gyCJG37r4BPgpeHZfu/+I4YuLHiNCjvSm9r61XapPJJUq/HUzAgbM4l8KyFXz408aiNCyoIU+gV0ZciewSxAW9nyhuu1lYdWC9ViiNzalAVmVj0r+x1/nF+xaA6lFVgzY1AfQkp3OckNIGIItD8k4yPH1nzJDDNrL3mXLH6hGSHI0GB/lPfiw3hymGHjMkGLcYPgAXtroUgxAOvv1qAFS4DEFpvJvIHMNFTzKfz1DY1JQ2/IYHhesAsSXoOiDn8tRlYSxad3GY3tNjQL7T4pI2n20kZA0ykH6t2asAn8JSGjPtDIWMQxD1Q9Z3kM3jo4B/PhAHV4cebj4DTBZAgwOwL5DEPJ9gh0Zh/SWWp8z/z6YvS6y6LYf+hDTHD84Zxg="
+  - secure: sH3nvB01OfdbX/53CiPKGSwHYcjIcRfOPHDVslexcaRWc58hPPwOiFC7NSbdeqX78pl4jtUnK56QVwJgkg01neSPNcBtEkOcUa7TBDBMO7+G9woyRSLdA6knIDbFBRk01WD7Zq6YiyWb7Uar/i0+cPx68PJa926Gd7hd2V3Ab322Kf0vRRMDg4wVY6mml6U1wL4p51Ikl/9BHx/y8BdCam7eL5/HDEkt+QuQGP4q/R+ff9EG07sjLRx/RnyzaBGR7bra81XdY0HRR9irK2Np1C2NHJVOIRoVsV/DcBnjLCg0fAxq3rUyhcmgvp0fvy9nr4Xan4mz8CXGEp8vHVIYkLlD3EhZykjmnxiuYpoY7Ufu/2RwvbTRkzycjLrugOBVPweDo2Gx4Dcc6tzRMggG0whQPIhJ154JRWTRkOOWQtwFsOQKr1pjprmoJioTLKiuRcJQMnGMxrhNPNZJIEmU7PSj/yHbRelP1F4jgacQicNPRo5o+BhC0ef9UBwQFbV4KIEBuYofGFOhSQDWLcjzpzukKSD39Reqw4l27Mp1pZLcZ6NOXyCH9XsjzAp5AUep6Cz7kCiaWQJjEaCy00b+qSyf31v9dOax7+Fu3H2XUwMrrfUKVaqN1aUSqG/jyb/W2S6eMtwKYFC035PPu+1MCF5xI90ymiIPUTMZgoG3uUQ=
+  - secure: aMZOsvEWsI0Ga8Z40w3xRe56KBE2qanFvpqQRxmmz9IWHoDemodlVcsj6qenNas96L1SpD2RDhrw9soywtT1/VEBo78geJeSNiYhXKnuNVOF19tMa9XHA/8AyBQEA//uv1SljsNqeSTQyDPSZaH2EF6AQcm0Khw1f4wYEyQn7EOr6L11eHPAelov5ISXJYvx8uTz3hDPnuASs8s4+G0uAOqYJKIvlpb640BxF20zwEgv3IeORlxGgqooVsR5CJeGIKpKCIc8V81NzskWLSxYLkBU+aajnrdF0o72nEMuaK3gyCJG37r4BPgpeHZfu/+I4YuLHiNCjvSm9r61XapPJJUq/HUzAgbM4l8KyFXz408aiNCyoIU+gV0ZciewSxAW9nyhuu1lYdWC9ViiNzalAVmVj0r+x1/nF+xaA6lFVgzY1AfQkp3OckNIGIItD8k4yPH1nzJDDNrL3mXLH6hGSHI0GB/lPfiw3hymGHjMkGLcYPgAXtroUgxAOvv1qAFS4DEFpvJvIHMNFTzKfz1DY1JQ2/IYHhesAsSXoOiDn8tRlYSxad3GY3tNjQL7T4pI2n20kZA0ykH6t2asAn8JSGjPtDIWMQxD1Q9Z3kM3jo4B/PhAHV4cebj4DTBZAgwOwL5DEPJ9gh0Zh/SWWp8z/z6YvS6y6LYf+hDTHD84Zxg=
 branches:
   except:
-    - gh-pages
+  - gh-pages
+before_cache:
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+before_script:
+- "./scripts/create-test-keystore"
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+  - "$HOME/.android/build-cache"
+script:
+- echo "Travis branch is $TRAVIS_BRANCH"
+- echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
+- "./gradlew check"
+deploy:
+  provider: releases
+  api_key:
+    secure: jytYm+X7PGiiGpjoFRe0aKjyw6WZou/nyTxznnBK6d0sSiLz5T3f/QjWU2FNjyK+sy/fz5uY7jGZtD6SkbQBEnUvMWRTIo+F29QxD+XgfsiJRUUcuohuUPwxcGXDNWkcA7PpxuTTIWtdXbIZJNI/DhhxVcM/+3DBi2Wd/SAwbwpqr4xOWR7SOXgxx1RBwXEfLOYeYmNNKxXK3hd9A1QwHa/6r27t5gdsU0dS2Ymlwp73DRGdXkNfrT+TBb/mvaMsaB9pz6XH71998oR7jvY3j1HBaRr/jEmC58vqh8qAAa3rgz2b++IuOuthV4v1r6mATg/q03XbW+9zIs/9UVBf9KWQO+tJlhlIL3iAFkDbhMFy6oOy6aenfyhBY/ak9IiKGBxkgOiBDTMOs+3x1q3JZEzp4HCBpH1rsAP48hQPfCvIVYNBp4qVtXD5nz7lgmE11ZhFPkylAs5jmzHYaVGu5lzn5Esf395I8iWSfvPuPfkbglfpwZKKlB8+A/L4tq6h0vK4ml5Mc6PdzdvEbv3SvSVsKnf1ZB6j0+4iiGBB7qSw/j+SpX9hIuOB4HkO1Bzpxfhm2qHF9LbdIWM4UWQWe1oAkh/Oe5OeNnU6VWBcK8Yk3uPAMOJOTpdf3OLxxZ0WjgV1WBWZ5dUfOWDrjrBwAt1QV03wSl2ZjAJzUQs9PwQ=
+  file_glob: true
+  file: mobile/build/outputs/apk/release/saschpe.contactevents-*-release.apk
+  on:
+    repo: saschpe/BirthdayCalendar
+    tags: true
 notifications:
   email:
     recipients:
-      - sascha@peilicke.de
-    on_success: never # default: change
-    on_failure: always # default: always
-before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
-# install git lfs
-#   see https://github.com/travis-ci/travis-ci/issues/3634
-before_install:
-  - mkdir -p $HOME/bin
-  - wget https://github.com/github/git-lfs/releases/download/v2.2.1/git-lfs-linux-amd64-2.2.1.tar.gz
-  - tar xvfz git-lfs-linux-amd64-2.2.1.tar.gz
-  - mv git-lfs-2.2.1/git-lfs $HOME/bin/git-lfs
-  - export PATH=$PATH:$HOME/bin/
-before_script:
-  - git lfs pull
-cache:
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
-script:
-    - echo "Travis branch is $TRAVIS_BRANCH"
-    - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
-    - ./gradlew check
+    - sascha@peilicke.de
+    on_success: never
+    on_failure: always

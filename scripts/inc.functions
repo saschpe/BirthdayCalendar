@@ -8,6 +8,15 @@ function die {
     exit 1
 }
 
+function safe {
+    "$@"
+    local status=$?
+    if [ $status -ne 0 ]; then
+        die "\nBUILD FAILED\nWhen invoking \"$@\"\n" >&2
+    fi
+    return $status
+}
+
 function version_gt() {
     test "$(printf '%s\n' "$@" | sort -V | head -n 1)" != "$1";
 }
