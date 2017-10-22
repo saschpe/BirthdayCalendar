@@ -17,6 +17,7 @@
 
 package saschpe.birthdays.activity;
 
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ContentUris;
 import android.content.Context;
@@ -111,7 +112,7 @@ public final class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         // Open calendar FAB
-        FloatingActionButton fab = findViewById(R.id.calendar_fab);
+        final FloatingActionButton fab = findViewById(R.id.calendar_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +121,12 @@ public final class MainActivity extends AppCompatActivity {
                                 .buildUpon()
                                 .appendPath("time")
                                 .build());
-                startActivity(intent);
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    Snackbar.make(v, R.string.no_calendar_app, Snackbar.LENGTH_LONG).show();
+                    fab.hide();
+                }
             }
         });
     }

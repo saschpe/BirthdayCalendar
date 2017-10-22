@@ -53,6 +53,7 @@
     <string name="launch_app">Starte App</string>
     <string name="miscellaneous">Verschiedenes</string>
     <string name="next">Weiter</string>
+    <string name="no_calendar_app">Sie scheinen keine Kalender-App installiert zu haben!</string>
     <string name="notifications">Erinnerungen</string>
     <string name="open_source_licenses">Open Source Lizensen</string>
     <string name="pref_anniversaries_sync_description">Zeige Jahrestageserinnerungen</string>
