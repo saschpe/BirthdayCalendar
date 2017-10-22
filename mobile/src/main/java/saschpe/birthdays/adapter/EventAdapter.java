@@ -40,7 +40,7 @@ import java.util.Calendar;
 
 import saschpe.android.utils.adapter.base.CursorRecyclerAdapter;
 import saschpe.birthdays.R;
-import saschpe.birthdays.util.GlideApp;
+import saschpe.birthdays.glide.module.GlideApp;
 
 /**
  * Displays events from this app's calendar.

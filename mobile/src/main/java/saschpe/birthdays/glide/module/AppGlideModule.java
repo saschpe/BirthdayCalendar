@@ -15,14 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package saschpe.birthdays.util;
+package saschpe.birthdays.glide.module;
 
 import com.bumptech.glide.annotation.GlideModule;
-import com.bumptech.glide.module.AppGlideModule;
 
 @SuppressWarnings("WeakerAccess")
 @GlideModule
-public class BirthdayCalendarGlideModule extends AppGlideModule {
+public class AppGlideModule extends com.bumptech.glide.module.AppGlideModule {
     @Override
     public boolean isManifestParsingEnabled() {
         return false;
