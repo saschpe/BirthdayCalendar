@@ -17,6 +17,9 @@
 
 apply plugin: 'com.android.application'
 
+def localProperties = new Properties()
+file("$rootProject.projectDir/local.properties").withInputStream { localProperties.load(it) }
+
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
@@ -32,6 +35,15 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    signingConfigs {
+        config {
+            keyAlias localProperties["signing.key.alias"]
+            keyPassword localProperties["signing.key.password"]
+            storeFile file(localProperties["signing.store.file"])
+            storePassword localProperties["signing.store.password"]
+        }
+    }
+
     buildTypes {
         debug {
             applicationIdSuffix '.debug'
@@ -39,7 +51,7 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.config
         }
     }
 }
