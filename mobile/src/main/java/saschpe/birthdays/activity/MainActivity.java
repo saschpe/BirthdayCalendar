@@ -120,7 +120,8 @@ public final class MainActivity extends AppCompatActivity {
                         .setData(CalendarContract.CONTENT_URI
                                 .buildUpon()
                                 .appendPath("time")
-                                .build());
+                                .build())
+                        .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
