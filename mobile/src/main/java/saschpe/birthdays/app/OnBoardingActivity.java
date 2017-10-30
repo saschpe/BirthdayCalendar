@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package saschpe.birthdays.activity;
+package saschpe.birthdays.app;
 
 import android.animation.ArgbEvaluator;
 import android.content.Intent;

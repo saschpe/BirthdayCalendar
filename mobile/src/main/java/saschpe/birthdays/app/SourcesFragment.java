@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Sascha Peilicke
+ * Copyright (C) 2017 Sascha Peilicke
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package saschpe.birthdays.fragment;
+package saschpe.birthdays.app;
 
 import android.Manifest;
 import android.accounts.Account;
@@ -41,7 +41,6 @@ import java.util.List;
 
 import saschpe.android.utils.helper.DisplayHelper;
 import saschpe.birthdays.R;
-import saschpe.birthdays.activity.MainActivity;
 import saschpe.birthdays.adapter.AccountArrayAdapter;
 import saschpe.birthdays.helper.PreferencesHelper;
 import saschpe.birthdays.model.AccountModel;

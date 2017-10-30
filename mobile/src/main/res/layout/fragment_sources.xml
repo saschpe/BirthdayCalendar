@@ -22,7 +22,7 @@
     android:id="@+id/container"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".app.MainActivity">
 
     <TextView
         android:id="@+id/description"

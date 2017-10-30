@@ -41,7 +41,7 @@
     <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
 
     <application
-        android:name=".application.Application"
+        android:name=".app.Application"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -51,7 +51,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".app.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -64,16 +64,16 @@
         </activity>
 
         <activity
-            android:name=".activity.HelpActivity"
+            android:name=".app.HelpActivity"
             android:label="@string/help_and_feedback"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".activity.OnBoardingActivity"
+            android:name=".app.OnBoardingActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".activity.SettingsActivity"
+            android:name=".app.SettingsActivity"
             android:label="@string/settings">
             <intent-filter>
                 <action android:name="saschpe.birthdays.action.SETTINGS"/>
@@ -82,7 +82,7 @@
         </activity>
 
         <activity
-            android:name=".activity.AccountCreateActivity"/>
+            android:name=".accounts.AccountCreateActivity"/>
 
         <service
             android:name=".service.BirthdaysIntentService"

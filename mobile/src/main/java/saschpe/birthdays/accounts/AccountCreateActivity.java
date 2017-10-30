@@ -15,22 +15,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package saschpe.birthdays.application;
+package saschpe.birthdays.accounts;
 
-import android.os.StrictMode;
-import android.support.v7.app.AppCompatDelegate;
+import android.accounts.AccountAuthenticatorActivity;
+import android.os.Bundle;
 
-import saschpe.birthdays.BuildConfig;
+import saschpe.birthdays.helper.AccountHelper;
 
-public final class Application extends android.app.Application {
+public final class AccountCreateActivity extends AccountAuthenticatorActivity {
+    /**
+     * Retrieves the AccountAuthenticatorResponse from either the intent of the
+     * icicle, if the icicle is non-zero.
+     *
+     * @param icicle the save instance data of this Activity, may be null
+     */
     @Override
-    public void onCreate() {
-        super.onCreate();
-        if (BuildConfig.DEBUG) {
-            StrictMode.enableDefaults();
+    protected void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+        Bundle result = AccountHelper.addAccountAndSync(this, null);
+        if (result != null) {
+            setAccountAuthenticatorResult(result);
         }
-
-        // Support vector drawable support for pre-Lollipop devices
-        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
+        finish();
     }
 }

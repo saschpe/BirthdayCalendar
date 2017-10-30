@@ -20,19 +20,19 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="saschpe.birthdays.activity.SettingsActivity$CalendarPreferenceFragment"
+        android:fragment="saschpe.birthdays.app.SettingsActivity$CalendarPreferenceFragment"
         android:title="@string/calendar" />
 
     <header
-        android:fragment="saschpe.birthdays.activity.SettingsActivity$NotificationPreferenceFragment"
+        android:fragment="saschpe.birthdays.app.SettingsActivity$NotificationPreferenceFragment"
         android:title="@string/notifications" />
 
     <header
-        android:fragment="saschpe.birthdays.activity.SettingsActivity$DataSyncPreferenceFragment"
+        android:fragment="saschpe.birthdays.app.SettingsActivity$DataSyncPreferenceFragment"
         android:title="@string/pref_header_data_sync" />
 
     <header
-        android:fragment="saschpe.birthdays.activity.SettingsActivity$MiscPreferenceFragment"
+        android:fragment="saschpe.birthdays.app.SettingsActivity$MiscPreferenceFragment"
         android:title="@string/miscellaneous" />
 
 </preference-headers>

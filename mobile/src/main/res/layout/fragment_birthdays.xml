@@ -24,7 +24,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".app.MainActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"

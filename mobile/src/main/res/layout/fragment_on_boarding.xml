@@ -22,7 +22,7 @@
     android:id="@+id/constraint_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.OnBoardingActivity$OnBoardingFragment">
+    tools:context=".app.OnBoardingActivity$OnBoardingFragment">
 
     <ImageView
         android:id="@+id/image"

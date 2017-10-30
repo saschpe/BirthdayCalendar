@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 Sascha Peilicke
+ * Copyright (C) 2017 Sascha Peilicke
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package saschpe.birthdays.activity;
+package saschpe.birthdays.app;
 
 import android.content.Context;
 import android.content.Intent;
@@ -38,7 +38,7 @@ import saschpe.android.socialfragment.app.SocialFragment;
 import saschpe.android.versioninfo.widget.VersionInfoDialogFragment;
 import saschpe.birthdays.BuildConfig;
 import saschpe.birthdays.R;
-import saschpe.birthdays.fragment.OpenSourceLicensesFragment;
+import saschpe.birthdays.app.OpenSourceLicensesFragment;
 
 public final class HelpActivity extends AppCompatActivity {
     @Override
