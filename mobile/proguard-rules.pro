@@ -5,8 +5,3 @@
   **[] $VALUES;
   public *;
 }
--keep class com.bumptech.glide.integration.okhttp3.OkHttpGlideModule
-
-# Okio
--dontwarn okio.**
--dontwarn javax.annotation.**
