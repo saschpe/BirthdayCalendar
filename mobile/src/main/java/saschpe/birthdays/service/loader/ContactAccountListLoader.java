@@ -67,8 +67,10 @@ public final class ContactAccountListLoader extends AsyncTaskLoader<List<Account
                 while (cursor.moveToNext()) {
                     String account_name = cursor.getString(cursor.getColumnIndex(ContactsContract.RawContacts.ACCOUNT_NAME));
                     String account_type = cursor.getString(cursor.getColumnIndex(ContactsContract.RawContacts.ACCOUNT_TYPE));
-                    Account account = new Account(account_name, account_type);
-                    contactAccounts.add(account);
+                    if (!account_name.isEmpty() && !account_type.isEmpty()) {
+                        Account account = new Account(account_name, account_type);
+                        contactAccounts.add(account);
+                    }
                 }
             }
         } finally {
