@@ -1,0 +1,6 @@
+# Custom ignore rules, update with:
+# { cat .gitignore-custom ; gibo Android Gradle JetBrains Vim } > .gitignore
+
+.idea/misc.xml
+.idea/runConfigurations
+
