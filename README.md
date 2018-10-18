@@ -28,6 +28,9 @@ components. It also showcases the usage of the contacts and calendar providers.
 <img alt="Screenshot 5" src="assets/device-art/device-phone-landscape-2.png" width="384" />
 
 ## Download
+[<img src="https://f-droid.org/badge/get-it-on.png"
+      alt="Get it on F-Droid"
+      height="80">](https://f-droid.org/app/saschpe.contactevents)
 <a href='https://play.google.com/store/apps/details?id=saschpe.contactevents&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height="80"/></a>
 <a href='http://www.amazon.com/gp/product/B01N0DA9X1/ref=saschpe.contactevents'><img alt='Available at Amazon' src='https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-underground-app-us-black.png' /></a>
 
