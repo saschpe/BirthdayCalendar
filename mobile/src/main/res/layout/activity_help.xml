@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 Sascha Peilicke
   ~
   ~ This program is free software: you can redistribute it and/or modify
@@ -36,8 +35,8 @@
                 android:layout_width="128dp"
                 android:layout_height="128dp"
                 android:layout_gravity="bottom|center_horizontal"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@string/app_name" />
+                android:contentDescription="@string/app_name"
+                android:src="@mipmap/ic_launcher" />
 
         </android.support.v7.widget.Toolbar>
 

@@ -38,7 +38,6 @@ import saschpe.android.socialfragment.app.SocialFragment;
 import saschpe.android.versioninfo.widget.VersionInfoDialogFragment;
 import saschpe.birthdays.BuildConfig;
 import saschpe.birthdays.R;
-import saschpe.birthdays.app.OpenSourceLicensesFragment;
 
 public final class HelpActivity extends AppCompatActivity {
     @Override
@@ -106,7 +105,7 @@ public final class HelpActivity extends AppCompatActivity {
         HelpFragmentPagerAdapter(final Context context, final FragmentManager fm) {
             super(fm);
             applicationName = context.getString(R.string.app_name);
-            pageTitles = new String[] {
+            pageTitles = new String[]{
                     context.getString(R.string.social),
                     context.getString(R.string.open_source_licenses)
             };

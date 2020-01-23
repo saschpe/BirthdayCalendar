@@ -39,7 +39,17 @@ import saschpe.birthdays.provider.AccountProviderHelper;
 
 public final class ContactAccountListLoader extends AsyncTaskLoader<List<AccountModel>> {
     private static final String TAG = ContactAccountListLoader.class.getSimpleName();
+    /**
+     * Perform alphabetical comparison of account item objects.
+     */
+    private static final Comparator<AccountModel> ALPHA_COMPARATOR = new Comparator<AccountModel>() {
+        private final Collator collator = Collator.getInstance();
 
+        @Override
+        public int compare(AccountModel item1, AccountModel item2) {
+            return collator.compare(item1.getLabel(), item2.getLabel());
+        }
+    };
     private List<AccountModel> accounts;
 
     public ContactAccountListLoader(Context context) {
@@ -58,7 +68,7 @@ public final class ContactAccountListLoader extends AsyncTaskLoader<List<Account
         try {
             cursor = getContext().getContentResolver().query(
                     ContactsContract.RawContacts.CONTENT_URI,
-                    new String[] {
+                    new String[]{
                             ContactsContract.RawContacts.ACCOUNT_NAME,
                             ContactsContract.RawContacts.ACCOUNT_TYPE
                     }, null, null, null);
@@ -140,16 +150,4 @@ public final class ContactAccountListLoader extends AsyncTaskLoader<List<Account
             accounts = null;
         }
     }
-
-    /**
-     * Perform alphabetical comparison of account item objects.
-     */
-    private static final Comparator<AccountModel> ALPHA_COMPARATOR = new Comparator<AccountModel>() {
-        private final Collator collator = Collator.getInstance();
-
-        @Override
-        public int compare(AccountModel item1, AccountModel item2) {
-            return collator.compare(item1.getLabel(), item2.getLabel());
-        }
-    };
 }

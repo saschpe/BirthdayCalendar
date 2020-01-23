@@ -26,12 +26,10 @@ import android.support.annotation.NonNull;
 import saschpe.birthdays.BuildConfig;
 
 final class AccountContract {
-    interface Columns {
-        String ACCOUNT_NAME = "account_name";
-        String ACCOUNT_TYPE = "account_type";
-    }
-
     static final String CONTENT_AUTHORITY;
+    static final String PATH_ACCOUNT_LIST = "account_list";
+    private static final Uri BASE_CONTENT_URI;
+
     static {
         StringBuilder contentAuthorityBuilder = new StringBuilder("saschpe.birthdays");
         if (BuildConfig.FLAVOR.equals("open")) {
@@ -41,10 +39,35 @@ final class AccountContract {
             contentAuthorityBuilder.append(".debug");
         }
         CONTENT_AUTHORITY = contentAuthorityBuilder.toString();
+        BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     }
 
-    private static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
-    static final String PATH_ACCOUNT_LIST = "account_list";
+    /**
+     * Private constructor, only static members.
+     */
+    private AccountContract() {
+    }
+
+    /**
+     * Simplify life and return a cursor on account list.
+     */
+    static Cursor getAccountListCursor(final @NonNull Context context) {
+        return context.getContentResolver().query(
+                AccountList.CONTENT_URI,
+                new String[]{
+                        AccountList._ID,
+                        AccountList.ACCOUNT_NAME,
+                        AccountList.ACCOUNT_TYPE
+                },
+                null,
+                null,
+                AccountList.DEFAULT_SORT);
+    }
+
+    interface Columns {
+        String ACCOUNT_NAME = "account_name";
+        String ACCOUNT_TYPE = "account_type";
+    }
 
     static class AccountList implements Columns, BaseColumns {
         static final Uri CONTENT_URI = BASE_CONTENT_URI.buildUpon().appendPath(PATH_ACCOUNT_LIST).build();
@@ -68,25 +91,4 @@ final class AccountContract {
             return CONTENT_URI.buildUpon().appendPath(id).build();
         }
     }
-
-    /**
-     * Simplify life and return a cursor on account list.
-     */
-    static Cursor getAccountListCursor(final @NonNull Context context) {
-        return context.getContentResolver().query(
-                AccountList.CONTENT_URI,
-                new String[]{
-                        AccountList._ID,
-                        AccountList.ACCOUNT_NAME,
-                        AccountList.ACCOUNT_TYPE
-                },
-                null,
-                null,
-                AccountList.DEFAULT_SORT);
-    }
-
-    /**
-     * Private constructor, only static members.
-     */
-    private AccountContract() {}
 }

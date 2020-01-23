@@ -36,14 +36,18 @@ import saschpe.birthdays.helper.AccountHelper;
  * a service on a separate handler thread.
  */
 public final class BirthdaysIntentService extends IntentService {
+    public static final int MESSAGE_WHAT_STARTED = 1;
     private static final String TAG = BirthdaysIntentService.class.getSimpleName();
     private static final String ACTION_SYNC = "saschpe.birthdays.service.action.SYNC";
     private static final String ACTION_CHANGE_COLOR = "saschpe.birthdays.service.action.CHANGE_COLOR";
     private static final String EXTRA_MESSENGER = "saschpe.birthdays.service.extra.MESSENGER";
-    public static final int MESSAGE_WHAT_STARTED = 1;
     private static final int MESSAGE_WHAT_DONE = 2;
 
     private Messenger messenger;
+
+    public BirthdaysIntentService() {
+        super(TAG);
+    }
 
     /**
      * Starts this service to perform action Sync with the given parameters. If
@@ -67,10 +71,6 @@ public final class BirthdaysIntentService extends IntentService {
         Intent intent = new Intent(context, BirthdaysIntentService.class);
         intent.setAction(ACTION_CHANGE_COLOR);
         context.startService(intent);
-    }
-
-    public BirthdaysIntentService() {
-        super(TAG);
     }
 
     @Override

@@ -52,7 +52,7 @@ import saschpe.birthdays.service.CalendarSyncService;
 
 public final class BirthdaysFragment extends Fragment {
     private static final String TAG = BirthdaysFragment.class.getSimpleName();
-    private static final String[] RUNTIME_PERMISSIONS = new String[] {
+    private static final String[] RUNTIME_PERMISSIONS = new String[]{
             Manifest.permission.READ_CALENDAR,
     };
     private static final int PERMISSION_REQUEST_ALL = 1;
@@ -60,6 +60,7 @@ public final class BirthdaysFragment extends Fragment {
     private ProgressBar progressBar;
     private RecyclerView recyclerView;
     private int spacePx;
+    private Cursor cursor;
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -75,7 +76,6 @@ public final class BirthdaysFragment extends Fragment {
             }
         }
     };
-    private Cursor cursor;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -165,7 +165,7 @@ public final class BirthdaysFragment extends Fragment {
     }
 
     private void refreshAdapter() {
-        String[] selectionArgs = new String[] {
+        String[] selectionArgs = new String[]{
                 String.valueOf(CalendarSyncService.getCalendar(getContext()))
         };
 

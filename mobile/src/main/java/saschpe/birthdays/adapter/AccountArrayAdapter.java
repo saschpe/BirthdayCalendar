@@ -37,10 +37,6 @@ public final class AccountArrayAdapter extends ArrayAdapter<AccountModel, Accoun
     private final LayoutInflater inflater;
     private OnAccountSelectedListener onAccountSelectedListener;
 
-    public interface OnAccountSelectedListener {
-        void onAccountSelected();
-    }
-
     public AccountArrayAdapter(@NonNull Context context, List<AccountModel> objects) {
         super(objects);
         inflater = LayoutInflater.from(context);
@@ -72,6 +68,10 @@ public final class AccountArrayAdapter extends ArrayAdapter<AccountModel, Accoun
                 }
             }
         });
+    }
+
+    public interface OnAccountSelectedListener {
+        void onAccountSelected();
     }
 
     static final class AccountViewHolder extends RecyclerView.ViewHolder {

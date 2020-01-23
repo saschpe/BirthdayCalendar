@@ -48,7 +48,7 @@ import saschpe.birthdays.glide.module.GlideApp;
 public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.BirthdayViewHolder> {
     // Projection array. Creating indices for this array instead of doing
     // dynamic lookups improves performance.
-    public static final String[] PROJECTION = new String[] {
+    public static final String[] PROJECTION = new String[]{
             CalendarContract.Instances._ID,
             CalendarContract.Instances.TITLE,
             CalendarContract.Instances.DESCRIPTION,
@@ -56,17 +56,16 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Birth
             CalendarContract.Instances.EVENT_ID,
             CalendarContract.Instances.SYNC_DATA1 + " as " + CalendarContract.Instances.SYNC_DATA1
     };
+    // "My projections need selections..."
+    public static final String SELECTION = "(" + CalendarContract.Events.CALENDAR_ID + " = ?)";
     // The indices for the projection array above.
     private static final int PROJECTION_TITLE_INDEX = 1;
     private static final int PROJECTION_DESCRIPTION_INDEX = 2;
     private static final int PROJECTION_DT_START_INDEX = 3;
     private static final int PROJECTION_EVENT_ID_INDEX = 4;
     private static final int PROJECTION_SYNC_DATA1_INDEX = 5;
-    // "My projections need selections..."
-    public static final String SELECTION = "(" + CalendarContract.Events.CALENDAR_ID + " = ?)";
-
-    private final LayoutInflater inflater;
     private static final DateFormat DEFAULT_DATE_FORMAT = DateFormat.getDateInstance(DateFormat.DEFAULT);
+    private final LayoutInflater inflater;
 
     public EventAdapter(final @NonNull Context context, final Cursor cursor) {
         super(cursor);

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 Sascha Peilicke
   ~
   ~ This program is free software: you can redistribute it and/or modify
@@ -19,9 +18,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <CheckBoxPreference
+        android:defaultValue="@bool/pref_hide_app_icon_default"
         android:key="@string/pref_hide_app_icon_key"
-        android:title="@string/hide_app_icon"
         android:summary="@string/hide_app_icon_from_launcher"
-        android:defaultValue="@bool/pref_hide_app_icon_default" />
+        android:title="@string/hide_app_icon" />
 
 </PreferenceScreen>
