@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2016 Sascha Peilicke
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+
+    <string name="action">Actions</string>
+    <string name="account_icon_description">Icône de compte</string>
+    <string name="account_list_description">Rappelle-moi les anniversaires et autres événements de ces comptes :</string>
+    <string name="account_title_template" translatable="false">%1$s (%2$s)</string>
+    <string name="anniversaries">Anniversaires</string>
+    <string name="app_name">Birthday Calendar</string>
+    <string name="birthdays">Anniversaires de naissance</string>
+    <string name="birthdays_and_anniversaries">Les deux</string>
+    <string name="birthday_calendar_create">Mise à jour du calendrier d’anniversaires…</string>
+    <string name="calendar">Calendrier</string>
+    <string name="claim_one_title">N’oubliez</string>
+    <string name="claim_one_description">Plus jamais les anniversaires. Affichez les anniversaires des contacts de tous vos réseaux sociaux directement dans votre calendrier.</string>
+    <string name="claim_two_title">Universel</string>
+    <string name="claim_two_description">Prise en charge de Facebook, LinkedIn, Xing, Skype et de toutes les autres applications qui synchronisent vos contacts avec votre appareil Android.</string>
+    <string name="claim_three_title">Rappelez-vous</string>
+    <string name="claim_three_description">Activez les rappels et décidez quels contacts vous voulez voir. Vous recevrez une notification pour chacun d’entre eux.</string>
+    <string name="done">Terminé</string>
+    <plurals name="event_anniversary_description_template">
+        <item quantity="one">%1$s fête %2$d an</item>
+        <item quantity="other">%1$s fête %2$d ans</item>
+    </plurals>
+    <string name="event_anniversary_title_template">Anniversaire de %1$s</string>
+    <plurals name="event_birthday_description_template">
+        <item quantity="one">%1$s est né en %2$d et a %3$d ans ce jour-ci</item>
+        <item quantity="other">%1$s est né en %2$d et a %3$d ans ce jour-ci</item>
+    </plurals>
+    <string name="event_birthday_title_template">Anniversaire de %1$s</string>
+    <string name="event_other_title_template">Autre événement de %1$s</string>
+    <string name="event_custom_title_template">%2$s de %1$s</string>
+    <string name="help_and_feedback">Aide &amp; commentaires</string>
+    <string name="hide_app_icon">Cacher l’icône de l’application</string>
+    <string name="hide_app_icon_from_launcher">Cacher l’icône de l’application dans le lanceur</string>
+    <string name="hide_app_icon_enable">Vous pouvez à tout moment réactiver l’icône de l’application via "Comptes" dans le menu des paramètres.</string>
+    <string name="launch_app">Lancer l’application</string>
+    <string name="lorem_ipsum" translatable="false">Lorem ipsum</string>
+    <string name="lorem_ipsum_long" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="miscellaneous">Divers</string>
+    <string name="next">Suivant</string>
+    <string name="notifications">Notifications</string>
+    <string name="no_calendar_app">Vous n’avez apparemment pas de calendrier installé</string>
+    <string name="open_source_licenses">Licences open source</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="settings">Paramètres</string>
+    <string name="skip">Sauter</string>
+    <string name="social">Social</string>
+    <string name="sources">Sources</string>
+    <string name="version_info">Informations de version</string>
+
+    <!-- Settings -->
+    <string name="pref_first_run_key" translatable="false">first_run</string>
+    <bool name="pref_first_run_default">true</bool>
+    <string name="pref_birthdays_sync_key" translatable="false">sync_birthdays</string>
+    <string name="pref_birthdays_sync_description">Afficher les rappels d’anniversaires de naissance</string>
+    <bool name="pref_birthdays_sync_default">true</bool>
+    <string name="pref_anniversaries_sync_key" translatable="false">sync_anniversaries</string>
+    <string name="pref_anniversaries_sync_description">Afficher les rappels des autres anniversaires</string>
+    <bool name="pref_anniversaries_sync_default">true</bool>
+    <string name="pref_onboarding_finished_key" translatable="false">onboarding_finished</string>
+    <bool name="pref_onboarding_finished_default">false</bool>
+    <string name="pref_other_events_sync_key" translatable="false">sync_other_events</string>
+    <string name="pref_other_events_sync_title">Autres événements</string>
+    <string name="pref_other_events_sync_description">Afficher les rappels des autres événements</string>
+    <bool name="pref_other_events_sync_default">false</bool>
+    <string name="pref_calendar_color_key" translatable="false">calendar_color</string>
+    <string name="pref_calendar_color_title">Couleur du calendrier</string>
+    <color name="pref_calendar_color_default">@color/primary</color>
+    <!-- Settings for Notifications -->
+    <string name="pref_reminder_time_1_key" translatable="false">reminder_key_1</string>
+    <string name="pref_reminder_time_1_title">Rappel</string>
+    <string name="pref_reminder_time_2_key" translatable="false">reminder_key_2</string>
+    <string name="pref_reminder_time_2_title">Rappel secondaire</string>
+    <string-array name="pref_reminder_time_titles">
+        <item>jamais</item>
+        <item>le jour même</item>
+        <item>un jour à l’avance</item>
+        <item>deux jours à l’avance</item>
+        <item>trois jours à l’avance</item>
+    </string-array>
+    <string-array name="pref_reminder_time_values" translatable="false">
+        <item>-2</item>
+        <item>0</item>
+        <item>1440</item> <!-- 1 * 24 * 60 -->
+        <item>2880</item> <!-- 2 * 24 * 60 -->
+        <item>10080</item> <!-- 7 * 24 * 60 -->
+    </string-array>
+    <string name="pref_reminder_time_1_default" translatable="false">0</string>
+    <string name="pref_reminder_time_2_default" translatable="false">-2</string>
+    <!-- See http://developer.android.com/reference/android/provider/CalendarContract.RemindersColumns.html#MINUTES -->
+    <!-- Settings for Data & Sync -->
+    <string name="pref_header_data_sync">Données &amp; synchronisation</string>
+    <string name="pref_periodic_sync_frequency_key" translatable="false">sync_frequency</string>
+    <string name="pref_periodic_sync_frequency_title">Fréquence de synchronisation</string>
+    <string-array name="pref_periodic_sync_frequency_titles">
+        <item>3 heures</item>
+        <item>6 heures</item>
+        <item>1 jour</item>
+    </string-array>
+    <string-array name="pref_periodic_sync_frequency_values" translatable="false">
+        <item>10800000</item> <!-- 3 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_HOUR * 3, Sigh... -->
+        <item>21600000</item> <!-- 6 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_HOUR * 6, Sigh... -->
+        <item>86400000</item> <!-- 24 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_DAY, Sigh... -->
+    </string-array>
+    <integer name="pref_periodic_sync_frequency_default">86400000</integer>
+    <!-- Miscellaneous settings -->
+    <string name="pref_hide_app_icon_key" translatable="false">hide_app_icon</string>
+    <bool name="pref_hide_app_icon_default">false</bool>
+
+</resources>

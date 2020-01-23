@@ -35,7 +35,8 @@ components. It also showcases the usage of the contacts and calendar providers.
 <a href='http://www.amazon.com/gp/product/B01N0DA9X1/ref=saschpe.contactevents'><img alt='Available at Amazon' src='https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/devportal2/res/images/amazon-underground-app-us-black.png' /></a>
 
 ## Acknowledgement
-Sam Steele and Dominik Schürmann for providing the initial implementation of the calendar sync service.
+- Sam Steele and Dominik Schürmann for providing the initial implementation of the calendar sync service.
+- breversa for the French translation.
 
 ## License
 
