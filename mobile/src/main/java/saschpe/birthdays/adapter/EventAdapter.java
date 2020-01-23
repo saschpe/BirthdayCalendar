@@ -98,7 +98,7 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Birth
         });
 
         // Display contact picture
-        Long contactId = cursor.getLong(PROJECTION_SYNC_DATA1_INDEX);
+        long contactId = cursor.getLong(PROJECTION_SYNC_DATA1_INDEX);
         Uri contactUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, contactId);
         Uri photoUri = Uri.withAppendedPath(contactUri, ContactsContract.Contacts.Photo.CONTENT_DIRECTORY);
         if (photoUri != null) {
@@ -106,7 +106,6 @@ public final class EventAdapter extends CursorRecyclerAdapter<EventAdapter.Birth
                     .with(holder.photo.getContext())
                     .load(photoUri)
                     .apply(RequestOptions.circleCropTransform())
-                    .placeholder(R.mipmap.ic_launcher)
                     .into(holder.photo);
             holder.photo.setVisibility(View.VISIBLE);
         }
