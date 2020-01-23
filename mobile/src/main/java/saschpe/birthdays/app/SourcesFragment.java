@@ -50,7 +50,7 @@ import saschpe.birthdays.service.loader.ContactAccountListLoader;
 public final class SourcesFragment extends Fragment implements
         LoaderManager.LoaderCallbacks<List<AccountModel>> {
     private static final String TAG = SourcesFragment.class.getSimpleName();
-    private static final String[] RUNTIME_PERMISSIONS = new String[] {
+    private static final String[] RUNTIME_PERMISSIONS = new String[]{
             Manifest.permission.READ_CALENDAR,
             Manifest.permission.WRITE_CALENDAR,
             Manifest.permission.READ_CONTACTS,

@@ -58,6 +58,7 @@ import saschpe.birthdays.helper.PreferencesHelper;
 import saschpe.birthdays.provider.AccountProviderHelper;
 
 public final class CalendarSyncService extends Service {
+    public static final String ACTION_SYNC_DONE = "saschpe.birthdays.service.action.SYNC_DONE";
     private static final String TAG = CalendarSyncService.class.getSimpleName();
     private static final String[] DATE_FORMAT_STRINGS = {
             "yyyy-MM-dd",   // Most used
@@ -72,29 +73,15 @@ public final class CalendarSyncService extends Service {
     };
     private static final SimpleDateFormat[] SIMPLE_DATE_FORMATS;
 
-    public static final String ACTION_SYNC_DONE = "saschpe.birthdays.service.action.SYNC_DONE";
-
     static {
         SIMPLE_DATE_FORMATS = new SimpleDateFormat[DATE_FORMAT_STRINGS.length];
-        for (int i = 0; i< DATE_FORMAT_STRINGS.length; i++) {
+        for (int i = 0; i < DATE_FORMAT_STRINGS.length; i++) {
             SIMPLE_DATE_FORMATS[i] = new SimpleDateFormat(DATE_FORMAT_STRINGS[i], Locale.US);
         }
     }
 
     // Storage for an instance of the sync adapter
     private CalendarSyncAdapter syncAdapter = null;
-
-    /**
-     * Return an object that allows the system to invoke
-     * the sync adapter.
-     */
-    @Override
-    public IBinder onBind(Intent intent) {
-        if (syncAdapter == null) {
-            syncAdapter = new CalendarSyncAdapter(this);
-        }
-        return syncAdapter.getSyncAdapterBinder();
-    }
 
     /**
      * Syncing work-horse.
@@ -573,5 +560,17 @@ public final class CalendarSyncService extends Service {
                 .appendQueryParameter(CalendarContract.Calendars.ACCOUNT_NAME, context.getString(R.string.app_name))
                 .appendQueryParameter(CalendarContract.Calendars.ACCOUNT_TYPE, context.getString(R.string.account_type))
                 .build();
+    }
+
+    /**
+     * Return an object that allows the system to invoke
+     * the sync adapter.
+     */
+    @Override
+    public IBinder onBind(Intent intent) {
+        if (syncAdapter == null) {
+            syncAdapter = new CalendarSyncAdapter(this);
+        }
+        return syncAdapter.getSyncAdapterBinder();
     }
 }

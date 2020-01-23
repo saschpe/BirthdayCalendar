@@ -37,47 +37,6 @@ import saschpe.birthdays.R;
 import saschpe.birthdays.service.BirthdaysIntentService;
 
 public final class SettingsActivity extends AppCompatPreferenceActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        final ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-    }
-
-    @Override
-    public boolean onIsMultiPane() {
-        return DisplayHelper.isW600DP(this);
-    }
-
-    @Override
-    public void onBuildHeaders(List<Header> target) {
-        loadHeadersFromResource(R.xml.pref_headers, target);
-    }
-
-    /**
-     * Default implementation works on until {@link android.os.Build.VERSION_CODES#KITKAT}
-     */
-    @Override
-    protected boolean isValidFragment(String fragmentName) {
-        return CalendarPreferenceFragment.class.getName().equals(fragmentName)
-                || NotificationPreferenceFragment.class.getName().equals(fragmentName)
-                || DataSyncPreferenceFragment.class.getName().equals(fragmentName)
-                || MiscPreferenceFragment.class.getName().equals(fragmentName);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     /**
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
@@ -121,6 +80,47 @@ public final class SettingsActivity extends AppCompatPreferenceActivity {
                         .getString(preference.getKey(), ""));
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onIsMultiPane() {
+        return DisplayHelper.isW600DP(this);
+    }
+
+    @Override
+    public void onBuildHeaders(List<Header> target) {
+        loadHeadersFromResource(R.xml.pref_headers, target);
+    }
+
+    /**
+     * Default implementation works on until {@link android.os.Build.VERSION_CODES#KITKAT}
+     */
+    @Override
+    protected boolean isValidFragment(String fragmentName) {
+        return CalendarPreferenceFragment.class.getName().equals(fragmentName)
+                || NotificationPreferenceFragment.class.getName().equals(fragmentName)
+                || DataSyncPreferenceFragment.class.getName().equals(fragmentName)
+                || MiscPreferenceFragment.class.getName().equals(fragmentName);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     /**
      * This fragment shows calendar preferences only. It is used when the
      * activity is showing a two-pane settings UI.
@@ -133,12 +133,12 @@ public final class SettingsActivity extends AppCompatPreferenceActivity {
 
             findPreference(getString(R.string.pref_calendar_color_key))
                     .setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    BirthdaysIntentService.startActionChangeColor(getActivity());
-                    return true;
-                }
-            });
+                        @Override
+                        public boolean onPreferenceChange(Preference preference, Object newValue) {
+                            BirthdaysIntentService.startActionChangeColor(getActivity());
+                            return true;
+                        }
+                    });
         }
 
 
@@ -175,7 +175,7 @@ public final class SettingsActivity extends AppCompatPreferenceActivity {
      * This fragment shows miscellaneous preferences only. It is used when the
      * activity is showing a two-pane settings UI.
      */
-    public static class MiscPreferenceFragment extends  PreferenceFragment {
+    public static class MiscPreferenceFragment extends PreferenceFragment {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -183,30 +183,30 @@ public final class SettingsActivity extends AppCompatPreferenceActivity {
 
             findPreference(getString(R.string.pref_hide_app_icon_key))
                     .setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    PackageManager pm = preference.getContext().getPackageManager();
-                    // Activity which is first time open in the manifest file which is declare as
-                    // <category android:name="android.intent.category.LAUNCHER" />
+                        @Override
+                        public boolean onPreferenceChange(Preference preference, Object newValue) {
+                            PackageManager pm = preference.getContext().getPackageManager();
+                            // Activity which is first time open in the manifest file which is declare as
+                            // <category android:name="android.intent.category.LAUNCHER" />
 
-                    ComponentName name = new ComponentName(getActivity(), MainActivity.class);
-                    CheckBoxPreference checkBoxPreference = (CheckBoxPreference) preference;
-                    if (!checkBoxPreference.isChecked()) {
-                        pm.setComponentEnabledSetting(name,
-                                PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                                PackageManager.DONT_KILL_APP);
+                            ComponentName name = new ComponentName(getActivity(), MainActivity.class);
+                            CheckBoxPreference checkBoxPreference = (CheckBoxPreference) preference;
+                            if (!checkBoxPreference.isChecked()) {
+                                pm.setComponentEnabledSetting(name,
+                                        PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+                                        PackageManager.DONT_KILL_APP);
 
-                        //noinspection ConstantConditions
-                        Snackbar.make(getView(), R.string.hide_app_icon_enable,
-                                Snackbar.LENGTH_LONG).show();
-                    } else {
-                        pm.setComponentEnabledSetting(name,
-                                PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
-                                PackageManager.DONT_KILL_APP);
-                    }
-                    return true;
-                }
-            });
+                                //noinspection ConstantConditions
+                                Snackbar.make(getView(), R.string.hide_app_icon_enable,
+                                        Snackbar.LENGTH_LONG).show();
+                            } else {
+                                pm.setComponentEnabledSetting(name,
+                                        PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                                        PackageManager.DONT_KILL_APP);
+                            }
+                            return true;
+                        }
+                    });
         }
     }
 }

@@ -29,11 +29,7 @@ final class AccountDatabase extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String CREATE_ACCOUNT_LIST = "CREATE TABLE IF NOT EXISTS " + Tables.ACCOUNT_LIST + "(" + BaseColumns._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + AccountContract.Columns.ACCOUNT_NAME + " TEXT, " + AccountContract.Columns.ACCOUNT_TYPE + " TEXT)";
 
-    interface Tables {
-        String ACCOUNT_LIST = "account_list";
-    }
-
-    AccountDatabase(Context context){
+    AccountDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -74,5 +70,9 @@ final class AccountDatabase extends SQLiteOpenHelper {
         Log.v(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion);
         db.execSQL("DROP TABLE IF EXISTS " + Tables.ACCOUNT_LIST);
         onCreate(db);
+    }
+
+    interface Tables {
+        String ACCOUNT_LIST = "account_list";
     }
 }

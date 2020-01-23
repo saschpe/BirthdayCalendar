@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2017 Sascha Peilicke
   ~
   ~ This program is free software: you can redistribute it and/or modify
@@ -17,5 +16,5 @@
   -->
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@drawable/ic_cake_variant_white_192dp"/>
+    <item android:drawable="@drawable/ic_cake_variant_white_192dp" />
 </selector>

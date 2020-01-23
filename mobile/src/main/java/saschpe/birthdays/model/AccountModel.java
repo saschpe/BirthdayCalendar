@@ -45,8 +45,7 @@ public final class AccountModel {
         icon = pm.getDrawable(description.packageName, description.iconId, null);
     }
 
-    private static String getAccountLabel(PackageManager pm, AuthenticatorDescription description)
-    {
+    private static String getAccountLabel(PackageManager pm, AuthenticatorDescription description) {
         try {
             return pm.getResourcesForApplication(description.packageName).getString(description.labelId);
         } catch (Resources.NotFoundException | PackageManager.NameNotFoundException e) {
@@ -71,7 +70,9 @@ public final class AccountModel {
         return selected;
     }
 
-    public void toggleSelected() { this.selected = !this.selected; }
+    public void toggleSelected() {
+        this.selected = !this.selected;
+    }
 
     @Override
     public String toString() {

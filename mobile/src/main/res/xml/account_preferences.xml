@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 Sascha Peilicke
   ~
   ~ This program is free software: you can redistribute it and/or modify
@@ -18,18 +17,15 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory
-        android:title="@string/action" />
+    <PreferenceCategory android:title="@string/action" />
 
-    <PreferenceScreen
-        android:title="@string/launch_app">
+    <PreferenceScreen android:title="@string/launch_app">
 
         <intent android:action="saschpe.birthdays.action.MAIN" />
 
     </PreferenceScreen>
 
-    <PreferenceScreen
-        android:title="@string/settings">
+    <PreferenceScreen android:title="@string/settings">
 
         <intent android:action="saschpe.birthdays.action.SETTINGS" />
 

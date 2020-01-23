@@ -51,12 +51,11 @@ import saschpe.birthdays.service.BirthdaysIntentService;
 import static saschpe.birthdays.service.BirthdaysIntentService.MESSAGE_WHAT_STARTED;
 
 public final class MainActivity extends AppCompatActivity {
-    private static final String ACTION_OPEN_EVENT = "saschpe.birthdays.action.OPEN_EVENT";
     public static final String ACTION_SYNC_REQUESTED = "saschpe.birthdays.action.SYNC_REQUESTED";
+    private static final String ACTION_OPEN_EVENT = "saschpe.birthdays.action.OPEN_EVENT";
     private static final String EXTRA_EVENT_ID = "saschpe.birthdays.extra.EVENT_ID";
 
     private CalendarSyncHandler calendarSyncHandler;
-    private CoordinatorLayout coordinatorLayout;
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -80,6 +79,7 @@ public final class MainActivity extends AppCompatActivity {
             }
         }
     };
+    private CoordinatorLayout coordinatorLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,7 +197,7 @@ public final class MainActivity extends AppCompatActivity {
 
         MainFragmentPagerAdapter(final Context context, final FragmentManager fm) {
             super(fm);
-            pageTitles = new String[] {
+            pageTitles = new String[]{
                     context.getString(R.string.birthdays),
                     context.getString(R.string.sources)
             };

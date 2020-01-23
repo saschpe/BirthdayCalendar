@@ -32,8 +32,7 @@ final class CalendarSyncAdapter extends AbstractThreadedSyncAdapter {
     /**
      * Set up the sync adapter
      */
-    CalendarSyncAdapter(Context context)
-    {
+    CalendarSyncAdapter(Context context) {
         super(context, true);
     }
 

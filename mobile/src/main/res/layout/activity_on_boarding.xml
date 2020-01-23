@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2017 Sascha Peilicke
   ~
   ~ This program is free software: you can redistribute it and/or modify
@@ -16,8 +15,7 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,23 +25,23 @@
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="?attr/actionBarSize"/>
+        android:paddingBottom="?attr/actionBarSize" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
         android:layout_gravity="bottom"
         android:layout_marginBottom="?attr/actionBarSize"
-        android:background="@color/light_grey"/>
+        android:background="@color/light_grey" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_gravity="bottom"
-        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingStart="@dimen/activity_horizontal_margin">
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
 
         <Button
             android:id="@+id/skip"
@@ -52,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start|center"
             android:text="@string/skip"
-            android:textColor="@android:color/white"/>
+            android:textColor="@android:color/white" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -66,7 +64,7 @@
                 android:layout_height="8dp"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
                 android:background="@drawable/indicator_unselected"
-                android:contentDescription="@string/next"/>
+                android:contentDescription="@string/next" />
 
             <ImageView
                 android:id="@+id/indicator_two"
@@ -74,7 +72,7 @@
                 android:layout_height="8dp"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
                 android:background="@drawable/indicator_unselected"
-                android:contentDescription="@string/next"/>
+                android:contentDescription="@string/next" />
 
             <ImageView
                 android:id="@+id/indicator_three"
@@ -82,7 +80,7 @@
                 android:layout_height="8dp"
                 android:layout_marginEnd="@dimen/activity_horizontal_margin_half"
                 android:background="@drawable/indicator_unselected"
-                android:contentDescription="@string/next"/>
+                android:contentDescription="@string/next" />
 
         </LinearLayout>
 
@@ -94,7 +92,7 @@
             android:layout_gravity="end|center"
             android:text="@string/done"
             android:textColor="@android:color/white"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <ImageButton
             android:id="@+id/next"
@@ -104,7 +102,7 @@
             android:layout_gravity="end|center"
             android:contentDescription="@string/next"
             android:padding="@dimen/activity_horizontal_margin"
-            android:src="@drawable/ic_chevron_right"/>
+            android:src="@drawable/ic_chevron_right" />
 
     </FrameLayout>
 

@@ -38,9 +38,10 @@ import saschpe.birthdays.BuildConfig;
 
 public final class AccountProvider extends ContentProvider {
     private static final String TAG = AccountProvider.class.getSimpleName();
-    private static final UriMatcher URI_MATCHER = buildUriMatcher();
     private static final int ACCOUNT_LIST = 100;
     private static final int ACCOUNT_LIST_ID = 101;
+    private static final UriMatcher URI_MATCHER = buildUriMatcher();
+    private AccountDatabase database;
 
     /**
      * Build and return a {@link android.content.UriMatcher} that catches all {@link android.net.Uri} variations supported by
@@ -55,8 +56,6 @@ public final class AccountProvider extends ContentProvider {
 
         return matcher;
     }
-
-    private AccountDatabase database;
 
     @Override
     public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {

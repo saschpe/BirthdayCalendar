@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2016 Sascha Peilicke
   ~
   ~ This program is free software: you can redistribute it and/or modify
@@ -19,12 +18,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
-        android:key="@string/pref_periodic_sync_frequency_key"
-        android:title="@string/pref_periodic_sync_frequency_title"
+        android:defaultValue="@integer/pref_periodic_sync_frequency_default"
         android:entries="@array/pref_periodic_sync_frequency_titles"
         android:entryValues="@array/pref_periodic_sync_frequency_values"
-        android:defaultValue="@integer/pref_periodic_sync_frequency_default"
+        android:key="@string/pref_periodic_sync_frequency_key"
         android:negativeButtonText="@null"
-        android:positiveButtonText="@null" />
+        android:positiveButtonText="@null"
+        android:title="@string/pref_periodic_sync_frequency_title" />
 
 </PreferenceScreen>
