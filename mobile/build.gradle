@@ -20,9 +20,14 @@ apply plugin: 'com.android.application'
 def localProperties = new Properties()
 file("$rootProject.projectDir/local.properties").withInputStream { localProperties.load(it) }
 
+repositories {
+    jcenter()
+    google()
+}
+
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    buildToolsVersion '28.0.3'
 
     defaultConfig {
         applicationId 'saschpe.contactevents'
@@ -58,13 +63,13 @@ android {
 
 dependencies {
     // Annotation processing dependencies
-    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.6.1"
 
     // Application dependencies
     implementation 'com.android.support:cardview-v7:27.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.android.support:design:27.0.2'
-    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation "com.github.bumptech.glide:glide:4.6.1"
     implementation 'com.github.yukuku:ambilwarna:2.0.1'
     implementation 'saschpe.android:social-fragment:1.0.4'
     implementation 'saschpe.android:versioninfo:1.3.1'
