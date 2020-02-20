@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (C) 2016 Sascha Peilicke
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="28.222221mm"
+   width="28.222221mm"
+   viewBox="0 0 99.999997 99.999997"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="launcher.svg"
+   inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+   inkscape:export-xdpi="921.59998"
+   inkscape:export-ydpi="921.59998">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1056"
+     id="namedview6"
+     showgrid="false"
+     inkscape:snap-text-baseline="false"
+     inkscape:zoom="5.6568543"
+     inkscape:cx="50.008804"
+     inkscape:cy="70.08991"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs8">
+    <filter
+       id="filter3663"
+       inkscape:label="Drop Shadow"
+       style="color-interpolation-filters:sRGB">
+      <feFlood
+         id="feFlood3665"
+         result="flood"
+         flood-color="rgb(0,0,0)"
+         flood-opacity="0.498039" />
+      <feComposite
+         id="feComposite3667"
+         result="composite1"
+         operator="in"
+         in2="SourceGraphic"
+         in="flood" />
+      <feGaussianBlur
+         id="feGaussianBlur3669"
+         result="blur"
+         stdDeviation="1"
+         in="composite1" />
+      <feOffset
+         id="feOffset3671"
+         result="offset"
+         dy="2"
+         dx="2" />
+      <feComposite
+         id="feComposite3673"
+         result="fbSourceGraphic"
+         operator="over"
+         in2="offset"
+         in="SourceGraphic" />
+      <feColorMatrix
+         id="feColorMatrix3675"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha" />
+      <feFlood
+         in="fbSourceGraphic"
+         result="flood"
+         flood-color="rgb(0,0,0)"
+         flood-opacity="0.498039"
+         id="feFlood3677" />
+      <feComposite
+         result="composite1"
+         operator="in"
+         in="flood"
+         in2="fbSourceGraphic"
+         id="feComposite3679" />
+      <feGaussianBlur
+         result="blur"
+         stdDeviation="1"
+         in="composite1"
+         id="feGaussianBlur3681" />
+      <feOffset
+         result="offset"
+         dy="2"
+         dx="2"
+         id="feOffset3683" />
+      <feComposite
+         result="composite2"
+         operator="over"
+         in="fbSourceGraphic"
+         in2="offset"
+         id="feComposite3685" />
+    </filter>
+    <filter
+       id="filter3702"
+       inkscape:label="Drop Shadow"
+       style="color-interpolation-filters:sRGB">
+      <feFlood
+         id="feFlood3704"
+         result="flood"
+         flood-color="rgb(0,0,0)"
+         flood-opacity="0.498039" />
+      <feComposite
+         id="feComposite3706"
+         result="composite1"
+         operator="in"
+         in2="SourceGraphic"
+         in="flood" />
+      <feGaussianBlur
+         id="feGaussianBlur3708"
+         result="blur"
+         stdDeviation="1"
+         in="composite1" />
+      <feOffset
+         id="feOffset3710"
+         result="offset"
+         dy="2"
+         dx="2" />
+      <feComposite
+         id="feComposite3712"
+         result="composite2"
+         operator="over"
+         in2="offset"
+         in="SourceGraphic" />
+    </filter>
+    <filter
+       id="filter3714"
+       inkscape:label="Drop Shadow"
+       style="color-interpolation-filters:sRGB">
+      <feFlood
+         id="feFlood3716"
+         result="flood"
+         flood-color="rgb(0,0,0)"
+         flood-opacity="0.498039" />
+      <feComposite
+         id="feComposite3718"
+         result="composite1"
+         operator="in"
+         in2="SourceGraphic"
+         in="flood" />
+      <feGaussianBlur
+         id="feGaussianBlur3720"
+         result="blur"
+         stdDeviation="1"
+         in="composite1" />
+      <feOffset
+         id="feOffset3722"
+         result="offset"
+         dy="2"
+         dx="2" />
+      <feComposite
+         id="feComposite3724"
+         result="composite2"
+         operator="over"
+         in2="offset"
+         in="SourceGraphic" />
+    </filter>
+    <filter
+       id="filter3853"
+       inkscape:label="Drop Shadow"
+       style="color-interpolation-filters:sRGB">
+      <feFlood
+         id="feFlood3855"
+         result="flood"
+         flood-color="rgb(0,0,0)"
+         flood-opacity="0.498039" />
+      <feComposite
+         id="feComposite3857"
+         result="composite1"
+         operator="in"
+         in2="SourceGraphic"
+         in="flood" />
+      <feGaussianBlur
+         id="feGaussianBlur3859"
+         result="blur"
+         stdDeviation="1"
+         in="composite1" />
+      <feOffset
+         id="feOffset3861"
+         result="offset"
+         dy="1"
+         dx="1" />
+      <feComposite
+         id="feComposite3863"
+         result="composite2"
+         operator="over"
+         in2="offset"
+         in="SourceGraphic" />
+    </filter>
+    <filter
+       id="filter3865"
+       inkscape:label="Drop Shadow"
+       style="color-interpolation-filters:sRGB">
+      <feFlood
+         id="feFlood3867"
+         result="flood"
+         flood-color="rgb(0,0,0)"
+         flood-opacity="0.498039" />
+      <feComposite
+         id="feComposite3869"
+         result="composite1"
+         operator="in"
+         in2="SourceGraphic"
+         in="flood" />
+      <feGaussianBlur
+         id="feGaussianBlur3871"
+         result="blur"
+         stdDeviation="1"
+         in="composite1" />
+      <feOffset
+         id="feOffset3873"
+         result="offset"
+         dy="1"
+         dx="1" />
+      <feComposite
+         id="feComposite3875"
+         result="composite2"
+         operator="over"
+         in2="offset"
+         in="SourceGraphic" />
+    </filter>
+    <filter
+       id="filter3877"
+       inkscape:label="Drop Shadow"
+       style="color-interpolation-filters:sRGB">
+      <feFlood
+         id="feFlood3879"
+         result="flood"
+         flood-color="rgb(0,0,0)"
+         flood-opacity="0.498039" />
+      <feComposite
+         id="feComposite3881"
+         result="composite1"
+         operator="in"
+         in2="SourceGraphic"
+         in="flood" />
+      <feGaussianBlur
+         id="feGaussianBlur3883"
+         result="blur"
+         stdDeviation="1"
+         in="composite1" />
+      <feOffset
+         id="feOffset3885"
+         result="offset"
+         dy="1"
+         dx="1" />
+      <feComposite
+         id="feComposite3887"
+         result="composite2"
+         operator="over"
+         in2="offset"
+         in="SourceGraphic" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       inkscape:label="Drop Shadow"
+       id="filter3611">
+      <feFlood
+         flood-opacity="0.498039"
+         flood-color="rgb(0,0,0)"
+         result="flood"
+         id="feFlood3613" />
+      <feComposite
+         in="flood"
+         in2="SourceGraphic"
+         operator="in"
+         result="composite1"
+         id="feComposite3615" />
+      <feGaussianBlur
+         in="composite1"
+         stdDeviation="1"
+         result="blur"
+         id="feGaussianBlur3617" />
+      <feOffset
+         dx="1"
+         dy="1"
+         result="offset"
+         id="feOffset3619" />
+      <feComposite
+         in="SourceGraphic"
+         in2="offset"
+         operator="over"
+         result="composite2"
+         id="feComposite3621" />
+    </filter>
+  </defs>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <circle
+     inkscape:export-ydpi="921.59998"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     r="50"
+     cy="50"
+     cx="50"
+     id="path3195"
+     style="fill:#e1bee7;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+  <g
+     id="g3336"
+     inkscape:label="Tetrahedron:x0.00:x0.00:x0.00:x0.00:x0.00:x0.00"
+     transform="translate(170.14828,23.410077)"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-ydpi="921.59998" />
+  <path
+     style="fill:#7b1fa2;fill-opacity:1;stroke:none;stroke-width:0.12;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter3611)"
+     d="m 49.922044,26.301687 c -21.02755,0 -38.07423,4.76571 -38.07422,10.64297 0,0.0402 0.01,0.0794 0.012,0.11952 l -0.014,-0.002 0.007,37.90554 c 0.36467,5.8401 17.50286,10.5064 38.4,10.4554 20.89712,-0.05 37.74142,-4.7996 37.7414,-10.6406 0.47195,-12.474 -0.27865,-25.3778 0.002,-37.83754 2e-5,-5.87727 -17.04666,-10.64297 -38.07421,-10.64297 z"
+     id="path3263"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cscccsccsc"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-ydpi="921.59998" />
+  <path
+     style="fill:#9c27b0;fill-opacity:1;stroke:none;stroke-width:0.1721034;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path3402"
+     sodipodi:type="arc"
+     sodipodi:cx="50"
+     sodipodi:cy="36.928833"
+     sodipodi:rx="35.028767"
+     sodipodi:ry="8.9895592"
+     sodipodi:start="0"
+     sodipodi:end="6.2826217"
+     d="M 85.028767,36.928833 A 35.028767,8.9895592 0 0 1 50.004936,45.918392 35.028767,8.9895592 0 0 1 14.971235,36.931366 35.028767,8.9895592 0 0 1 49.985193,27.939275 35.028767,8.9895592 0 0 1 85.028761,36.923766"
+     sodipodi:open="true"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-ydpi="921.59998" />
+  <path
+     style="fill:#ff4081;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 22.817644,14.576927 a 2.16,0.72000002 0 0 0 -1.99687,0.64922 l -0.008,0 0,0.0703 0,22.02656 0.006,0 a 2.16,0.72000002 0 0 0 -0.006,0.0469 2.16,0.72000002 0 0 0 2.16,0.72188 2.16,0.72000002 0 0 0 2.16,-0.72188 2.16,0.72000002 0 0 0 -0.006,-0.0469 l 0.006,0 0,-22.02656 0,-0.0703 -0.0144,0 a 2.16,0.72000002 0 0 0 -2.14874,-0.64922 2.16,0.72000002 0 0 0 -0.15188,0 z"
+     id="path3419"
+     inkscape:connector-curvature="0"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-ydpi="921.59998" />
+  <path
+     style="fill:#ff4081;fill-opacity:1;stroke:none;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 49.844874,20.576927 a 2.16,0.72000002 0 0 0 -1.99687,0.64922 l -0.008,0 0,0.0703 0,22.02656 0.006,0 a 2.16,0.72000002 0 0 0 -0.006,0.0469 2.16,0.72000002 0 0 0 2.16,0.72188 2.16,0.72000002 0 0 0 2.16,-0.72188 2.16,0.72000002 0 0 0 -0.006,-0.0469 l 0.006,0 0,-22.02656 0,-0.0703 -0.0144,0 a 2.16,0.72000002 0 0 0 -2.14874,-0.64922 2.16,0.72000002 0 0 0 -0.15188,0 z"
+     id="path3419-1"
+     inkscape:connector-curvature="0"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-ydpi="921.59998" />
+  <path
+     style="fill:#ff4081;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 36.331264,18.576927 a 2.16,0.72000002 0 0 0 -1.99687,0.64922 l -0.008,0 0,0.0703 0,22.02656 0.006,0 a 2.16,0.72000002 0 0 0 -0.006,0.0469 2.16,0.72000002 0 0 0 2.16,0.72188 2.16,0.72000002 0 0 0 2.16,-0.72188 2.16,0.72000002 0 0 0 -0.006,-0.0469 l 0.006,0 0,-22.02656 0,-0.0703 -0.0144,0 a 2.16,0.72000002 0 0 0 -2.14874,-0.64922 2.16,0.72000002 0 0 0 -0.15188,0 z"
+     id="path3419-2"
+     inkscape:connector-curvature="0"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-ydpi="921.59998" />
+  <path
+     style="fill:#ff4081;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 63.358484,18.576927 a 2.16,0.72000002 0 0 0 -1.99687,0.64922 l -0.008,0 0,0.0703 0,22.02656 0.006,0 a 2.16,0.72000002 0 0 0 -0.006,0.0469 2.16,0.72000002 0 0 0 2.16,0.72188 2.16,0.72000002 0 0 0 2.16,-0.72188 2.16,0.72000002 0 0 0 -0.006,-0.0469 l 0.006,0 0,-22.02656 0,-0.0703 -0.0144,0 a 2.16,0.72000002 0 0 0 -2.14874,-0.64922 2.16,0.72000002 0 0 0 -0.15188,0 z"
+     id="path3419-7"
+     inkscape:connector-curvature="0"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-ydpi="921.59998" />
+  <path
+     style="fill:#ff4081;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 76.872094,14.576927 a 2.16,0.72000002 0 0 0 -1.99687,0.64922 l -0.008,0 0,0.0703 0,22.02656 0.006,0 a 2.16,0.72000002 0 0 0 -0.006,0.0469 2.16,0.72000002 0 0 0 2.16,0.72188 2.16,0.72000002 0 0 0 2.16,-0.72188 2.16,0.72000002 0 0 0 -0.006,-0.0469 l 0.006,0 0,-22.02656 0,-0.0703 -0.0144,0 a 2.16,0.72000002 0 0 0 -2.14874,-0.64922 2.16,0.72000002 0 0 0 -0.15188,0 z"
+     id="path3419-0"
+     inkscape:connector-curvature="0"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-ydpi="921.59998" />
+  <path
+     sodipodi:type="star"
+     style="fill:#ffeb3b;fill-opacity:1;stroke:none;stroke-width:0.1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path3588"
+     sodipodi:sides="5"
+     sodipodi:cx="132.05219"
+     sodipodi:cy="1001.8041"
+     sodipodi:r1="15.268431"
+     sodipodi:r2="7.6342158"
+     sodipodi:arg1="0.73625743"
+     sodipodi:arg2="1.364576"
+     inkscape:flatsided="false"
+     inkscape:rounded="0"
+     inkscape:randomized="0"
+     d="m 143.36589,1012.0571 -9.75051,-2.7806 -7.81829,6.4559 -0.36858,-10.1325 -8.5559,-5.4407 9.52272,-3.48165 2.53046,-9.81839 6.25395,7.98075 10.1198,-0.62744 -5.65757,8.41403 z"
+     inkscape:transform-center-x="0.014203797"
+     inkscape:transform-center-y="-1.4444863"
+     transform="matrix(0.97942406,0.20181305,-0.20181305,0.97942406,122.85626,-942.13552)"
+     inkscape:export-filename="/home/saschpe/Downloads/ic_launcher.png"
+     inkscape:export-xdpi="921.59998"
+     inkscape:export-ydpi="921.59998" />
+</svg>

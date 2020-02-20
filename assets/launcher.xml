@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2016 Sascha Peilicke
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:viewportWidth="100"
+    android:viewportHeight="100"
+    android:width="99.999993224847dp"
+    android:height="99.999993224847dp">
+    <path
+        android:pathData="M100 50A50 50 0 0 1 50 100 50 50 0 0 1 0 50 50 50 0 0 1 50 0 50 50 0 0 1 100 50Z"
+        android:strokeLineJoin="miter"
+        android:fillColor="#e1bee7"
+        android:strokeLineCap="butt"
+        android:strokeMiterLimit="4" />
+    <path
+        android:pathData="M49.922044 26.301687c-21.02755 0 -38.07423 4.76571 -38.07422 10.64297 0 0.0402 0.01 0.0794 0.012 0.11952l-0.014 -0.002 0.007 37.90554c0.36467 5.8401 17.50286 10.5064 38.4 10.4554 20.89712 -0.05 37.74142 -4.7996 37.7414 -10.6406 0.47195 -12.474 -0.27865 -25.3778 0.002 -37.83754 0.00002 -5.87727 -17.04666 -10.64297 -38.07421 -10.64297z"
+        android:fillColor="#7b1fa2"
+        android:strokeLineJoin="miter"
+        android:strokeMiterLimit="4" />
+    <path
+        android:pathData="M85.028767 36.928833A35.028767 8.9895592 0 0 1 50.004936 45.918392 35.028767 8.9895592 0 0 1 14.971235 36.931366 35.028767 8.9895592 0 0 1 49.985193 27.939275 35.028767 8.9895592 0 0 1 85.028761 36.923766"
+        android:strokeLineJoin="miter"
+        android:fillColor="#9c27b0"
+        android:strokeMiterLimit="4" />
+    <path
+        android:pathData="M22.817644 14.576927a2.16 0.72000002 0 0 0 -1.99687 0.64922l-0.008 0 0 0.0703 0 22.02656 0.006 0a2.16 0.72000002 0 0 0 -0.006 0.0469 2.16 0.72000002 0 0 0 2.16 0.72188 2.16 0.72000002 0 0 0 2.16 -0.72188 2.16 0.72000002 0 0 0 -0.006 -0.0469l0.006 0 0 -22.02656 0 -0.0703 -0.0144 0a2.16 0.72000002 0 0 0 -2.14874 -0.64922 2.16 0.72000002 0 0 0 -0.15188 0z"
+        android:strokeLineJoin="miter"
+        android:fillColor="#ff4081"
+        android:strokeMiterLimit="4" />
+    <path
+        android:pathData="M49.844874 20.576927a2.16 0.72000002 0 0 0 -1.99687 0.64922l-0.008 0 0 0.0703 0 22.02656 0.006 0a2.16 0.72000002 0 0 0 -0.006 0.0469 2.16 0.72000002 0 0 0 2.16 0.72188 2.16 0.72000002 0 0 0 2.16 -0.72188 2.16 0.72000002 0 0 0 -0.006 -0.0469l0.006 0 0 -22.02656 0 -0.0703 -0.0144 0a2.16 0.72000002 0 0 0 -2.14874 -0.64922 2.16 0.72000002 0 0 0 -0.15188 0z"
+        android:strokeLineJoin="miter"
+        android:fillColor="#ff4081"
+        android:strokeMiterLimit="4" />
+    <path
+        android:pathData="M36.331264 18.576927a2.16 0.72000002 0 0 0 -1.99687 0.64922l-0.008 0 0 0.0703 0 22.02656 0.006 0a2.16 0.72000002 0 0 0 -0.006 0.0469 2.16 0.72000002 0 0 0 2.16 0.72188 2.16 0.72000002 0 0 0 2.16 -0.72188 2.16 0.72000002 0 0 0 -0.006 -0.0469l0.006 0 0 -22.02656 0 -0.0703 -0.0144 0a2.16 0.72000002 0 0 0 -2.14874 -0.64922 2.16 0.72000002 0 0 0 -0.15188 0z"
+        android:strokeLineJoin="miter"
+        android:fillColor="#ff4081"
+        android:strokeMiterLimit="4" />
+    <path
+        android:pathData="M63.358484 18.576927a2.16 0.72000002 0 0 0 -1.99687 0.64922l-0.008 0 0 0.0703 0 22.02656 0.006 0a2.16 0.72000002 0 0 0 -0.006 0.0469 2.16 0.72000002 0 0 0 2.16 0.72188 2.16 0.72000002 0 0 0 2.16 -0.72188 2.16 0.72000002 0 0 0 -0.006 -0.0469l0.006 0 0 -22.02656 0 -0.0703 -0.0144 0a2.16 0.72000002 0 0 0 -2.14874 -0.64922 2.16 0.72000002 0 0 0 -0.15188 0z"
+        android:strokeLineJoin="miter"
+        android:fillColor="#ff4081"
+        android:strokeMiterLimit="4" />
+    <path
+        android:pathData="M76.872094 14.576927a2.16 0.72000002 0 0 0 -1.99687 0.64922l-0.008 0 0 0.0703 0 22.02656 0.006 0a2.16 0.72000002 0 0 0 -0.006 0.0469 2.16 0.72000002 0 0 0 2.16 0.72188 2.16 0.72000002 0 0 0 2.16 -0.72188 2.16 0.72000002 0 0 0 -0.006 -0.0469l0.006 0 0 -22.02656 0 -0.0703 -0.0144 0a2.16 0.72000002 0 0 0 -2.14874 -0.64922 2.16 0.72000002 0 0 0 -0.15188 0z"
+        android:strokeLineJoin="miter"
+        android:fillColor="#ff4081"
+        android:strokeMiterLimit="4" />
+    <group
+        android:rotation="11.643"
+        android:translateX="122.8563"
+        android:translateY="-942.1355">
+        <path
+            android:pathData="M143.36589 1012.0571l-9.75051 -2.7806 -7.81829 6.4559 -0.36858 -10.1325 -8.5559 -5.4407 9.52272 -3.48165 2.53046 -9.81839 6.25395 7.98075 10.1198 -0.62744 -5.65757 8.41403z"
+            android:strokeLineJoin="miter"
+            android:fillColor="#ffeb3b"
+            android:strokeMiterLimit="4" />
+    </group>
+</vector>
