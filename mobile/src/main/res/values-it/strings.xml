@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (C) 2016 Sascha Peilicke
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+
+    <string name="action">Actions</string>
+    <string name="account_icon_description">Icona dell'account</string>
+    <string name="account_list_description">Ricordami compleanni, anniversari e altri eventi dei miei contatti da questi account:</string>
+    <string name="account_title_template" translatable="false">%1$s (%2$s)</string>
+    <string name="anniversaries">Anniversari</string>
+    <string name="app_name">Birthday Calendar</string>
+    <string name="birthdays">Compleanni</string>
+    <string name="birthdays_and_anniversaries">Compleanni e anniversari</string>
+    <string name="birthday_calendar_create">Aggiornamento del calendario dei compleanni…</string>
+    <string name="calendar">Calendario</string>
+    <string name="claim_one_title">Mai più</string>
+    <string name="claim_one_description">Compleanni dimenticati. Visualizza i compleanni di tutti i tuoi contatti social in Google Calendar.</string>
+    <string name="claim_two_title">Universale</string>
+    <string name="claim_two_description">Supporta Facebook, LinkedIn, Xing, Skype e tutte le altre app che sincronizzano i contatti con il tuo dispositivo Android.</string>
+    <string name="claim_three_title">Ricorda</string>
+    <string name="claim_three_description">Abilita dei promemoria e decidi quali contatti vuoi visualizzare. Riceverai notifiche per tutti questi.</string>
+    <string name="done">Fatto</string>
+    <plurals name="event_anniversary_description_template">
+        <item quantity="one">%1$s festeggia %2$d anno</item>
+        <item quantity="other">%1$s festeggia %2$d anni</item>
+    </plurals>
+    <string name="event_anniversary_title_template">Anniversario di %1$s</string>
+    <plurals name="event_birthday_description_template">
+        <item quantity="one">%1$s è nato/a nel %2$d e compie %3$d anno in questo giorno</item>
+        <item quantity="other">%1$s è nato/a nel %2$d e compie %3$d anni in questo giorno</item>
+    </plurals>
+    <string name="event_birthday_title_template">Compleanno di %1$s</string>
+    <string name="event_other_title_template">Altro evento di %1$s</string>
+    <string name="event_custom_title_template">%2$s di %1$s</string>
+    <string name="help_and_feedback">Aiuto &amp; feedback</string>
+    <string name="hide_app_icon">Nascondi icona app</string>
+    <string name="hide_app_icon_from_launcher">Nascondi l\'icona dell\'app dal launcher</string>
+    <string name="hide_app_icon_enable">Puoi sempre riabilitare l\'icona dell\'app dalla voce "Account" delle impostazioni di sistema.</string>
+    <string name="launch_app">Lancia app</string>
+    <string name="lorem_ipsum" translatable="false">Lorem ipsum</string>
+    <string name="lorem_ipsum_long" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="miscellaneous">Varie</string>
+    <string name="next">Successivo</string>
+    <string name="notifications">Notifiche</string>
+    <string name="no_calendar_app">Sembra che tu non abbia installato un\'app Calendario</string>
+    <string name="open_source_licenses">Licenze Open Source</string>
+    <string name="privacy_policy">Informativa sulla privacy</string>
+    <string name="settings">Impostazioni</string>
+    <string name="skip">Salta</string>
+    <string name="social">Social</string>
+    <string name="sources">Sorgenti</string>
+    <string name="version_info">Info versione</string>
+
+    <!-- Settings -->
+    <string name="pref_first_run_key" translatable="false">first_run</string>
+    <bool name="pref_first_run_default">true</bool>
+    <string name="pref_birthdays_sync_key" translatable="false">sync_birthdays</string>
+    <string name="pref_birthdays_sync_description">Mostra promemoria compleanni</string>
+    <bool name="pref_birthdays_sync_default">true</bool>
+    <string name="pref_anniversaries_sync_key" translatable="false">sync_anniversaries</string>
+    <string name="pref_anniversaries_sync_description">Mostra promemoria anniversari</string>
+    <bool name="pref_anniversaries_sync_default">true</bool>
+    <string name="pref_onboarding_finished_key" translatable="false">onboarding_finished</string>
+    <bool name="pref_onboarding_finished_default">false</bool>
+    <string name="pref_other_events_sync_key" translatable="false">sync_other_events</string>
+    <string name="pref_other_events_sync_title">Altri eventi</string>
+    <string name="pref_other_events_sync_description">Mostra promemoria altri eventi</string>
+    <bool name="pref_other_events_sync_default">false</bool>
+    <string name="pref_calendar_color_key" translatable="false">calendar_color</string>
+    <string name="pref_calendar_color_title">Colore calendario</string>
+    <color name="pref_calendar_color_default">@color/primary</color>
+    <!-- Settings for Notifications -->
+    <string name="pref_reminder_time_1_key" translatable="false">reminder_key_1</string>
+    <string name="pref_reminder_time_1_title">Ricordami</string>
+    <string name="pref_reminder_time_2_key" translatable="false">reminder_key_2</string>
+    <string name="pref_reminder_time_2_title">Ricordami anche</string>
+    <string-array name="pref_reminder_time_titles">
+        <item>mai</item>
+        <item>il giorno stesso</item>
+        <item>un giorno prima</item>
+        <item>due giorni prima</item>
+        <item>una settimana prima</item>
+    </string-array>
+    <string-array name="pref_reminder_time_values" translatable="false">
+        <item>-2</item>
+        <item>0</item>
+        <item>1440</item> <!-- 1 * 24 * 60 -->
+        <item>2880</item> <!-- 2 * 24 * 60 -->
+        <item>10080</item> <!-- 7 * 24 * 60 -->
+    </string-array>
+    <string name="pref_reminder_time_1_default" translatable="false">0</string>
+    <string name="pref_reminder_time_2_default" translatable="false">-2</string>
+    <!-- See http://developer.android.com/reference/android/provider/CalendarContract.RemindersColumns.html#MINUTES -->
+    <!-- Settings for Data & Sync -->
+    <string name="pref_header_data_sync">Dati &amp; sincronizzazione</string>
+    <string name="pref_periodic_sync_frequency_key" translatable="false">sync_frequency</string>
+    <string name="pref_periodic_sync_frequency_title">Frequenza di sincronizzazione periodica</string>
+    <string-array name="pref_periodic_sync_frequency_titles">
+        <item>3 ore</item>
+        <item>6 ore</item>
+        <item>1 giorno</item>
+    </string-array>
+    <string-array name="pref_periodic_sync_frequency_values" translatable="false">
+        <item>10800000</item> <!-- 3 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_HOUR * 3, Sigh... -->
+        <item>21600000</item> <!-- 6 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_HOUR * 6, Sigh... -->
+        <item>86400000</item> <!-- 24 * 60 * 60 * 1000 to match AlarmManager.INTERVAL_DAY, Sigh... -->
+    </string-array>
+    <integer name="pref_periodic_sync_frequency_default">86400000</integer>
+    <!-- Miscellaneous settings -->
+    <string name="pref_hide_app_icon_key" translatable="false">hide_app_icon</string>
+    <bool name="pref_hide_app_icon_default">false</bool>
+
+</resources>
