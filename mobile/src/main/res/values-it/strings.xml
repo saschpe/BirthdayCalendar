@@ -18,7 +18,7 @@
 <resources>
 
     <string name="action">Actions</string>
-    <string name="account_icon_description">Icona dell'account</string>
+    <string name="account_icon_description">Icona dell\'account</string>
     <string name="account_list_description">Ricordami compleanni, anniversari e altri eventi dei miei contatti da questi account:</string>
     <string name="account_title_template" translatable="false">%1$s (%2$s)</string>
     <string name="anniversaries">Anniversari</string>
