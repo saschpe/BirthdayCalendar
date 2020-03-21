@@ -1,0 +1,93 @@
+#!/bin/bash
+#
+# Script to sign or re-sign a *.apk or *.aab file.
+#
+# Note: Android App Bundles (*.aab) are strongly preferred
+
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+. "${SCRIPT_DIR}/inc.functions.sh"
+
+# Constants
+DEFAULT_APP=$(ls */build/outputs/apk/*/*.apk | sort | tail -n1)
+DEFAULT_KEY="androiddebugkey"
+DEFAULT_STORE=$HOME/.android/debug.store
+
+# Functions
+function usage {
+    echo -e "Usage: ${0} [OPTIONS]"
+    echo -e "\nOptions:"
+    echo -e "  -a,  --app        APK_OR_AAB (Default: ${DEFAULT_APP})"
+    echo -e "  -s,  --store      KEYSTORE (Default: ${DEFAULT_STORE})"
+    echo -e "  -sp, --store-pass PASSWORD"
+    echo -e "  -k,  --key        KEY (Default: ${DEFAULT_KEY})"
+    echo -e "  -kp, --key-pass   PASSWORD"
+    echo -e "\nExample:\n"
+    echo -e "$0 \\"
+    echo -e "    --store ${DEFAULT_STORE} --store-pass bar \\"
+    echo -e "    --key ${DEFAULT_KEY} --key-pass foo \\"
+    echo -e "    --app ${DEFAULT_APP}"
+    exit 1
+}
+
+# Command-line arguments
+app=${DEFAULT_APP}
+store=${DEFAULT_STORE}
+while [[ $# -gt 0 ]] ; do
+    case "$1" in
+    -a|--app)
+        app="$2"
+        shift # past argument
+        ;;
+    -s|--store)
+        store="$2"
+        shift # past argument
+        ;;
+    -sp|--store-pass)
+        store_pass="$2"
+        shift # past argument
+        ;;
+    -k|--key)
+        key_param="--ks-key-alias $2"
+        shift # past argument
+        ;;
+    -kp|--key-pass)
+        key_pass="$2"
+        shift # past argument
+        ;;
+    -h|--help)
+        usage
+        ;;
+    esac
+    shift # past argument or value
+done
+
+# Let's roll
+case ${app} in
+    *.aab)
+        approve "Signing Android App Bundle '${app}'..."
+        jarsigner \
+            -verbose \
+            -sigalg SHA256withRSA \
+            -digestalg SHA-256 \
+            -store ${store} \
+            -storepass ${store_pass} \
+            -keypass ${key_pass} \
+            "${app}" release
+        ;;
+    *.apk)
+        approve "Signing APK '${app}'..."
+        [ -n "${ANDROID_SDK_ROOT}" ] || die "ANDROID_SDK_ROOT not set, see https://developer.android.com/studio/command-line/variables"
+        apksigner=$(find "${ANDROID_SDK_ROOT}/build-tools" -name apksigner | sort | tail -n1)
+        "${apksigner}" sign \
+            --ks ${store} \
+            --ks-pass pass:${store_pass} \
+            ${key_param} \
+            --key-pass pass:${key_pass} \
+            "${app}"
+        ;;
+    *)
+        warn "Unsupported file format: ${app}"
+        usage
+        ;;
+esac
+
